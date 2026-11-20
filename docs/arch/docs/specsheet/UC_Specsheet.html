@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Universal Controller — Product Specifications</title>
+<style>
+  @page { size: A4; margin: 12mm 13mm 12mm 13mm; }
+  :root { --ink:#1b1f24; --muted:#4a5560; --line:#c9d0d8; --head:#23303d; --accent:#2f5fb3; --band:#eef2f6; }
+  html, body { margin:0; padding:0; color:var(--ink); font-family:"DejaVu Sans", Arial, sans-serif; font-size:9pt; line-height:1.36; }
+  h1 { font-size:24pt; margin:0 0 1mm 0; letter-spacing:-0.3pt; }
+  h2 { font-size:13pt; margin:5.5mm 0 2.5mm 0; padding-bottom:1.2mm; border-bottom:1.6pt solid var(--head); break-after:avoid; }
+  h3 { font-size:10.5pt; margin:3.5mm 0 1.5mm 0; color:var(--accent); break-after:avoid; }
+  p { margin:1.2mm 0; }
+  .top { display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2.4pt solid var(--head); padding-bottom:3mm; margin-bottom:4mm; }
+  .tag { font-size:8.5pt; color:var(--muted); text-align:right; }
+  .pre { display:inline-block; background:#fff3cd; border:1pt solid #c9a227; color:#6b5300; font-weight:bold; font-size:8pt; padding:0.5mm 2mm; border-radius:1mm; margin-bottom:1.5mm; }
+  .lead { font-size:11pt; color:#2b3138; margin:2mm 0 3mm 0; }
+  table { width:100%; border-collapse:collapse; margin:1.5mm 0 2mm 0; }
+  tr { break-inside:avoid; }
+  th, td { text-align:left; vertical-align:top; padding:1.3mm 1.8mm; border-bottom:0.6pt solid var(--line); }
+  th { background:var(--head); color:#fff; font-size:8.4pt; }
+  td.k { width:30%; color:#2b3138; font-weight:bold; background:var(--band); }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:5mm; }
+  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3.5mm; margin-top:2mm; }
+  .benefit { border:0.8pt solid var(--line); border-left:3pt solid var(--accent); border-radius:1mm; padding:2mm 2.5mm; break-inside:avoid; }
+  .benefit b { display:block; color:var(--accent); margin-bottom:0.8mm; }
+  .card { border:0.8pt solid var(--line); border-radius:1.5mm; padding:2.5mm 3mm; break-inside:avoid; }
+  .card h3 { margin-top:0; }
+  .cmp { font-size:7.9pt; }
+  .cmp th { font-size:7.9pt; }
+  .cmp td:first-child { font-weight:bold; background:var(--band); width:14%; }
+  .cmp td.us { background:#e7f0ff; font-weight:bold; color:#1d3f7a; }
+  .cmp th.us { background:var(--accent); }
+  .muted { color:var(--muted); }
+  .star { color:#b35a00; font-weight:bold; }
+  .foot { margin-top:4mm; padding-top:2mm; border-top:0.6pt solid var(--line); font-size:7.6pt; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div>
+    <div class="pre">PRELIMINARY SPECIFICATIONS</div>
+    <h1>Universal Controller</h1>
+    <div class="muted" style="font-size:11pt">Modular industrial IoT gateway and controller</div>
+  </div>
+  <div class="tag">Product brief and specifications<br>November 2026</div>
+</div>
+
+<p class="lead">One controller, many connectivity options. The Universal Controller is a family of DIN-rail modules that click together side by side. Start with the controller and its 24 field inputs and outputs, then add 4G, Wi-Fi + Bluetooth or LoRa only where you need them. Every module also works on its own as a remote node.</p>
+
+<div class="grid3">
+  <div class="benefit"><b>Pay only for what you use</b>Add 4G, Wi-Fi, Bluetooth or LoRa as separate modules instead of buying a fixed router with radios you never switch on.</div>
+  <div class="benefit"><b>Real IO, not just a modem</b>4 universal analog inputs, 10 digital inputs and 10 protected outputs on the controller, shared with every module.</div>
+  <div class="benefit"><b>Secure at the hardware level</b>Certified hardware root of trust, signed and encrypted updates, no open services by default.</div>
+  <div class="benefit"><b>Keeps working through power cuts</b>Every module can take a plug-in battery + charger board with an 18650 Li-ion cell, and every module sends a last-gasp alarm when power fails.</div>
+  <div class="benefit"><b>Your own LoRa sensor network</b>The same LoRa module works as the gateway radio and as the remote node: no third-party gateway needed.</div>
+  <div class="benefit"><b>Built for India first</b>India LTE bands, 865–867 MHz LoRa, and Indian certifications planned from day one.</div>
+</div>
+
+<h2>The family</h2>
+<table>
+  <tr><th style="width:23%">Module</th><th style="width:9%">Width</th><th>What it does</th><th style="width:25%">On its own</th></tr>
+  <tr><td><b>Fieldbus controller</b></td><td>90 mm</td><td>Secure controller with 4 analog in, 10 digital in, 8 relays (10 A, AC or DC, fused) and 4 fast 24 V outputs, Ethernet, RS-485, isolated RS-485 and CAN-FD, and data logging.</td><td>IO controller, data logger, Modbus gateway</td></tr>
+  <tr><td><b>4G module</b></td><td>45 mm</td><td>Low-cost 4G LTE (Cat 1) uplink with GSM fallback and built-in GPS</td><td>Compact 4G modem node</td></tr>
+  <tr><td><b>Wi-Fi + Bluetooth module</b></td><td>45 mm</td><td>Wi-Fi 6 uplink, Bluetooth LE for app-based setup, Thread / Zigbee capable radio; 6 digital in, 4 digital out, 4 analog in, RS-485 and CAN on board</td><td>Wi-Fi / Bluetooth IO node</td></tr>
+  <tr><td><b>LoRa module</b></td><td>45 mm</td><td>Long-range sub-GHz radio for private sensor networks over kilometres, with RS-485, 4 digital in, 4 analog in and 4 digital out on board</td><td>Remote LoRa IO node</td></tr>
+  <tr><td><b>Power adapters</b></td><td>separate</td><td>Certified DIN-rail mains adapter for gateways; single modules run from any 5 V USB-C charger</td><td>—</td></tr>
+</table>
+
+<h2>Typical configurations</h2>
+<table>
+  <tr><th style="width:28%">Configuration</th><th style="width:36%">Modules</th><th>Typical use</th></tr>
+  <tr><td><b>Ethernet gateway</b></td><td>Controller with Ethernet</td><td>Energy sub-metering, machine monitoring on a plant network</td></tr>
+  <tr><td><b>4G gateway</b></td><td>Controller with Ethernet + 4G module</td><td>Pump stations, DG sets (J1939 over CAN), telecom sites, solar plants, vehicle tracking</td></tr>
+  <tr><td><b>Wi-Fi gateway</b></td><td>Controller + Wi-Fi + Bluetooth module</td><td>Buildings and factories with Wi-Fi coverage</td></tr>
+  <tr><td><b>4G + LoRa gateway</b></td><td>Controller + 4G + LoRa</td><td>Water networks, agriculture, campus-wide sensors</td></tr>
+  <tr><td><b>LoRa remote IO node</b></td><td>LoRa module on its own</td><td>Remote tanks, meters and pumps without mobile coverage</td></tr>
+  <tr><td><b>Full stack</b></td><td>Controller + 4G + Wi-Fi + Bluetooth + LoRa</td><td>Large sites combining all of the above</td></tr>
+</table>
+
+<h2>How it compares</h2>
+<p class="muted" style="margin-top:0">Typical industrial 4G routers and gateways, from the manufacturers' public datasheets (November 2026). "—" means not listed in the datasheet.</p>
+<table class="cmp">
+  <tr><th>Feature</th><th class="us">Universal Controller</th><th>Teltonika TRB245</th><th>Teltonika RUT956</th><th>InHand IR302</th><th>Milesight UR32</th><th>Advantech ICR-2431</th></tr>
+  <tr><td>Concept</td><td class="us">Modular: add radios as modules; each module also standalone</td><td>Fixed gateway</td><td>Fixed router</td><td>Fixed router</td><td>Fixed router</td><td>Fixed router</td></tr>
+  <tr><td>4G</td><td class="us">LTE Cat 4, India bands; 3G / 2G fallback</td><td>LTE Cat 4</td><td>LTE Cat 4</td><td>LTE Cat 1 or Cat 4</td><td>LTE Cat 4</td><td>LTE Cat 4</td></tr>
+  <tr><td>Ethernet</td><td class="us">1 × 10/100 (controller)</td><td>1 × 10/100</td><td>4 × 10/100</td><td>2 × 10/100</td><td>2 × 10/100</td><td>2 × 10/100</td></tr>
+  <tr><td>Wi-Fi</td><td class="us">Wi-Fi 6, 2.4 GHz (module)</td><td>—</td><td>Wi-Fi 4, 2.4 GHz</td><td>Wi-Fi 4, 2.4 GHz</td><td>Wi-Fi 4 (option)</td><td>—</td></tr>
+  <tr><td>Bluetooth / Thread</td><td class="us">Bluetooth LE, 802.15.4 (module)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>LoRa</td><td class="us">865–867 MHz private network (module)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>Analog inputs</td><td class="us">4 universal: 0–10 V, 4–20 mA or PT1000</td><td>1 × 0–30 V</td><td>1 × 0–24 V</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>Digital inputs</td><td class="us">10 × 24 V, isolated, 2 pulse counters</td><td rowspan="2">3 configurable in / out</td><td>2 (1 dry, 1 isolated)</td><td>—</td><td>Dry contact</td><td>Yes (36 V)</td></tr>
+  <tr><td>Digital outputs</td><td class="us">8 relays 10 A (AC / DC, fused) + 4 fast 24 V high-side</td><td>Yes</td><td>—</td><td>Yes (wet)</td><td>Open drain, 100 mA</td></tr>
+  <tr><td>Serial / fieldbus</td><td class="us">1 × RS-485 + 1 × CAN-FD</td><td>RS-232 + RS-485</td><td>RS-232 + RS-485</td><td>RS-232 / RS-485 combo</td><td>RS-232 + RS-485</td><td>RS-232 + RS-485</td></tr>
+  <tr><td>Backup power</td><td class="us">Optional plug-in battery + charger board per module (18650 ≈ 3000 mAh), last-gasp alarm</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>Power input</td><td class="us">5–32 V DC or USB-C 5 V</td><td>9–30 V DC</td><td>9–30 V DC, passive PoE</td><td>9–36 V DC</td><td>9–48 V DC</td><td>9–48 V DC</td></tr>
+  <tr><td>Software</td><td class="us">Zephyr RTOS, secure cloud / app management</td><td>RutOS (Linux)</td><td>RutOS (Linux)</td><td>Linux</td><td>Linux, Python SDK</td><td>Linux, router apps</td></tr>
+  <tr><td>Security base</td><td class="us">Certified hardware root of trust (PSA Level 3), signed + encrypted updates, no open services by default</td><td colspan="5">Linux router OS with signed firmware releases and regular security updates (vendor-specific)</td></tr>
+</table>
+<p class="muted" style="font-size:7.6pt">The routers above offer full Linux router features (VPN, firewall, web interface); the Universal Controller provides secure cloud and app management instead. Teltonika, InHand, Milesight and Advantech are trademarks of their respective owners.</p>
+
+<h2>Fieldbus controller</h2>
+<table>
+  <tr><td class="k">Processor</td><td>Arm Cortex-M33, 250 MHz, with TrustZone; PSA Certified Level 3 hardware root of trust</td></tr>
+  <tr><td class="k">Variants</td><td>Standard, or with Ethernet (10/100BASE-TX, RJ45)</td></tr>
+  <tr><td class="k">Analog inputs</td><td>4 universal channels, each selectable: 0–10 V, 4–20 mA or PT1000; protected against 24 V mis-wiring. Accuracy ±0.5 % of full scale, ±0.3 % after calibration<span class="star">*</span></td></tr>
+  <tr><td class="k">Digital inputs</td><td>10 × 24 V DC (IEC 61131-2 type 1/3), optically isolated in 2 groups; DI1–DI2 usable as pulse counters</td></tr>
+  <tr><td class="k">Outputs</td><td>8 relays, one changeover contact each, 10 A, switching AC or DC, each with a replaceable fuse; 4 fast 24 V high-side outputs with current monitoring, short-circuit protected; a hardware watchdog switches outputs off if the controller stops; status LED on every input and output</td></tr>
+  <tr><td class="k">Serial</td><td>1 × RS-485, galvanically isolated, switchable termination and bias; Modbus RTU master / slave</td></tr>
+  <tr><td class="k">CAN-FD</td><td>1 × CAN-FD, protected, switchable termination; J1939 and CANopen for vehicles and machines</td></tr>
+  <tr><td class="k">Data logging</td><td>128 Mbit flash; at least 1 year of typical logging<span class="star">*</span>; real-time clock with coin-cell backup</td></tr>
+  <tr><td class="k">Service port</td><td>USB-C for commissioning and diagnostics</td></tr>
+  <tr><td class="k">Indicators</td><td>Power, run, error, bus</td></tr>
+</table>
+
+<h2>Connectivity modules</h2>
+<div class="grid">
+  <div class="card">
+    <h3>4G module</h3>
+    <table>
+      <tr><td class="k">Cellular</td><td>4G LTE Cat 4, India FDD and TDD bands; WCDMA and GSM fallback</td></tr>
+      <tr><td class="k">Link</td><td>Own RJ45 Ethernet port on the module; 4-pin RS-485 stack bus to the other modules</td></tr>
+      <tr><td class="k">GNSS</td><td>GPS built into the 4G modem (GPS, BeiDou, GLONASS, Galileo), for vehicle and asset tracking</td></tr>
+      <tr><td class="k">SIM</td><td>nano-SIM, accessible for service</td></tr>
+      <tr><td class="k">Antenna</td><td>SMA, for external antennas in metal cabinets</td></tr>
+      <tr><td class="k">Indicators</td><td>Power, LTE, GNSS, link</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Wi-Fi + Bluetooth module</h3>
+    <table>
+      <tr><td class="k">Wi-Fi</td><td>Wi-Fi 6 (802.11ax / b / g / n), 2.4 GHz</td></tr>
+      <tr><td class="k">Bluetooth</td><td>Bluetooth LE 5, for app-based setup</td></tr>
+      <tr><td class="k">802.15.4</td><td>Thread / Zigbee capable</td></tr>
+      <tr><td class="k">Antenna</td><td>SMA; internal-antenna version for plastic housings</td></tr>
+      <tr><td class="k">Node IO</td><td>6 × 24 V digital in (isolated), 4 × 24 V digital out (protected), 4 × analog in (0–10 V / 4–20 mA), RS-485 (Modbus RTU) and CAN 2.0</td></tr>
+      <tr><td class="k">Radio</td><td>Pre-certified radio module</td></tr>
+    </table>
+  </div>
+</div>
+<div class="card" style="margin-top:4mm">
+  <h3>LoRa module</h3>
+  <table>
+    <tr><td class="k">Frequency</td><td>India 865–867 MHz; EU 868 MHz on the same hardware</td></tr>
+    <tr><td class="k">Network</td><td>Private star network, with the gateway and nodes using the same module; LoRaWAN 1.0.4 Class A end device</td></tr>
+    <tr><td class="k">Node IO</td><td>RS-485 (Modbus RTU) + 4 digital in, 4 analog in and 4 low-power 24 V digital out, for sensors and meters at the remote site</td></tr>
+    <tr><td class="k">Range and speed</td><td>Up to +22 dBm with an external antenna; adaptive data rate from ≈ 0.3 kbps at the longest range to ≈ 37–62 kbps at short range</td></tr>
+    <tr><td class="k">Radio</td><td>STM32WLE5 single-chip radio; low-µA sleep for battery operation<span class="star">*</span></td></tr>
+  </table>
+</div>
+
+<h2>Common specifications</h2>
+<table>
+  <tr><td class="k">Power input</td><td>5–32 V DC on every module, or USB-C with USB Power Delivery; reverse-polarity and surge protected; every module carries the same plug-in power board; modules in a stack share power over the bus</td></tr>
+  <tr><td class="k">Mains adapters</td><td>One adapter for gateways and single modules: 100–240 V AC to 12 V DC, 18 W, or any certified 5 V USB-C charger (15 W or more). No mains voltage inside any module.</td></tr>
+  <tr><td class="k">Backup</td><td>Optional plug-in battery + charger board on every module, 18650 ≈ 3000 mAh; user-replaceable Li-ion cell, temperature-controlled charging (0–45 °C)</td></tr>
+  <tr><td class="k">Consumption</td><td>Full stack about 9 W average<span class="star">*</span></td></tr>
+  <tr><td class="k">Operating temperature</td><td>−20 to +60 °C<span class="star">*</span></td></tr>
+  <tr><td class="k">Storage temperature</td><td>−40 to +85 °C<span class="star">*</span> (without cell)</td></tr>
+  <tr><td class="k">Humidity</td><td>5–95 % relative, non-condensing</td></tr>
+  <tr><td class="k">Protection</td><td>IP20 for cabinet mounting; outdoor IP65 / IP67 housing option for remote nodes<span class="star">*</span></td></tr>
+  <tr><td class="k">Mounting</td><td>35 mm DIN rail; modules click together side by side; widths 22.5 / 45 / 67.5 mm</td></tr>
+  <tr><td class="k">Housing</td><td>Flame-retardant plastic (UL 94 V-0)</td></tr>
+  <tr><td class="k">Connections</td><td>Pluggable screw terminals, RJ45, SMA antenna connectors, USB-C</td></tr>
+</table>
+
+
+
+<h2>Certifications (planned)</h2>
+<table>
+  <tr><td class="k">India — launch</td><td>TEC MTCTE (IoT gateway), WPC radio approval, BIS registration of adapters and cells; safety and EMC test reports to IEC 62368-1, IEC 61010-2-201 and IEC 61000-6-2</td></tr>
+  <tr><td class="k">International versions</td><td>CE (Radio Equipment Directive, EMC, RoHS) and EU Cyber Resilience Act, followed by other regions; the same hardware design is used</td></tr>
+  <tr><td class="k">Safety</td><td>Safety extra-low voltage throughout; certified mains adapters</td></tr>
+</table>
+
+<div class="foot">
+  <span class="star">*</span> Target value, to be confirmed by test. Preliminary information: specifications may change without notice, and certifications are planned, not yet granted. Competitor information is taken from public datasheets for comparison only and may have changed since publication.
+</div>
+</body>
+</html>

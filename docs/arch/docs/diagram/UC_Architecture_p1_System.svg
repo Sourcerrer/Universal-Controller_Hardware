@@ -1,0 +1,555 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 1680 1188" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#33414f"/></marker></defs>
+<rect x="0" y="0" width="1680" height="1188" rx="0" fill="#ffffff" stroke="none" stroke-width="1.4"/>
+<rect x="20" y="20" width="1640" height="1148" rx="0" fill="none" stroke="#33414f" stroke-width="1.5"/>
+<text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Hardware architecture — physical stack view</text>
+<text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Front view of the device on a DIN rail, each module shown with its cover removed to expose the electronics. Every module has its own enclosure, and works</text>
+<text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">standalone on 5–32 V DC or USB-C 5 V. Each module has its own power stage; an optional plug-in battery + charger board per module. Not to scale.</text>
+<text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<rect x="202" y="104" width="1242" height="38" rx="4" fill="#33414f" stroke="#33414f" stroke-width="1.4"/>
+<text x="212" y="119" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">STACK BUS — 4 pins, inside the enclosures: a 4-pin connector on each side wall, neighbours joined by a bridge plug (part: D-9) · not hot-pluggable</text>
+<text x="212" y="135" font-size="10" font-weight="normal" text-anchor="start" fill="#dfe6ee">BUS_V · GND · RS485_A · RS485_B — half-duplex RS-485 at ≈ 2 Mbit/s, polled by the elected coordinator · page 3</text>
+<rect x="32" y="196" width="148" height="846" rx="10" fill="none" stroke="#c46a00" stroke-width="1.4" stroke-dasharray="7 4"/>
+<text x="106.0" y="996" font-size="10" font-weight="bold" text-anchor="middle" fill="#c46a00">supplied separately</text>
+<text x="106.0" y="1010" font-size="9.5" font-weight="normal" text-anchor="middle" fill="#c46a00">not part of the stack</text>
+<rect x="40" y="322" width="132" height="520" rx="8" fill="#f2f4f6" stroke="#23303d" stroke-width="2.2"/>
+<rect x="50" y="330" width="112" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.4"/>
+<circle cx="97.0" cy="342" r="5.5" fill="#d5d9dd" stroke="#2b3138"/>
+<circle cx="115.0" cy="342" r="5.5" fill="#d5d9dd" stroke="#2b3138"/>
+<text x="106.0" y="368" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">+V  −V  DC out</text>
+<rect x="40" y="378" width="132" height="70" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="48" y="398" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">ADAPTER (AC-DC)</text>
+<text x="48" y="430" font-size="10" font-weight="normal" text-anchor="start" fill="#cfd8e2">12 V, 18 W</text>
+<circle cx="54" cy="464" r="4.5" fill="#2ecc71" stroke="#333" stroke-width="0.8"/>
+<text x="64" y="468" font-size="8.5" font-weight="normal" text-anchor="start" fill="#2b3138">DC OK</text>
+<text x="48" y="494" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Mains supply stays</text>
+<text x="60" y="506.54" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">outside (PWR-3);</text>
+<text x="60" y="519.08" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">relay contacts may</text>
+<text x="60" y="531.62" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">switch mains,</text>
+<text x="60" y="544.16" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">behind 5 kV</text>
+<text x="60" y="556.6999999999999" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">isolation</text>
+<text x="48" y="569.2399999999999" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• IEC 62368-1, BIS</text>
+<text x="60" y="581.7799999999999" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">CRS, CE (to</text>
+<text x="60" y="594.3199999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">confirm)</text>
+<text x="48" y="606.8599999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Easy to replace</text>
+<text x="60" y="619.3999999999997" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">and service</text>
+<text x="48" y="631.9399999999997" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Single modules:</text>
+<text x="60" y="644.4799999999997" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">any certified 5 V</text>
+<text x="60" y="657.0199999999996" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">USB-C charger (≥</text>
+<text x="60" y="669.5599999999996" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">15 W)</text>
+<text x="48" y="682.0999999999996" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Part TBD; no</text>
+<text x="60" y="694.6399999999995" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Mornsun (COMP-6)</text>
+<rect x="50" y="802" width="112" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.4"/>
+<circle cx="88.0" cy="814" r="5.5" fill="#d5d9dd" stroke="#2b3138"/>
+<circle cx="106.0" cy="814" r="5.5" fill="#d5d9dd" stroke="#2b3138"/>
+<circle cx="124.0" cy="814" r="5.5" fill="#d5d9dd" stroke="#2b3138"/>
+<text x="106.0" y="788" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">L   N   ⏚</text>
+<text x="106.0" y="866" font-size="9.5" font-weight="bold" text-anchor="middle" fill="#b32f2f">AC 100–240 V in</text>
+<line x1="106.0" y1="826" x2="106.0" y2="852" stroke="#b32f2f" stroke-width="2.5"/>
+<rect x="568" y="195" width="82" height="14" rx="3" fill="#7b8794" stroke="#2b3138" stroke-width="1.2"/>
+<line x1="609.0" y1="142" x2="609.0" y2="195" stroke="#33414f" stroke-width="1.2"/>
+<rect x="202" y="202" width="400" height="834" rx="10" fill="#f2f4f6" stroke="#23303d" stroke-width="2.4"/>
+<rect x="312.0" y="210" width="40.0" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="322.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="318.0" y1="222" x2="326.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="342.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="338.0" y1="222" x2="346.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<text x="332.0" y="246" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">DC IN</text>
+<text x="332.0" y="257" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">5–32 V</text>
+<rect x="362.0" y="210" width="60.0" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="372.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="368.0" y1="222" x2="376.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="392.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="388.0" y1="222" x2="396.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="412.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="408.0" y1="222" x2="416.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<text x="392.0" y="246" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">RS-485</text>
+<rect x="432.0" y="210" width="60.0" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="442.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="438.0" y1="222" x2="446.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="462.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="458.0" y1="222" x2="466.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="482.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="478.0" y1="222" x2="486.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<text x="462.0" y="246" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">CAN-FD</text>
+<rect x="208" y="264" width="388" height="70" rx="4" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="216" y="283" font-size="13" font-weight="bold" text-anchor="start" fill="#ffffff">FIELDBUS CONTROLLER (optional)</text>
+<text x="216" y="299" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">90 mm · coordinator when fitted · Ethernet standard · 8 relays + 4</text>
+<text x="216" y="311" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">high-side outputs</text>
+<circle cx="221" cy="325" r="4.5" fill="#2ecc71" stroke="#333" stroke-width="0.8"/>
+<text x="229" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">PWR</text>
+<circle cx="267" cy="325" r="4.5" fill="#3498db" stroke="#333" stroke-width="0.8"/>
+<text x="275" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">RUN</text>
+<circle cx="313" cy="325" r="4.5" fill="#e74c3c" stroke="#333" stroke-width="0.8"/>
+<text x="321" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">ERR</text>
+<circle cx="359" cy="325" r="4.5" fill="#f1c40f" stroke="#333" stroke-width="0.8"/>
+<text x="367" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">BUS</text>
+<rect x="210" y="344" width="384" height="488" rx="4" fill="#e9f3ea" stroke="#7aa37a" stroke-width="1.2"/>
+<text x="588" y="357" font-size="8.5" font-weight="bold" text-anchor="end" fill="#5f8a5f">LOGIC PCB</text>
+<rect x="210" y="846" width="384" height="46" rx="4" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.8"/>
+<rect x="311.2" y="834" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="464.79999999999995" y="834" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="218" y="865" font-size="10.5" font-weight="bold" text-anchor="start" fill="#c46a00">BATTERY + CHARGER BOARD</text>
+<text x="218" y="881" font-size="9" font-weight="normal" text-anchor="start" fill="#7a4a10">plug-in, optional (PWR-2) →</text>
+<rect x="218" y="362" width="368" height="109.0" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.6"/>
+<text x="226" y="379" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2f5fb3">Controller MCU — 100-pin</text>
+<text x="226" y="393" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">PIC32CK2051SG01100 TQFP100 (standard for now, owner</text>
+<text x="226" y="406.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">2026-11-19): Ethernet MAC, 2× CAN-FD, HSM + TrustZone</text>
+<text x="226" y="419.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Cortex-M33 120 MHz · HSM + TrustZone · Zephyr drivers to</text>
+<text x="226" y="432.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">write (D-32)</text>
+<text x="226" y="445.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Alternative: STM32H573VIT6 LQFP100 (PSA L3, Zephyr-ready;</text>
+<text x="226" y="458.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">own layout)</text>
+<rect x="218" y="477.0" width="368" height="57.0" rx="6" fill="#ffdcdc" stroke="#b32f2f" stroke-width="1.6"/>
+<text x="226" y="494.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#b32f2f">Security — inside the MCU</text>
+<text x="226" y="508.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">HSM + TrustZone: unique key, key storage, crypto, secure</text>
+<text x="226" y="521.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">boot; no PSA certificate (D-32)</text>
+<rect x="218" y="540.0" width="368" height="96.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
+<text x="226" y="557.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">Field IO — 26 channels</text>
+<text x="226" y="571.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4 AI: 0–10 V / 4–20 mA / PT1000 · 10 DI 24 V (2 pulse) · 8</text>
+<text x="226" y="584.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">relays 10 A changeover (AC / DC, 5 kV, replaceable fuse</text>
+<text x="226" y="597.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">each) · 4 fast 24 V high-side with current monitoring</text>
+<text x="226" y="610.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">LED per IO · watchdog forces outputs safe · IO image shared</text>
+<text x="226" y="623.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(p. 2)</text>
+<rect x="218" y="642.0" width="368" height="57.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
+<text x="226" y="659.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">RS-485 + CAN-FD</text>
+<text x="226" y="673.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">1× RS-485 (Modbus RTU) · 1× CAN-FD (J1939, CANopen) · both</text>
+<text x="226" y="686.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">isolated 2.5 kV (owner, 2026-11-19) · switchable termination</text>
+<rect x="218" y="705.0" width="368" height="44.0" rx="6" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.6"/>
+<text x="226" y="722.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">Ethernet — standard (BASE-9)</text>
+<text x="226" y="736.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">MAC in PIC32CK → LAN8720AI → RJ45 with magnetics</text>
+<rect x="218" y="755.0" width="368" height="57.0" rx="6" fill="#eceff3" stroke="#5a6470" stroke-width="1.6"/>
+<text x="226" y="772.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#5a6470">Storage and time</text>
+<text x="226" y="786.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">64 Mbit QSPI NOR (2nd firmware image, log buffer) · RTC +</text>
+<text x="226" y="799.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">CR2032</text>
+<rect x="318.33333333333337" y="910" width="34" height="13" rx="6.5" fill="#c9ced3" stroke="#2b3138" stroke-width="1.4"/>
+<text x="335.33333333333337" y="948" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">USB-C service + 5 V power</text>
+<rect x="446.6666666666667" y="900" width="44" height="36" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="456.6666666666667" y="906" width="24" height="20" rx="1" fill="#11161b" stroke="#2b3138" stroke-width="1"/>
+<rect x="463.6666666666667" y="926" width="10" height="5" rx="0" fill="#11161b" stroke="#2b3138" stroke-width="1"/>
+<text x="468.6666666666667" y="948" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">RJ45 Ethernet</text>
+<rect x="216.0" y="966" width="55.45945945945947" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="220.6" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="218.77297297297295" y1="978" x2="222.47027027027028" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="229.9" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="228.0162162162162" y1="978" x2="231.71351351351353" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="239.1" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="237.25945945945944" y1="978" x2="240.95675675675676" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="248.4" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="246.5027027027027" y1="978" x2="250.20000000000002" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="257.6" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="255.74594594594592" y1="978" x2="259.4432432432432" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="266.8" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="264.9891891891892" y1="978" x2="268.68648648648644" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="243.72972972972974" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">AI1–4</text>
+<rect x="281.4594594594595" y="966" width="101.67567567567568" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="286.1" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="284.23243243243246" y1="978" x2="287.92972972972973" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="295.3" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="293.4756756756757" y1="978" x2="297.17297297297296" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="304.6" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="302.718918918919" y1="978" x2="306.41621621621624" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="313.8" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="311.9621621621622" y1="978" x2="315.65945945945947" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="323.1" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="321.20540540540543" y1="978" x2="324.9027027027027" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="332.3" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="330.44864864864866" y1="978" x2="334.1459459459459" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="341.5" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="339.69189189189194" y1="978" x2="343.3891891891892" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="350.8" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="348.93513513513517" y1="978" x2="352.63243243243244" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="360.0" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="358.1783783783784" y1="978" x2="361.87567567567567" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="369.3" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="367.4216216216216" y1="978" x2="371.1189189189189" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="378.5" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="376.6648648648649" y1="978" x2="380.3621621621622" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="332.2972972972973" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">DI1–10 + COM</text>
+<rect x="393.13513513513516" y="966" width="55.45945945945947" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="397.8" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="395.90810810810814" y1="978" x2="399.6054054054054" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="407.0" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="405.15135135135137" y1="978" x2="408.84864864864863" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="416.2" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="414.39459459459465" y1="978" x2="418.0918918918919" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="425.5" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="423.6378378378379" y1="978" x2="427.33513513513515" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="434.7" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="432.8810810810811" y1="978" x2="436.5783783783784" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="444.0" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="442.12432432432433" y1="978" x2="445.8216216216216" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="420.8648648648649" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">HS 1–4 + 24V</text>
+<rect x="458.59459459459464" y="966" width="129.40540540540542" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="463.2" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="461.3675675675676" y1="978" x2="465.0648648648649" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="472.5" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="470.61081081081085" y1="978" x2="474.3081081081081" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="481.7" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="479.85405405405413" y1="978" x2="483.5513513513514" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="490.9" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="489.09729729729736" y1="978" x2="492.7945945945946" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="500.2" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="498.3405405405406" y1="978" x2="502.03783783783786" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="509.4" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="507.5837837837838" y1="978" x2="511.2810810810811" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="518.7" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="516.827027027027" y1="978" x2="520.5243243243244" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="527.9" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="526.0702702702703" y1="978" x2="529.7675675675677" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="537.2" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="535.3135135135136" y1="978" x2="539.010810810811" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="546.4" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="544.5567567567568" y1="978" x2="548.2540540540542" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="555.6" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="553.8000000000001" y1="978" x2="557.4972972972975" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="564.9" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="563.0432432432433" y1="978" x2="566.7405405405407" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="574.1" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="572.2864864864865" y1="978" x2="575.9837837837839" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="583.4" cy="978" r="3.0" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="581.5297297297298" y1="978" x2="585.2270270270271" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="523.2972972972973" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">RELAY 1–8 NO/NC/C</text>
+<rect x="380.0" y="1030" width="44" height="12" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="882" y="195" width="82" height="14" rx="3" fill="#7b8794" stroke="#2b3138" stroke-width="1.2"/>
+<line x1="923.0" y1="142" x2="923.0" y2="195" stroke="#33414f" stroke-width="1.2"/>
+<rect x="616" y="202" width="300" height="834" rx="10" fill="#f2f4f6" stroke="#23303d" stroke-width="2.4"/>
+<rect x="709.0" y="172" width="14" height="22" rx="2" fill="#d4a017" stroke="#8a6a00" stroke-width="1"/>
+<rect x="706.0" y="192" width="20" height="10" rx="1" fill="#b8860b" stroke="#8a6a00" stroke-width="1"/>
+<text x="716.0" y="166" font-size="9" font-weight="bold" text-anchor="middle" fill="#8a6a00">LTE</text>
+<rect x="809.0" y="172" width="14" height="22" rx="2" fill="#d4a017" stroke="#8a6a00" stroke-width="1"/>
+<rect x="806.0" y="192" width="20" height="10" rx="1" fill="#b8860b" stroke="#8a6a00" stroke-width="1"/>
+<text x="816.0" y="166" font-size="9" font-weight="bold" text-anchor="middle" fill="#8a6a00">GNSS</text>
+<rect x="746.0" y="210" width="40.0" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="756.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="752.0" y1="222" x2="760.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="776.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="772.0" y1="222" x2="780.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<text x="766.0" y="246" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">DC IN 5–32 V</text>
+<rect x="622" y="264" width="288" height="70" rx="4" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="630" y="283" font-size="13" font-weight="bold" text-anchor="start" fill="#ffffff">4G MODEM + GPS</text>
+<text x="630" y="299" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">45 mm · Quectel EC200U-CN: LTE Cat 1 with built-</text>
+<text x="630" y="311" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">in GPS · Tier 1 dropped (owner, 2026-11-19)</text>
+<circle cx="635" cy="325" r="4.5" fill="#2ecc71" stroke="#333" stroke-width="0.8"/>
+<text x="643" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">PWR</text>
+<circle cx="681" cy="325" r="4.5" fill="#3498db" stroke="#333" stroke-width="0.8"/>
+<text x="689" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">LTE</text>
+<circle cx="727" cy="325" r="4.5" fill="#9b59b6" stroke="#333" stroke-width="0.8"/>
+<text x="735" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">GNSS</text>
+<circle cx="773" cy="325" r="4.5" fill="#f1c40f" stroke="#333" stroke-width="0.8"/>
+<text x="781" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">LINK</text>
+<rect x="624" y="344" width="284" height="540" rx="4" fill="#e9f3ea" stroke="#7aa37a" stroke-width="1.2"/>
+<text x="902" y="357" font-size="8.5" font-weight="bold" text-anchor="end" fill="#5f8a5f">LOGIC PCB</text>
+<rect x="624" y="898" width="284" height="46" rx="4" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.8"/>
+<rect x="695.2" y="886" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="808.8" y="886" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="632" y="917" font-size="10.5" font-weight="bold" text-anchor="start" fill="#c46a00">BATTERY + CHARGER BOARD</text>
+<text x="632" y="933" font-size="9" font-weight="normal" text-anchor="start" fill="#7a4a10">plug-in, optional (PWR-2) →</text>
+<rect x="632" y="362" width="268" height="109.0" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="640" y="379" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">Quectel EC200U-CN — standard firmware</text>
+<text x="640" y="393" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">LTE Cat 1 (10 / 5 Mbps), India bands, GSM</text>
+<text x="640" y="406.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">fallback; no firmware of ours</text>
+<text x="640" y="419.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4G + GPS in one module ≈ INR 850 (quote</text>
+<text x="640" y="432.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">needed)</text>
+<text x="640" y="445.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Joins the 4-pin RS-485 bus through a small</text>
+<text x="640" y="458.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">bridge on the card (proposed, D-29)</text>
+<rect x="632" y="477.0" width="268" height="70.0" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="640" y="494.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">GPS (CELL-10)</text>
+<text x="640" y="508.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Built into the EC200U-CN: GPS, BeiDou,</text>
+<text x="640" y="521.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">GLONASS, Galileo; no NavIC</text>
+<text x="640" y="534.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">NMEA over the stack bus</text>
+<rect x="632" y="553.0" width="268" height="57.0" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.6"/>
+<text x="640" y="570.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Modem rail — on this card (PWR-8)</text>
+<text x="640" y="584.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Current-limited 3.8 V buck + ≥ 1000 µF for</text>
+<text x="640" y="597.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">transmit bursts</text>
+<rect x="693.0" y="964" width="46" height="9" rx="1" fill="#11161b" stroke="#2b3138" stroke-width="1.4"/>
+<text x="716.0" y="1000" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">nano-SIM</text>
+<rect x="799.0" y="962" width="34" height="13" rx="6.5" fill="#c9ced3" stroke="#2b3138" stroke-width="1.4"/>
+<text x="816.0" y="1000" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">USB-C 5 V</text>
+<rect x="744.0" y="1030" width="44" height="12" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="1146" y="195" width="82" height="14" rx="3" fill="#7b8794" stroke="#2b3138" stroke-width="1.2"/>
+<line x1="1187.0" y1="142" x2="1187.0" y2="195" stroke="#33414f" stroke-width="1.2"/>
+<rect x="930" y="202" width="250" height="834" rx="10" fill="#f2f4f6" stroke="#23303d" stroke-width="2.4"/>
+<rect x="1048.0" y="172" width="14" height="22" rx="2" fill="#d4a017" stroke="#8a6a00" stroke-width="1"/>
+<rect x="1045.0" y="192" width="20" height="10" rx="1" fill="#b8860b" stroke="#8a6a00" stroke-width="1"/>
+<text x="1055.0" y="166" font-size="9" font-weight="bold" text-anchor="middle" fill="#8a6a00">Wi-Fi / BLE</text>
+<rect x="1035.0" y="210" width="40.0" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1045.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1041.0" y1="222" x2="1049.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1065.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1061.0" y1="222" x2="1069.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1055.0" y="246" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">DC IN 5–32 V</text>
+<rect x="936" y="264" width="238" height="70" rx="4" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="944" y="283" font-size="13" font-weight="bold" text-anchor="start" fill="#ffffff">WI-FI + BLE</text>
+<text x="944" y="299" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">45 mm · node IO + 2 relays</text>
+<circle cx="949" cy="325" r="4.5" fill="#2ecc71" stroke="#333" stroke-width="0.8"/>
+<text x="957" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">PWR</text>
+<circle cx="995" cy="325" r="4.5" fill="#9b59b6" stroke="#333" stroke-width="0.8"/>
+<text x="1003" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">WIFI</text>
+<circle cx="1041" cy="325" r="4.5" fill="#3498db" stroke="#333" stroke-width="0.8"/>
+<text x="1049" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">BLE</text>
+<rect x="938" y="344" width="234" height="488" rx="4" fill="#e9f3ea" stroke="#7aa37a" stroke-width="1.2"/>
+<text x="1166" y="357" font-size="8.5" font-weight="bold" text-anchor="end" fill="#5f8a5f">LOGIC PCB</text>
+<rect x="938" y="846" width="234" height="46" rx="4" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.8"/>
+<rect x="994.2" y="834" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="1087.8" y="834" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="946" y="865" font-size="10.5" font-weight="bold" text-anchor="start" fill="#c46a00">BATTERY + CHARGER BOARD</text>
+<text x="946" y="881" font-size="9" font-weight="normal" text-anchor="start" fill="#7a4a10">plug-in, optional (PWR-2) →</text>
+<rect x="946" y="362" width="218" height="96.0" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="954" y="379" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">Radio</text>
+<text x="954" y="393" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">ESP32-C6-MINI-1-N4, PCB antenna,</text>
+<text x="954" y="406.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">pre-certified (MINI-1U + external</text>
+<text x="954" y="419.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">antenna for metal cabinets)</text>
+<text x="954" y="432.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Wi-Fi 6 · BLE 5 · 802.15.4 ·</text>
+<text x="954" y="445.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">secure boot</text>
+<rect x="946" y="464.0" width="218" height="96.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
+<text x="954" y="481.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">Node IO (WB-5, WB-6)</text>
+<text x="954" y="495.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">6 DI · 4 DO + watchdog · 4 AI · 2</text>
+<text x="954" y="508.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">relays 10 A changeover (AC / DC)</text>
+<text x="954" y="521.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Isolated RS-485 · isolated CAN 2.0</text>
+<text x="954" y="534.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(TWAI) · I²C IO expander · LED per</text>
+<text x="954" y="547.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">IO</text>
+<rect x="1038.0" y="910" width="34" height="13" rx="6.5" fill="#c9ced3" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1055.0" y="948" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">USB-C 5 V power</text>
+<rect x="944.0" y="966" width="17.793103448275865" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="947.0" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="945.7793103448275" y1="978" x2="948.1517241379311" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="952.9" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="951.7103448275861" y1="978" x2="954.0827586206897" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="958.8" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="957.6413793103447" y1="978" x2="960.0137931034483" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="952.8965517241379" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">485</text>
+<rect x="971.7931034482758" y="966" width="17.793103448275865" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="974.8" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="973.5724137931034" y1="978" x2="975.9448275862069" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="980.7" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="979.503448275862" y1="978" x2="981.8758620689655" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="986.6" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="985.4344827586206" y1="978" x2="987.8068965517241" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="980.6896551724137" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">CAN</text>
+<rect x="999.5862068965516" y="966" width="41.51724137931035" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1002.6" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1001.3655172413792" y1="978" x2="1003.7379310344827" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1008.5" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1007.2965517241378" y1="978" x2="1009.6689655172413" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1014.4" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1013.2275862068964" y1="978" x2="1015.5999999999999" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1020.3" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1019.158620689655" y1="978" x2="1021.5310344827585" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1026.3" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1025.0896551724138" y1="978" x2="1027.4620689655173" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1032.2" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1031.0206896551722" y1="978" x2="1033.3931034482757" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1038.1" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1036.9517241379308" y1="978" x2="1039.3241379310343" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1020.3448275862067" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">6 DI</text>
+<rect x="1051.1034482758619" y="966" width="29.655172413793103" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1054.1" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1052.8827586206894" y1="978" x2="1055.255172413793" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1060.0" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1058.813793103448" y1="978" x2="1061.1862068965515" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1065.9" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1064.7448275862066" y1="978" x2="1067.1172413793101" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1071.9" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1070.6758620689652" y1="978" x2="1073.0482758620687" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1077.8" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1076.6068965517238" y1="978" x2="1078.9793103448274" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1065.9310344827584" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">4 DO</text>
+<rect x="1090.758620689655" y="966" width="29.655172413793103" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1093.7" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1092.5379310344824" y1="978" x2="1094.910344827586" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1099.7" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1098.468965517241" y1="978" x2="1100.8413793103446" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1105.6" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1104.3999999999996" y1="978" x2="1106.7724137931032" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1111.5" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1110.3310344827582" y1="978" x2="1112.7034482758618" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1117.4" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1116.2620689655168" y1="978" x2="1118.6344827586204" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1105.5862068965514" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">4 AI</text>
+<rect x="1130.413793103448" y="966" width="35.58620689655173" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1133.4" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1132.1931034482755" y1="978" x2="1134.565517241379" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1139.3" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1138.124137931034" y1="978" x2="1140.4965517241376" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1145.2" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1144.0551724137927" y1="978" x2="1146.4275862068962" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1151.2" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1149.9862068965513" y1="978" x2="1152.3586206896548" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1157.1" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1155.9172413793099" y1="978" x2="1158.2896551724134" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1163.0" cy="978" r="1.9" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1161.8482758620685" y1="978" x2="1164.220689655172" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1148.2068965517237" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">2 RLY</text>
+<rect x="1033.0" y="1030" width="44" height="12" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="1194" y="202" width="250" height="834" rx="10" fill="#f2f4f6" stroke="#23303d" stroke-width="2.4"/>
+<rect x="1312.0" y="172" width="14" height="22" rx="2" fill="#d4a017" stroke="#8a6a00" stroke-width="1"/>
+<rect x="1309.0" y="192" width="20" height="10" rx="1" fill="#b8860b" stroke="#8a6a00" stroke-width="1"/>
+<text x="1319.0" y="166" font-size="9" font-weight="bold" text-anchor="middle" fill="#8a6a00">LoRa 865–868</text>
+<rect x="1414" y="195" width="22" height="14" rx="3" fill="#c9ced3" stroke="#2b3138" stroke-width="1.2"/>
+<text x="1410" y="190" font-size="8.5" font-weight="normal" text-anchor="end" fill="#4a5560">end cap</text>
+<rect x="1299.0" y="210" width="40.0" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1309.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1305.0" y1="222" x2="1313.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1329.0" cy="222" r="6.4" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1325.0" y1="222" x2="1333.0" y2="222" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1319.0" y="246" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">DC IN 5–32 V</text>
+<rect x="1200" y="264" width="238" height="70" rx="4" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="1208" y="283" font-size="13" font-weight="bold" text-anchor="start" fill="#ffffff">LoRa</text>
+<text x="1208" y="299" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">45 mm · remote IO node: RS-485, 4 DI, 4</text>
+<text x="1208" y="311" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">AI, 4 DO · long range, +22 dBm</text>
+<circle cx="1213" cy="325" r="4.5" fill="#2ecc71" stroke="#333" stroke-width="0.8"/>
+<text x="1221" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">RUN</text>
+<rect x="1202" y="344" width="234" height="488" rx="4" fill="#e9f3ea" stroke="#7aa37a" stroke-width="1.2"/>
+<text x="1430" y="357" font-size="8.5" font-weight="bold" text-anchor="end" fill="#5f8a5f">LOGIC PCB</text>
+<rect x="1202" y="846" width="234" height="46" rx="4" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.8"/>
+<rect x="1258.2" y="834" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="1351.8" y="834" width="28" height="10" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1210" y="865" font-size="10.5" font-weight="bold" text-anchor="start" fill="#c46a00">BATTERY + CHARGER BOARD</text>
+<text x="1210" y="881" font-size="9" font-weight="normal" text-anchor="start" fill="#7a4a10">plug-in, optional (PWR-2) →</text>
+<rect x="1210" y="362" width="218" height="148.0" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="1218" y="379" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">LoRa radio + MCU</text>
+<text x="1218" y="393" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">STM32WLE5CC chip-down; pre-</text>
+<text x="1218" y="406.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">certified RAK3172-T module for</text>
+<text x="1218" y="419.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">pilots (≈ +INR 455)</text>
+<text x="1218" y="432.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Private star network; firmware</text>
+<text x="1218" y="445.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">enforces India e.r.p. limits</text>
+<text x="1218" y="458.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Adaptive data rate: ≈ 0.3 kbps</text>
+<text x="1218" y="471.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(SF12, longest range) to ≈ 37–62</text>
+<text x="1218" y="484.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">kbps (SF5, 500 kHz); FSK to 300</text>
+<text x="1218" y="497.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">kbps short range</text>
+<rect x="1210" y="516.0" width="218" height="70.0" rx="6" fill="#eceff3" stroke="#5a6470" stroke-width="1.6"/>
+<text x="1218" y="533.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#5a6470">OTA</text>
+<text x="1218" y="547.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">A/B update inside the 256 KB on-</text>
+<text x="1218" y="560.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">chip flash (firmware ≤ ≈ 100 KB);</text>
+<text x="1218" y="573.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">no external flash</text>
+<rect x="1210" y="592.0" width="218" height="124.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
+<text x="1218" y="609.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">Node IO — on the LoRa module</text>
+<text x="1218" y="624.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">(LORA-6)</text>
+<text x="1218" y="638.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">RS-485 · 4 DI 24 V isolated · 4 AI</text>
+<text x="1218" y="651.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">0–10 V / 4–20 mA · 4 DO 24 V low-</text>
+<text x="1218" y="664.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">power high-side (TPS274160B),</text>
+<text x="1218" y="677.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">watchdog-gated · one small RUN</text>
+<text x="1218" y="690.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">LED, ≈ 0.3 mA via ≈ 4.7 kΩ, short</text>
+<text x="1218" y="703.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">heartbeat blink</text>
+<rect x="1302.0" y="910" width="34" height="13" rx="6.5" fill="#c9ced3" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1319.0" y="948" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">USB-C 5 V power</text>
+<rect x="1208.0" y="966" width="30.31578947368421" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1213.1" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1211.0315789473684" y1="978" x2="1215.0736842105262" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1223.2" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1221.1368421052632" y1="978" x2="1225.178947368421" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1233.3" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1231.2421052631578" y1="978" x2="1235.2842105263155" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1223.157894736842" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">RS-485</text>
+<rect x="1248.3157894736842" y="966" width="50.526315789473685" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1253.4" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1251.3473684210526" y1="978" x2="1255.3894736842103" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1263.5" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1261.4526315789474" y1="978" x2="1265.494736842105" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1273.6" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1271.557894736842" y1="978" x2="1275.5999999999997" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1283.7" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1281.6631578947367" y1="978" x2="1285.7052631578945" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1293.8" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1291.7684210526315" y1="978" x2="1295.8105263157893" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1273.578947368421" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">4 DI</text>
+<rect x="1308.842105263158" y="966" width="50.526315789473685" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1313.9" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1311.8736842105263" y1="978" x2="1315.915789473684" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1324.0" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1321.9789473684211" y1="978" x2="1326.0210526315789" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1334.1" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1332.0842105263157" y1="978" x2="1336.1263157894734" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1344.2" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1342.1894736842105" y1="978" x2="1346.2315789473682" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1354.3" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1352.2947368421053" y1="978" x2="1356.336842105263" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1334.1052631578948" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">4 AI</text>
+<rect x="1369.3684210526317" y="966" width="60.63157894736842" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="1374.4" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1372.4" y1="978" x2="1376.4421052631578" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1384.5" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1382.505263157895" y1="978" x2="1386.5473684210526" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1394.6" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1392.6105263157895" y1="978" x2="1396.6526315789472" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1404.7" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1402.7157894736843" y1="978" x2="1406.757894736842" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1414.8" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1412.821052631579" y1="978" x2="1416.8631578947368" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="1424.9" cy="978" r="3.2" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="1422.9263157894738" y1="978" x2="1426.9684210526316" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="1399.6842105263158" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">4 DO + 24V</text>
+<rect x="1297.0" y="1030" width="44" height="12" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="1462" y="150" width="186" height="892" rx="10" fill="none" stroke="#c46a00" stroke-width="1.4" stroke-dasharray="7 4"/>
+<text x="1555.0" y="172" font-size="11" font-weight="bold" text-anchor="middle" fill="#c46a00">COMMON POWER PARTS</text>
+<text x="1555.0" y="186" font-size="9.5" font-weight="normal" text-anchor="middle" fill="#c46a00">separate boards</text>
+<rect x="1470" y="204" width="170" height="132" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="2"/>
+<rect x="1478" y="212" width="40" height="20" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.4"/>
+<circle cx="1488" cy="222" r="5" fill="#d5d9dd" stroke="#2b3138"/>
+<circle cx="1508" cy="222" r="5" fill="#d5d9dd" stroke="#2b3138"/>
+<rect x="1528" y="216" width="30" height="12" rx="6" fill="#c9ced3" stroke="#2b3138" stroke-width="1.4"/>
+<rect x="1588" y="214" width="44" height="16" rx="1" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1498" y="244" font-size="8" font-weight="bold" text-anchor="middle" fill="#2b3138">DC IN</text>
+<text x="1543" y="244" font-size="8" font-weight="bold" text-anchor="middle" fill="#2b3138">USB-C</text>
+<text x="1610" y="244" font-size="8" font-weight="bold" text-anchor="middle" fill="#2b3138">to logic PCB</text>
+<rect x="1478" y="254" width="38" height="24" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1497" y="270" font-size="8" font-weight="bold" text-anchor="middle" fill="#ffffff">buck</text>
+<rect x="1522" y="254" width="38" height="24" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1541" y="270" font-size="8" font-weight="bold" text-anchor="middle" fill="#ffffff">5 V</text>
+<rect x="1566" y="254" width="38" height="24" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1585" y="270" font-size="8" font-weight="bold" text-anchor="middle" fill="#ffffff">3.3 V</text>
+<rect x="1478" y="288" width="154" height="18" rx="2" fill="#ffffff" stroke="#c46a00" stroke-width="1.4" stroke-dasharray="7 4"/>
+<text x="1555.0" y="301" font-size="8.5" font-weight="bold" text-anchor="middle" fill="#c46a00">battery-board socket</text>
+<text x="1478" y="326" font-size="12" font-weight="bold" text-anchor="start" fill="#c46a00">POWER STAGE</text>
+<text x="1470" y="356" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• On every module PCB (PWR-10)</text>
+<text x="1470" y="368.54" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Buck regulator: 5–32 V → 5 V</text>
+<text x="1482" y="381.08000000000004" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">+ 3.3 V</text>
+<text x="1470" y="393.62000000000006" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• TVS, reverse FET, PTC,</text>
+<text x="1482" y="406.1600000000001" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Schottky OR</text>
+<text x="1470" y="418.7000000000001" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• ≈ INR 85 BOM, in the module</text>
+<text x="1482" y="431.2400000000001" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">price</text>
+<rect x="1470" y="457.78000000000014" width="170" height="112" rx="6" fill="#ffffff" stroke="#c46a00" stroke-width="2" stroke-dasharray="7 4"/>
+<rect x="1480" y="467.78000000000014" width="150" height="24" rx="12" fill="#e8e2d4" stroke="#7a6a4a" stroke-width="1.4"/>
+<text x="1555.0" y="484.78000000000014" font-size="8.5" font-weight="bold" text-anchor="middle" fill="#5a4a2a">18650 ≈ 3000 mAh</text>
+<rect x="1480" y="529.7800000000002" width="40" height="26" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
+<text x="1500" y="546.7800000000002" font-size="8" font-weight="bold" text-anchor="middle" fill="#ffffff">chg</text>
+<text x="1528" y="547.7800000000002" font-size="10.5" font-weight="bold" text-anchor="start" fill="#c46a00">BATTERY BOARD</text>
+<text x="1470" y="589.7800000000002" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• One per module, optional</text>
+<text x="1482" y="602.3200000000002" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">(PWR-2)</text>
+<text x="1470" y="614.8600000000001" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• TI BQ25601 charger, backup +</text>
+<text x="1482" y="627.4000000000001" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">5 V boost; 18650 ≈ 3000 mAh</text>
+<text x="1470" y="639.94" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• I²C status, presence detect</text>
+<text x="1470" y="652.48" font-size="9.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• ≈ INR 205 BOM incl. cell</text>
+<polyline points="106.0,330 106.0,182 332.0,182 332.0,210" fill="none" stroke="#c46a00" stroke-width="3"/>
+<text x="217.0" y="177" font-size="9.5" font-weight="bold" text-anchor="middle" fill="#c46a00">DC supply</text>
+<rect x="30" y="1040" width="1620" height="16" rx="2" fill="#b8bec6" stroke="#7b8794" stroke-width="1.4"/>
+<text x="40" y="1052" font-size="9.5" font-weight="bold" text-anchor="start" fill="#33414f">35 mm DIN rail (TS35)</text>
+<text x="40" y="1076" font-size="12" font-weight="bold" text-anchor="start" fill="#1b1f24">Legend</text>
+<rect x="40" y="1084" width="20" height="14" rx="3" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.4"/>
+<text x="67" y="1095.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">MCU</text>
+<rect x="172" y="1084" width="20" height="14" rx="3" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.4"/>
+<text x="199" y="1095.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Radio</text>
+<rect x="304" y="1084" width="20" height="14" rx="3" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.4"/>
+<text x="331" y="1095.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Ethernet</text>
+<rect x="436" y="1084" width="20" height="14" rx="3" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.4"/>
+<text x="463" y="1095.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Field IO / RS-485</text>
+<rect x="40" y="1108" width="20" height="14" rx="3" fill="#ffdcdc" stroke="#b32f2f" stroke-width="1.4"/>
+<text x="67" y="1119.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Security</text>
+<rect x="172" y="1108" width="20" height="14" rx="3" fill="#eceff3" stroke="#5a6470" stroke-width="1.4"/>
+<text x="199" y="1119.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Memory / ID</text>
+<rect x="304" y="1108" width="20" height="14" rx="3" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="331" y="1119.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Power</text>
+<rect x="436" y="1108" width="20" height="14" rx="3" fill="#ffffff" stroke="#33414f" stroke-width="1.4" stroke-dasharray="7 4"/>
+<text x="463" y="1119.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">fitted to order</text>
+<text x="40" y="1146" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">Gold = SMA antenna connector · grey strips = screw terminals · ∥ = diode-ORed supplies · D-x</text>
+<text x="40" y="1159.2" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">= open decision (PRD §6)</text>
+<text x="600" y="1076" font-size="12" font-weight="bold" text-anchor="start" fill="#1b1f24">Notes</text>
+<text x="600" y="1092" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Reliability and safety before cost (COMP-5). Ethernet only through a MAC inside the host chip. No Mornsun parts. Modules run on safe low voltage; only relay contacts</text>
+<text x="612" y="1105.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">may switch mains, behind 5 kV reinforced isolation.</text>
+<text x="600" y="1119.7199999999998" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Every module: its own power stage on its PCB (input protection, OR, buck to 5 V + 3.3 V, PWR-10) and optionally a plug-in battery + charger board with an 18650 cell</text>
+<text x="612" y="1133.5799999999997" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">(PWR-2); each module reports its type, hardware revision and serial over the stack bus (no ID EEPROM); a hung module is reset by its own watchdog.</text>
+<text x="600" y="1147.4399999999996" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• No baseboard: every module is standalone; in a stack the coordinator is elected Fieldbus controller &gt; Wi-Fi + BLE &gt; LoRa; any module may feed bus power. Each module can</text>
+<text x="612" y="1161.2999999999995" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">take its own battery + charger board (PWR-2). 4G industrial router (RUT200 class): separate product, page 7.</text>
+<text x="600" y="1175.1599999999994" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Parts are research proposals, not frozen: confirm stock and 100-unit quotes first.</text>
+</svg>

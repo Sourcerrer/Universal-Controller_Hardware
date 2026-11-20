@@ -1,0 +1,256 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 1680 1188" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#33414f"/></marker></defs>
+<rect x="0" y="0" width="1680" height="1188" rx="0" fill="#ffffff" stroke="none" stroke-width="1.4"/>
+<rect x="20" y="20" width="1640" height="1148" rx="0" fill="none" stroke="#33414f" stroke-width="1.5"/>
+<text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">BOM basis — what the prices are built from</text>
+<text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Line items at 100 units, INR — estimates from research R02–R22 (research price × 1.3 until 100-unit quotes exist); ESTIMATE / UNVERIFIED items still need a</text>
+<text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">quote. Fieldbus controller after the 2026-11-19 cost-down.</text>
+<text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<rect x="40.0" y="118" width="517.3333333333334" height="682" rx="0" fill="#ffffff" stroke="#2f5fb3" stroke-width="1.4"/>
+<rect x="40.0" y="118" width="517.3333333333334" height="28" rx="0" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.4"/>
+<text x="50.0" y="137" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Fieldbus controller — with Ethernet</text>
+<text x="547.3333333333334" y="137" font-size="10.5" font-weight="bold" text-anchor="end" fill="#2f5fb3">BOM 3,670</text>
+<text x="50.0" y="163" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">MCU Microchip PIC32CK2051SG01100 (standard for now, owner 2026-11-19;</text>
+<text x="50.0" y="176" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Ethernet MAC, HSM + TrustZone), TQFP100-EP + 64 Mbit QSPI NOR (2nd image,</text>
+<text x="50.0" y="189" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">log buffer) + RTC crystal + CR2032 backup</text>
+<text x="547.3333333333334" y="163" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">402</text>
+<text x="50.0" y="206" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Ethernet, standard: LAN8720AI PHY + 25 MHz crystal + RJ45 with magnetics</text>
+<text x="50.0" y="219" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(Würth / HanRun, &lt; INR 100) ≈ 200 (owner, 2026-11-19, ESTIMATE), ESD +</text>
+<text x="50.0" y="232" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">passives ≈ 70</text>
+<text x="547.3333333333334" y="206" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">270</text>
+<text x="50.0" y="249" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4 analog inputs: quad op-amp, 0.1 % resistors, mode FETs, protection,</text>
+<text x="50.0" y="262" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">low-cost 0.1 % 2.5 V reference (ESTIMATE)</text>
+<text x="547.3333333333334" y="249" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">153</text>
+<text x="50.0" y="279" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">10 digital inputs: 10× single optocouplers, LTV-217 / EL3H7 class</text>
+<text x="50.0" y="292" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(ESTIMATE), Type 3 front ends</text>
+<text x="547.3333333333334" y="279" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">84</text>
+<text x="50.0" y="309" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">8 relay outputs, 1 changeover (NO + NC) each, 10 A, switching AC or DC</text>
+<text x="50.0" y="322" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(owner, 2026-11-20): Hongfa HF115F-class slim relays with 5 kV reinforced</text>
+<text x="50.0" y="335" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">coil-contact isolation (≈ 140 each, LCSC, ESTIMATE), ULN2803 driver,</text>
+<text x="50.0" y="348" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">watchdog gating, snubber pads (ESTIMATE)</text>
+<text x="547.3333333333334" y="309" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">1,180</text>
+<text x="50.0" y="365" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Replaceable fuse per relay (owner, 2026-11-20; PTCs cannot switch off 230</text>
+<text x="50.0" y="378" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">V AC): 5×20 mm ceramic time-lag 10 A / 250 V in PCB clips, ≈ 25 each</text>
+<text x="50.0" y="391" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(ESTIMATE)</text>
+<text x="547.3333333333334" y="365" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">200</text>
+<text x="50.0" y="408" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4 high-speed 24 V high-side outputs with current monitoring (owner,</text>
+<text x="50.0" y="421" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">2026-11-20): TI TPS274160B quad, current sense to the MCU ADC, TVS,</text>
+<text x="50.0" y="434" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">reverse FET (ESTIMATE)</text>
+<text x="547.3333333333334" y="408" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">200</text>
+<text x="50.0" y="451" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">24 relay terminal poles, 5.08 mm, 300 V / 10 A rated, kept apart from the</text>
+<text x="50.0" y="464" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">low-voltage terminals (ESTIMATE ≈ INR 3.5 per pole)</text>
+<text x="547.3333333333334" y="451" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">84</text>
+<text x="50.0" y="481" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">RS-485, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2092W</text>
+<text x="50.0" y="494" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">with integrated isolated DC-DC (LCSC ≈ USD 1.4–2.5; ESTIMATE ≈ 180),</text>
+<text x="50.0" y="507" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">SM712 TVS, series PTC, termination switch</text>
+<text x="547.3333333333334" y="481" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">217</text>
+<text x="50.0" y="524" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">CAN-FD, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2062A</text>
+<text x="50.0" y="537" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(CAN FD ≤ 5 Mbps, integrated isolated DC-DC; ESTIMATE ≈ 180), protection,</text>
+<text x="50.0" y="550" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">switchable termination, 3-pole terminal</text>
+<text x="547.3333333333334" y="524" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">216</text>
+<text x="50.0" y="567" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">USB-C service port + LEDs</text>
+<text x="547.3333333333334" y="567" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">23</text>
+<text x="50.0" y="584" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4-pin bus connectors, bridge share, bus RS-485 transceiver, ESD</text>
+<text x="50.0" y="597" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(ESTIMATE)</text>
+<text x="547.3333333333334" y="584" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">59</text>
+<text x="50.0" y="614" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">32 fixed 3.81 mm screw terminals, shared analog common (ESTIMATE ≈ INR 2</text>
+<text x="50.0" y="627" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">per pole)</text>
+<text x="547.3333333333334" y="614" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">66</text>
+<text x="50.0" y="644" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">PCB 4-layer</text>
+<text x="547.3333333333334" y="644" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">103</text>
+<text x="50.0" y="661" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Power stage on the module PCB (owner, 2026-11-19: no separate DC-DC</text>
+<text x="50.0" y="674" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">board): buck 5–32 V → 5 V (TI LMR51420 / SY8xxx class) + 3.3 V LDO ≈ 45;</text>
+<text x="50.0" y="687" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">TVS, reverse FET, PTC fuse, Schottky OR with BUS_V ≈ 40 (ESTIMATE)</text>
+<text x="547.3333333333334" y="661" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">85</text>
+<text x="50.0" y="704" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Passives</text>
+<text x="547.3333333333334" y="704" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">79</text>
+<text x="50.0" y="721" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Status LED on each of the 26 field IO channels: 4 AI, 10 DI, 8 relays, 4</text>
+<text x="50.0" y="734" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">high-side (ESTIMATE ≈ INR 1.5 each)</text>
+<text x="547.3333333333334" y="721" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">39</text>
+<text x="50.0" y="751" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Enclosure 90 mm DIN-rail (8 relays + 4 high-side outputs need the width),</text>
+<text x="50.0" y="764" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Indian ABS, V-0 for mains-switching relays (ESTIMATE)</text>
+<text x="547.3333333333334" y="751" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">210</text>
+<line x1="48.0" y1="773" x2="549.3333333333334" y2="773" stroke="#c9d0d8" stroke-width="1"/>
+<text x="50.0" y="789" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">Total</text>
+<text x="547.3333333333334" y="789" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">3,670</text>
+<rect x="581.3333333333334" y="118" width="517.3333333333334" height="188" rx="0" fill="#ffffff" stroke="#6b3fb3" stroke-width="1.4"/>
+<rect x="581.3333333333334" y="118" width="517.3333333333334" height="28" rx="0" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.4"/>
+<text x="591.3333333333334" y="137" font-size="12" font-weight="bold" text-anchor="start" fill="#6b3fb3">4G modem card</text>
+<text x="1088.6666666666667" y="137" font-size="10.5" font-weight="bold" text-anchor="end" fill="#6b3fb3">BOM 1,799</text>
+<text x="591.3333333333334" y="163" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Quectel EC200U-CN with built-in GNSS: 4G + GPS in one module (India</text>
+<text x="591.3333333333334" y="176" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">reseller prices; ESTIMATE, quote needed; owner target &lt; INR 1,000)</text>
+<text x="1088.6666666666667" y="163" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">850</text>
+<text x="591.3333333333334" y="193" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">SIM holder, LTE SMA + pigtail, bus headers, PCB, 3.8 V modem buck + ≥</text>
+<text x="591.3333333333334" y="206" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">1000 µF (R17 basis, ESTIMATE)</text>
+<text x="1088.6666666666667" y="193" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">604</text>
+<text x="591.3333333333334" y="223" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Power stage on the module PCB: buck 5–32 V → 5 V + 3.3 V LDO, TVS,</text>
+<text x="591.3333333333334" y="236" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">reverse FET, PTC fuse, Schottky OR (ESTIMATE)</text>
+<text x="1088.6666666666667" y="223" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">85</text>
+<text x="591.3333333333334" y="253" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">GNSS antenna + SMA (ESTIMATE)</text>
+<text x="1088.6666666666667" y="253" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">130</text>
+<text x="591.3333333333334" y="270" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Enclosure 45 mm, Indian ABS (R14)</text>
+<text x="1088.6666666666667" y="270" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">130</text>
+<line x1="589.3333333333334" y1="279" x2="1090.6666666666667" y2="279" stroke="#c9d0d8" stroke-width="1"/>
+<text x="591.3333333333334" y="295" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">Total</text>
+<text x="1088.6666666666667" y="295" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">1,799</text>
+<rect x="581.3333333333334" y="320" width="517.3333333333334" height="334" rx="0" fill="#ffffff" stroke="#1f7f8c" stroke-width="1.4"/>
+<rect x="581.3333333333334" y="320" width="517.3333333333334" height="28" rx="0" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.4"/>
+<text x="591.3333333333334" y="339" font-size="12" font-weight="bold" text-anchor="start" fill="#1f7f8c">Wi-Fi + BLE</text>
+<text x="1088.6666666666667" y="339" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1f7f8c">BOM 2,172</text>
+<text x="591.3333333333334" y="365" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">ESP32-C6-MINI-1-N4, PCB antenna (R03)</text>
+<text x="1088.6666666666667" y="365" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">313</text>
+<text x="591.3333333333334" y="382" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Power stage on the module PCB (owner, 2026-11-19: no separate DC-DC</text>
+<text x="591.3333333333334" y="395" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">board): buck 5–32 V → 5 V (TI LMR51420 / SY8xxx class) + 3.3 V LDO ≈ 45;</text>
+<text x="591.3333333333334" y="408" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">TVS, reverse FET, PTC fuse, Schottky OR with BUS_V ≈ 40 (ESTIMATE)</text>
+<text x="1088.6666666666667" y="382" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">85</text>
+<text x="591.3333333333334" y="425" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4-pin bus connectors + bridge share + RS-485 bus transceiver + ESD</text>
+<text x="591.3333333333334" y="438" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(ESTIMATE)</text>
+<text x="1088.6666666666667" y="425" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">58</text>
+<text x="591.3333333333334" y="455" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">PCB 4-layer, passives, LEDs</text>
+<text x="1088.6666666666667" y="455" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">130</text>
+<text x="591.3333333333334" y="472" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Enclosure 45 mm, Indian ABS (R14)</text>
+<text x="1088.6666666666667" y="472" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">130</text>
+<text x="591.3333333333334" y="489" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Node IO: 6 DI opto, 4 DO high-side + watchdog, 4 AI on ESP32-C6 ADC,</text>
+<text x="591.3333333333334" y="502" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">terminals (ESTIMATE)</text>
+<text x="1088.6666666666667" y="489" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">514</text>
+<text x="591.3333333333334" y="519" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">RS-485 + CAN 2.0, both isolated as standard (owner, 2026-11-19): CA-</text>
+<text x="591.3333333333334" y="532" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">IS2092W + CA-IS2062A with integrated isolated DC-DC, protection, IO</text>
+<text x="591.3333333333334" y="545" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">expander, terminals (ESTIMATE)</text>
+<text x="1088.6666666666667" y="519" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">558</text>
+<text x="591.3333333333334" y="562" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Status LED on each of the 16 field IO channels (owner, 2026-11-19;</text>
+<text x="591.3333333333334" y="575" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">ESTIMATE ≈ INR 1.5 each)</text>
+<text x="1088.6666666666667" y="562" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">24</text>
+<text x="591.3333333333334" y="592" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">2 relay outputs (owner, 2026-11-20): 1 changeover 10 A, AC or DC, Hongfa</text>
+<text x="591.3333333333334" y="605" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">HF115F-class 5 kV, driver, replaceable 5×20 mm fuse each, 6 terminal</text>
+<text x="591.3333333333334" y="618" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">poles 300 V (ESTIMATE)</text>
+<text x="1088.6666666666667" y="592" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">360</text>
+<line x1="589.3333333333334" y1="627" x2="1090.6666666666667" y2="627" stroke="#c9d0d8" stroke-width="1"/>
+<text x="591.3333333333334" y="643" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">Total</text>
+<text x="1088.6666666666667" y="643" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">2,172</text>
+<rect x="1122.6666666666667" y="118" width="517.3333333333334" height="304" rx="0" fill="#ffffff" stroke="#2e8540" stroke-width="1.4"/>
+<rect x="1122.6666666666667" y="118" width="517.3333333333334" height="28" rx="0" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.4"/>
+<text x="1132.6666666666667" y="137" font-size="12" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
+<text x="1630.0" y="137" font-size="10.5" font-weight="bold" text-anchor="end" fill="#2e8540">BOM 1,109</text>
+<text x="1132.6666666666667" y="163" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">STM32WLE5CCU6 at INR 250 (owner target, high volume, to be negotiated) +</text>
+<text x="1132.6666666666667" y="176" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">TCXO + RF switch + matching; +22 dBm high-power PA (ESTIMATE ≈ 50)</text>
+<text x="1630.0" y="163" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">300</text>
+<text x="1132.6666666666667" y="193" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Power stage on the module PCB: buck 5–32 V → 5 V + 3.3 V LDO, TVS,</text>
+<text x="1132.6666666666667" y="206" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">reverse FET, PTC fuse, Schottky OR (ESTIMATE)</text>
+<text x="1630.0" y="193" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">85</text>
+<text x="1132.6666666666667" y="223" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">External antenna + SMA for long range (owner: &quot;high throughput long</text>
+<text x="1132.6666666666667" y="236" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">range&quot;)</text>
+<text x="1630.0" y="223" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">78</text>
+<text x="1132.6666666666667" y="253" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4-pin bus connectors + bridge share + RS-485 bus transceiver + ESD</text>
+<text x="1132.6666666666667" y="266" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(ESTIMATE)</text>
+<text x="1630.0" y="253" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">59</text>
+<text x="1132.6666666666667" y="283" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">PCB 2-layer (was 4-layer), passives (ESTIMATE)</text>
+<text x="1630.0" y="283" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">78</text>
+<text x="1132.6666666666667" y="300" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Enclosure 45 mm, Indian ABS at the volume-quote target (ESTIMATE)</text>
+<text x="1630.0" y="300" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">100</text>
+<text x="1132.6666666666667" y="317" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Node IO, standard, inputs only: RS-485 + 4 DI (single optocouplers) + 4</text>
+<text x="1132.6666666666667" y="330" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">AI 0–10 V / 4–20 mA (shared front end), fixed terminals; no DO (ESTIMATE)</text>
+<text x="1630.0" y="317" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">215</text>
+<text x="1132.6666666666667" y="347" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4 DO 24 V high-side (owner, 2026-11-19: remote switching, low power — no</text>
+<text x="1132.6666666666667" y="360" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">relays): 1× TI TPS274160B quad (LCSC USD 1.53 at 100), µA standby, loads</text>
+<text x="1132.6666666666667" y="373" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">fed from the field 24 V, watchdog gating, TVS, terminals; no IO LEDs</text>
+<text x="1132.6666666666667" y="386" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">(ESTIMATE)</text>
+<text x="1630.0" y="347" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">194</text>
+<line x1="1130.6666666666667" y1="395" x2="1632.0" y2="395" stroke="#c9d0d8" stroke-width="1"/>
+<text x="1132.6666666666667" y="411" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">Total</text>
+<text x="1630.0" y="411" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">1,109</text>
+<rect x="1122.6666666666667" y="436" width="517.3333333333334" height="158" rx="0" fill="#ffffff" stroke="#c46a00" stroke-width="1.4"/>
+<rect x="1122.6666666666667" y="436" width="517.3333333333334" height="28" rx="0" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1132.6666666666667" y="455" font-size="12" font-weight="bold" text-anchor="start" fill="#c46a00">Battery + charger board — optional, per module</text>
+<text x="1630.0" y="455" font-size="10.5" font-weight="bold" text-anchor="end" fill="#c46a00">BOM 205</text>
+<text x="1132.6666666666667" y="481" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">TI BQ25601 charger: power path, no-dropout backup, NTC / JEITA, I²C</text>
+<text x="1132.6666666666667" y="494" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">status, 5 V boost (LCSC USD 0.60 at 100)</text>
+<text x="1630.0" y="481" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">53</text>
+<text x="1132.6666666666667" y="511" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Cell protector + inductor + passives (ESTIMATE)</text>
+<text x="1630.0" y="511" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">20</text>
+<text x="1132.6666666666667" y="528" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">18650 holder + small PCB + connector (ESTIMATE)</text>
+<text x="1630.0" y="528" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">32</text>
+<text x="1132.6666666666667" y="545" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">18650 Li-ion cell ≈ 3000 mAh, BIS IS 16046 registered (owner: under INR</text>
+<text x="1132.6666666666667" y="558" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">100)</text>
+<text x="1630.0" y="545" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">100</text>
+<line x1="1130.6666666666667" y1="567" x2="1632.0" y2="567" stroke="#c9d0d8" stroke-width="1"/>
+<text x="1132.6666666666667" y="583" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">Total</text>
+<text x="1630.0" y="583" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">205</text>
+<text x="40" y="832" font-size="14" font-weight="bold" text-anchor="start" fill="#1b1f24">Options and the adapter</text>
+<rect x="40" y="842" width="1600" height="30" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="48" y="861.0" font-size="10.5" font-weight="bold" text-anchor="start" fill="#ffffff">Item</text>
+<text x="378" y="861.0" font-size="10.5" font-weight="bold" text-anchor="start" fill="#ffffff">What is in it — line items</text>
+<text x="1412" y="861.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#ffffff">BOM</text>
+<text x="1522" y="861.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#ffffff">Before profit</text>
+<text x="1632" y="861.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#ffffff">After profit</text>
+<rect x="40" y="872" width="1600" height="20" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="886" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">STM32H573 alternative — Fieldbus controller</text>
+<text x="378" y="886" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">STM32H573VIT6 (LQFP100, PSA L3, Zephyr-ready; own layout) instead of PIC32CK2051SG01100 — ESTIMATE: LCSC USD 7.63 vs RS £3.61 at ≈ 100; quote needed — 265</text>
+<text x="1412" y="886" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">265</text>
+<text x="1522" y="886" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">398</text>
+<text x="1632" y="886" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">517</text>
+<rect x="40" y="892" width="1600" height="20" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="906" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">Adapter 12 V 18 W — one per stack, bought in</text>
+<text x="378" y="906" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Certified 12 V 18 W adapter (UNVERIFIED) — 520</text>
+<text x="1412" y="906" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">520</text>
+<text x="1522" y="906" font-size="10" font-weight="normal" text-anchor="end" fill="#1b1f24">780</text>
+<text x="1632" y="906" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">1,014</text>
+<text x="40" y="946" font-size="14" font-weight="bold" text-anchor="start" fill="#1b1f24">Fieldbus controller cost-down — owner request 2026-11-19 (−30 % asked), like for like without Ethernet</text>
+<rect x="40" y="956" width="860" height="28" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="48" y="974.0" font-size="10.5" font-weight="bold" text-anchor="start" fill="#ffffff">Change</text>
+<text x="802" y="974.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#ffffff">Saving</text>
+<text x="818" y="974.0" font-size="10.5" font-weight="bold" text-anchor="start" fill="#ffffff">Status</text>
+<rect x="40" y="984" width="860" height="20" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="998.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Fixed 3.81 mm screw terminals instead of pluggable (incl. CAN port)</text>
+<text x="802" y="998.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−155</text>
+<text x="818" y="998.0" font-size="10" font-weight="normal" text-anchor="start" fill="#c46a00">your call</text>
+<rect x="40" y="1004" width="860" height="20" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1018.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">10 single optocouplers instead of 3× TLP293-4 quads</text>
+<text x="802" y="1018.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−95</text>
+<text x="818" y="1018.0" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">applied</text>
+<rect x="40" y="1024" width="860" height="20" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1038.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">TPS2H160 dual for outputs 9–10 instead of a third quad switch</text>
+<text x="802" y="1038.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−60</text>
+<text x="818" y="1038.0" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">applied</text>
+<rect x="40" y="1044" width="860" height="20" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1058.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Lower-cost 0.1 % 2.5 V reference instead of LM4040</text>
+<text x="802" y="1058.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−35</text>
+<text x="818" y="1058.0" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">applied</text>
+<rect x="40" y="1064" width="860" height="20" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1078.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Shared analog common: 35 → 32 terminal poles</text>
+<text x="802" y="1078.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−19</text>
+<text x="818" y="1078.0" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">applied</text>
+<rect x="40" y="1084" width="860" height="20" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1098.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">64 Mbit instead of 128 Mbit QSPI NOR</text>
+<text x="802" y="1098.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−17</text>
+<text x="818" y="1098.0" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">applied</text>
+<rect x="40" y="1104" width="860" height="20" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1118.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">PIC32CK2051SG01 instead of STM32H533 (owner, standard for now; ESTIMATE)</text>
+<text x="802" y="1118.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−56</text>
+<text x="818" y="1118.0" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">applied</text>
+<rect x="40" y="1124" width="860" height="20" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1138.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Power stage on the module PCB (≈ 85) instead of the plug-in power module (390); USB-C PD dropped</text>
+<text x="802" y="1138.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−305</text>
+<text x="818" y="1138.0" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">applied</text>
+<rect x="40" y="1144" width="860" height="22" rx="0" fill="#e8f0fb" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="1159.0" font-size="10" font-weight="bold" text-anchor="start" fill="#1b1f24">Total: 2,626 → 3,190 incl. power, excl. enclosure (21 %)</text>
+<text x="802" y="1159.0" font-size="10" font-weight="bold" text-anchor="end" fill="#1b1f24">−742</text>
+<text x="40" y="1182" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">Declined by the owner: 8 DO instead of 10 −92 — together −92 more, which would reach 18 %.</text>
+<text x="940" y="946" font-size="14" font-weight="bold" text-anchor="start" fill="#1b1f24">Notes</text>
+<text x="940" y="968" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">• LoRa selling price INR 1,600 (owner, 2026-11-19), read as price after profit without battery board and adapter: needs</text>
+<text x="952" y="981.2" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">a BOM of ≤ INR 687 at 100 pcs, now 1,109 — a 38 % cut.</text>
+<text x="940" y="994.4000000000001" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">• With Ethernet, incl. power stage and enclosure: 3,670 (limit INR 2,000: over by 1,670); the version without Ethernet</text>
+<text x="952" y="1007.6000000000001" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">is dropped (owner, 2026-11-19).</text>
+<text x="940" y="1020.8000000000002" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">• PIC32CK2051SG01 is the standard MCU for now (owner, 2026-11-19). Open points: no PSA / SESIP certificate (BASE-1 not</text>
+<text x="952" y="1034.0000000000002" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">met); Zephyr has no PIC32CK Ethernet, CAN or ADC driver yet (R12) — drivers to write or ThreadX; STM32H573 stays as</text>
+<text x="952" y="1047.2000000000003" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">the alternative.</text>
+<text x="940" y="1060.4000000000003" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">• LoRa redesigned as a remote IO node (owner, 2026-11-19): STM32WLE5 at INR 250, 2-layer PCB, no external flash, RS-485</text>
+<text x="952" y="1073.6000000000004" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">+ 4 DI + 4 AI + 4 DO (low-power high-side quad), SMA antenna kept for long range — BOM 1,109. Tip: volume quotes (≈</text>
+<text x="952" y="1086.8000000000004" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">−10 %) → ≈ 998; no relays: their coils would drain the battery.</text>
+<text x="940" y="1100.0000000000005" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">• Tip — every module: this is a high-volume product, so negotiate the big parts with distributors (modem, ESP32-C6</text>
+<text x="952" y="1113.2000000000005" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">module, MCUs, isolated transceivers, enclosures); the BOMs here are still research prices × 1.3 at 100 units.</text>
+<text x="940" y="1126.4000000000005" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">• Adapter (owner, 2026-11-18): one 12 V 18 W adapter per stack or standalone module; a full 4-module stack peaks at ≈</text>
+<text x="952" y="1139.6000000000006" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">13–14 W with charging capped at 0.3 A per battery board.</text>
+<text x="940" y="1152.8000000000006" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">• Not included: development amortisation — at 100 pieces every INR 1 lakh of NRE per module type adds INR 1,000 to its</text>
+<text x="952" y="1166.0000000000007" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">cost and ≈ INR 1,300 to its price after profit; distributor margin (left to the client / partner).</text>
+</svg>

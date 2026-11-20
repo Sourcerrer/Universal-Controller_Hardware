@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 1680 1188" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#33414f"/></marker></defs>
+<rect x="0" y="0" width="1680" height="1188" rx="0" fill="#ffffff" stroke="none" stroke-width="1.4"/>
+<rect x="20" y="20" width="1640" height="1148" rx="0" fill="none" stroke="#33414f" stroke-width="1.5"/>
+<text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Software and security architecture</text>
+<text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Firmware on each unit, protocols, IO sharing, updates and the security model. Internal reference — not part of the customer spec sheet.</text>
+<text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<g transform="translate(0,24)">
+<text x="40" y="104" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Firmware per unit</text>
+<rect x="40" y="120" width="760" height="88.2" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.6"/>
+<text x="48" y="137" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2f5fb3">Fieldbus-controller module (coordinator when fitted)</text>
+<text x="48" y="151" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr RTOS (LTS) on STM32H533 / H573</text>
+<text x="48" y="165.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">TF-M secure world: keys, crypto, attestation (PSA L3)</text>
+<text x="48" y="179.60000000000002" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">MCUboot: signed + encrypted A/B images, anti-rollback</text>
+<text x="48" y="193.90000000000003" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">IO server, Modbus RTU / TCP, CAN-FD (J1939, CANopen), MQTT / HTTPS client, update orchestrator for all modules</text>
+<rect x="40" y="218.2" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="48" y="235.2" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">Wi-Fi + BLE module</text>
+<text x="48" y="249.2" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr on ESP32-C6</text>
+<text x="48" y="263.5" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Secure Boot v2, flash encryption, JTAG disabled by eFuse</text>
+<text x="48" y="277.8" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Network co-processor: carries encrypted traffic only</text>
+<rect x="40" y="302.1" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="48" y="319.1" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">LoRa module</text>
+<text x="48" y="333.1" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr on STM32WLE5</text>
+<text x="48" y="347.40000000000003" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits</text>
+<text x="48" y="361.70000000000005" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Node IO: RS-485 + 4 DI + 4 DO + 4 AI</text>
+<rect x="40" y="386.0" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="48" y="403.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">4G modem card (Tier 1)</text>
+<text x="48" y="417.0" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Quectel standard firmware only — no code of ours</text>
+<text x="48" y="431.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Quectel FOTA for modem updates</text>
+<text x="48" y="445.6" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Untrusted pipe: TLS ends in the coordinator (SEC-8)</text>
+<rect x="40" y="469.9" width="760" height="73.9" rx="6" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.6"/>
+<text x="48" y="486.9" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">4G router (Tier 2, standalone)</text>
+<text x="48" y="500.9" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Linux: Yocto or OpenWrt (R18)</text>
+<text x="48" y="515.1999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Secure boot, signed A/B updates (SWUpdate / RAUC or sysupgrade), CIP / LTS kernel</text>
+<text x="48" y="529.4999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Router functions: NAT, firewall, VPN, web UI</text>
+<text x="840" y="104" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Functions</text>
+<rect x="840" y="120" width="170" height="44" rx="0" fill="#eef2f6" stroke="#c9d0d8" stroke-width="0.8"/>
+<rect x="1010" y="120" width="630" height="44" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="848" y="138" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Operating system</text>
+<text x="1018" y="138" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr RTOS on the Fieldbus controller, Wi-Fi + BLE and LoRa modules, with long-term security</text>
+<text x="1018" y="153" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">maintenance; Quectel firmware on the Tier-1 4G card; Linux only in the Tier-2 router</text>
+<rect x="840" y="164" width="170" height="29" rx="0" fill="#eef2f6" stroke="#c9d0d8" stroke-width="0.8"/>
+<rect x="1010" y="164" width="630" height="29" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="848" y="182" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Field protocols</text>
+<text x="1018" y="182" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Modbus RTU and Modbus TCP (master and slave); J1939 and CANopen; LoRaWAN; DLMS client planned</text>
+<rect x="840" y="193" width="170" height="29" rx="0" fill="#eef2f6" stroke="#c9d0d8" stroke-width="0.8"/>
+<rect x="1010" y="193" width="630" height="29" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="848" y="211" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Cloud</text>
+<text x="1018" y="211" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">MQTT over TLS, HTTPS (JSON), several servers in parallel, SMS alarms, NTP time sync</text>
+<rect x="840" y="222" width="170" height="44" rx="0" fill="#eef2f6" stroke="#c9d0d8" stroke-width="0.8"/>
+<rect x="1010" y="222" width="630" height="44" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="848" y="240" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Shared IO</text>
+<text x="1018" y="240" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">All controller IO is available to every module; each output has one authorised owner and falls</text>
+<text x="1018" y="255" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">to a safe state on any fault (IO-6, page 2)</text>
+<rect x="840" y="266" width="170" height="44" rx="0" fill="#eef2f6" stroke="#c9d0d8" stroke-width="0.8"/>
+<rect x="1010" y="266" width="630" height="44" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="848" y="284" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Updates</text>
+<text x="1018" y="284" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Signed, encrypted over-the-air updates with automatic rollback; the coordinator orchestrates</text>
+<text x="1018" y="299" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">updates for every module</text>
+<rect x="840" y="310" width="170" height="59" rx="0" fill="#eef2f6" stroke="#c9d0d8" stroke-width="0.8"/>
+<rect x="1010" y="310" width="630" height="59" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="848" y="328" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Security</text>
+<text x="1018" y="328" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Hardware root of trust, secure boot, unique device identity, mutually authenticated TLS, module</text>
+<text x="1018" y="343" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">authentication, locked debug ports, no default passwords, published vulnerability-handling</text>
+<text x="1018" y="358" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">process</text>
+<text x="840" y="399" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Security lifecycle (SEC-8 to SEC-10)</text>
+<text x="840" y="421" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The coordinator is the trusted element; TLS terminates in it (Fieldbus controller TrustZone, PSA L3; else ESP32-C6, PSA</text>
+<text x="852" y="435.52" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">L2); radio modules only carry encrypted traffic.</text>
+<text x="840" y="450.03999999999996" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Modules are enrolled with a key at manufacture and authenticated before they get IO access.</text>
+<text x="840" y="464.55999999999995" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Support period at least 5 years; SBOM per release; CVE monitoring of Zephyr, Mbed TLS, ESP-IDF, vendor HALs and the Quectel</text>
+<text x="852" y="479.0799999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">firmware.</text>
+<text x="840" y="493.5999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Security contact and coordinated disclosure; CRA incident reporting (24 h / 72 h) in the global phase.</text>
+<text x="840" y="508.1199999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Secure development process to IEC 62443-4-1; product targets IEC 62443-4-2 SL2 and EN 18031.</text>
+<text x="840" y="522.6399999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Reuse open-source security components: Zephyr, MCUboot, TF-M, Mbed TLS / PSA Crypto, Eclipse hawkBit; on Linux: Yocto meta-</text>
+<text x="852" y="537.1599999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">security, OP-TEE, CIP kernel, SWUpdate / RAUC.</text>
+</g>
+</svg>

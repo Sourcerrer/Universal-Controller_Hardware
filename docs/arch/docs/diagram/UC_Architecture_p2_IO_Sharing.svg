@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 1680 1188" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#33414f"/></marker></defs>
+<rect x="0" y="0" width="1680" height="1188" rx="0" fill="#ffffff" stroke="none" stroke-width="1.4"/>
+<rect x="20" y="20" width="1640" height="1148" rx="0" fill="none" stroke="#33414f" stroke-width="1.5"/>
+<text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Field IO and how the modules share it</text>
+<text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Each module drives only its own IO; the coordinator (Fieldbus controller, else Wi-Fi + BLE, else LoRa) merges all IO into one image shared over the stack bus</text>
+<text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">(IO-6). Wi-Fi + BLE and LoRa modules add 4 DI, 4 DO and 4 AI each.</text>
+<text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<g transform="translate(0,24)">
+<text x="40" y="106" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Field IO on the Fieldbus-controller module — 24 channels</text>
+<rect x="40" y="122" width="760" height="26" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="46" y="140" font-size="11.5" font-weight="bold" text-anchor="start" fill="#ffffff">Channels</text>
+<text x="166" y="140" font-size="11.5" font-weight="bold" text-anchor="start" fill="#ffffff">Count</text>
+<text x="226" y="140" font-size="11.5" font-weight="bold" text-anchor="start" fill="#ffffff">Signal types</text>
+<text x="466" y="140" font-size="11.5" font-weight="bold" text-anchor="start" fill="#ffffff">Front end (R08)</text>
+<text x="656" y="140" font-size="11.5" font-weight="bold" text-anchor="start" fill="#ffffff">Notes</text>
+<rect x="40" y="148" width="760" height="54" rx="0" fill="#f4f6f8" stroke="#c9d0d8" stroke-width="1"/>
+<text x="46" y="165" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">AI1–AI4 universal</text>
+<text x="46" y="179" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">analog</text>
+<text x="166" y="165" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">4</text>
+<text x="226" y="165" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">0–10 V, 4–20 mA or PT1000, selected</text>
+<text x="226" y="179" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">per channel in software</text>
+<text x="466" y="165" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">MCU ADC with scaling and</text>
+<text x="466" y="179" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">burden network; ADS1115</text>
+<text x="466" y="193" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">16-bit for RTD</text>
+<text x="656" y="165" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Survive 24 V mis-</text>
+<text x="656" y="179" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">wiring and reverse</text>
+<text x="656" y="193" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">polarity (IO-5)</text>
+<rect x="40" y="202" width="760" height="54" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="1"/>
+<text x="46" y="219" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">DI1–DI10 digital</text>
+<text x="46" y="233" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">in</text>
+<text x="166" y="219" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">10</text>
+<text x="226" y="219" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">24 V DC, IEC 61131-2 Type 1/3; dry</text>
+<text x="226" y="233" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">contacts</text>
+<text x="466" y="219" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">10× single optocouplers</text>
+<text x="466" y="233" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">(LTV-217 / EL3H7 class)</text>
+<text x="656" y="219" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">DI1–DI2 also pulse</text>
+<text x="656" y="233" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">counters (energy /</text>
+<text x="656" y="247" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">flow meters)</text>
+<rect x="40" y="256" width="760" height="54" rx="0" fill="#f4f6f8" stroke="#c9d0d8" stroke-width="1"/>
+<text x="46" y="273" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">DO1–DO10 digital</text>
+<text x="46" y="287" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">out</text>
+<text x="166" y="273" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">10</text>
+<text x="226" y="273" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">24 V high-side switch, adjustable</text>
+<text x="226" y="287" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">current limit 0.5–2.5 A</text>
+<text x="466" y="273" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">2× TI TPS274160B quad + 1×</text>
+<text x="466" y="287" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">TPS2H160 dual high-side,</text>
+<text x="466" y="301" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">watchdog gating</text>
+<text x="656" y="273" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Hardware safe state:</text>
+<text x="656" y="287" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">off on MCU hang, reset</text>
+<text x="656" y="301" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">or power loss (IO-4)</text>
+<rect x="40" y="310" width="760" height="40" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="1"/>
+<text x="46" y="327" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Internal</text>
+<text x="46" y="341" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">monitoring</text>
+<text x="166" y="327" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">—</text>
+<text x="226" y="327" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Supply voltage, Li-ion voltage, board</text>
+<text x="226" y="341" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">temperature</text>
+<text x="466" y="327" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">MCU ADC</text>
+<text x="656" y="327" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Feeds alarms and last-</text>
+<text x="656" y="341" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">gasp logic</text>
+<rect x="40" y="350" width="760" height="24" rx="0" fill="#dcf3e0" stroke="#2e8540" stroke-width="1"/>
+<text x="46" y="367" font-size="11" font-weight="bold" text-anchor="start" fill="#1f5e2d">Total: 4 analog in + 10 digital in + 10 digital out = 24 field IO</text>
+<text x="40" y="398" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Examples</text>
+<text x="40" y="420" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Input to cloud</text>
+<text x="52" y="437" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• DI3 changes → its module timestamps it → the coordinator updates the IO image → reports it at the next poll</text>
+<text x="52" y="451.52" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• 4G module reads the change over the stack bus → publishes MQTT over TLS to the cloud</text>
+<text x="40" y="474.03999999999996" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Cloud command to output</text>
+<text x="52" y="491.03999999999996" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Cloud asks for DO2 = ON through the 4G module → module sends a write request on the bus</text>
+<text x="52" y="505.55999999999995" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Coordinator checks: is the requesting module authenticated (keys in the MCU&#x27;s TrustZone secure world) and the</text>
+<text x="64" y="520.0799999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">configured owner of DO2? → drives DO2 → confirms back</text>
+<text x="52" y="534.5999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• If the 4G module stops refreshing its ownership lease, DO2 returns to its safe state</text>
+<text x="40" y="557.1199999999999" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Remote IO via LoRa</text>
+<text x="52" y="574.1199999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• A remote LoRa node reports a tank level → the LoRa module in the stack forwards it to the coordinator</text>
+<text x="52" y="588.6399999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The coordinator stores it as virtual point V-AI1 in the same image → visible to the cloud like a local input</text>
+<text x="40" y="611.1599999999999" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Modbus to a SCADA</text>
+<text x="52" y="628.1599999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The Fieldbus controller&#x27;s RS-485 port acts as Modbus RTU slave: AI / DI / DO mapped to registers</text>
+<text x="52" y="642.6799999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Same owner rules apply: SCADA writes reach a DO only if the RS-485 interface is its configured owner</text>
+<text x="840" y="106" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Sharing model</text>
+<rect x="840" y="130" width="250" height="64" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.4"/>
+<text x="850" y="152" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f5e2d">Field: 4 AI · 10 DI · 10 DO</text>
+<text x="850" y="167.18" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f5e2d">sensors, meters, actuators</text>
+<line x1="965" y1="194" x2="965" y2="236" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="840" y="236" width="250" height="300" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="2"/>
+<text x="850" y="258" font-size="12.5" font-weight="bold" text-anchor="start" fill="#2f5fb3">Coordinator — IO server</text>
+<text x="850" y="278" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Samples inputs, drives outputs, runs</text>
+<text x="850" y="291.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">local logic</text>
+<rect x="852" y="300" width="226" height="112" rx="6" fill="#ffffff" stroke="#2f5fb3" stroke-width="1.4"/>
+<text x="860" y="320" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">IO process image</text>
+<text x="860" y="333.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">values · timestamps · quality</text>
+<text x="860" y="347.72" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">local IO + virtual points (LoRa,</text>
+<text x="860" y="361.58000000000004" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Modbus)</text>
+<text x="860" y="375.44000000000005" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">output owner table + lease timers</text>
+<rect x="852" y="420" width="226" height="52" rx="6" fill="#ffdcdc" stroke="#b32f2f" stroke-width="1.4"/>
+<text x="860" y="440" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">TrustZone secure world:</text>
+<text x="860" y="453.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">authenticates each module before</text>
+<text x="860" y="467.72" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">it may write</text>
+<rect x="852" y="478" width="226" height="50" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="860" y="498" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">TPS3430 watchdog: outputs off if</text>
+<text x="860" y="511.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">this MCU hangs</text>
+<rect x="1170" y="150" width="26" height="500" rx="3" fill="#33414f" stroke="#33414f" stroke-width="1.4"/>
+<text x="1188" y="400" font-size="11" fill="#ffffff" font-weight="bold" transform="rotate(-90 1188 400)" text-anchor="middle">STACK BUS: 4 pins, RS-485</text>
+<line x1="1090" y1="330" x2="1170" y2="330" stroke="#33414f" stroke-width="2.2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="1162" y="318" font-size="10" font-weight="normal" text-anchor="end" fill="#4a5560">broadcast</text>
+<text x="1162" y="348" font-size="10" font-weight="normal" text-anchor="end" fill="#4a5560">cyclic + on change</text>
+<rect x="1240" y="150" width="330" height="104" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.4"/>
+<text x="1250" y="170" font-size="12" font-weight="bold" text-anchor="start" fill="#6b3fb3">4G + Ethernet + Wi-Fi module</text>
+<text x="1250" y="190" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Uplink: MQTT / HTTPS to cloud, Modbus TCP server on</text>
+<text x="1250" y="203.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Ethernet, SMS alarms</text>
+<text x="1250" y="236" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">reads any input · writes only outputs it owns</text>
+<line x1="1196" y1="202" x2="1240" y2="202" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="1240" y="275" width="330" height="104" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.4"/>
+<text x="1250" y="295" font-size="12" font-weight="bold" text-anchor="start" fill="#6b3fb3">Wi-Fi + BLE module</text>
+<text x="1250" y="315" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Uplink over Wi-Fi; BLE commissioning app reads IO</text>
+<text x="1250" y="328.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">and config</text>
+<text x="1250" y="361" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">reads any input · writes only outputs it owns</text>
+<line x1="1196" y1="327" x2="1240" y2="327" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="1240" y="400" width="330" height="104" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.4"/>
+<text x="1250" y="420" font-size="12" font-weight="bold" text-anchor="start" fill="#6b3fb3">LoRa module</text>
+<text x="1250" y="440" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Brings remote node data in as virtual points; sends</text>
+<text x="1250" y="453.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">commands to remote outputs</text>
+<text x="1250" y="486" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">reads any input · writes only outputs it owns</text>
+<line x1="1196" y1="452" x2="1240" y2="452" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="840" y="690" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Sharing rules (proposed — PRD IO-6)</text>
+<text x="840" y="714" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Local hardware: each module reads and drives only its own IO (Fieldbus controller 24 channels; Wi-Fi + BLE 14 plus</text>
+<text x="852" y="729.18" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">RS-485 and CAN; LoRa 12 plus RS-485).</text>
+<text x="840" y="744.3599999999999" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Publish: the coordinator broadcasts the IO process image on the RS-485 stack bus cyclically (rate configurable, for</text>
+<text x="852" y="759.5399999999998" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">example 100 ms) and immediately on change, and pulls IRQ_N for fast events.</text>
+<text x="840" y="774.7199999999998" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Read: any fitted module may read any input, status or virtual point.</text>
+<text x="840" y="789.8999999999997" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Write: each output has exactly one owner at a time — coordinator logic or one named module — set by configuration.</text>
+<text x="852" y="805.0799999999997" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Writes from any other module are rejected and logged.</text>
+<text x="840" y="820.2599999999996" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Trust: only modules authenticated by the coordinator may write (SEC-5); strongest with the Fieldbus controller&#x27;s</text>
+<text x="852" y="835.4399999999996" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">TrustZone (PSA L3). A cloned or rogue module can at most read.</text>
+<text x="840" y="850.6199999999995" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Lease and safe state: the owner refreshes a lease; if it lapses or the bus fails, the output goes to its configured</text>
+<text x="852" y="865.7999999999995" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">safe state. Independently, the hardware watchdog switches all outputs off if the baseboard MCU hangs (IO-4).</text>
+<text x="840" y="880.9799999999994" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Standalone: a module running alone uses its own IO and interfaces; no other module is needed.</text>
+</g>
+</svg>

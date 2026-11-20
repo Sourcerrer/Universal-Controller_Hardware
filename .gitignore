@@ -1,0 +1,31 @@
+# KiCad backups, caches and lock files
+*-backups/
+*.kicad_prl
+*.lck
+~*.lck
+fp-info-cache
+*.bak
+*-bak
+_autosave-*
+\#auto_saved_files#
+
+# Fabrication output (regenerate from KiCad; zip and attach to releases instead)
+fab/
+gerbers/
+production/
+
+# Office lock files
+~$*
+.~lock.*#
+
+# Scripts, editors and OS
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json

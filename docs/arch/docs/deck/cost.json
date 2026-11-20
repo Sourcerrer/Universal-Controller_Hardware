@@ -1,0 +1,105 @@
+{
+ "items": [
+  [
+   "Fieldbus controller (Ethernet standard)",
+   3670,
+   6255,
+   8132
+  ],
+  [
+   "4G modem + GPS (EC200U-CN)",
+   1799,
+   3448,
+   4483
+  ],
+  [
+   "Wi-Fi + BLE",
+   2172,
+   3458,
+   4495
+  ],
+  [
+   "LoRa",
+   1109,
+   1864,
+   2423
+  ],
+  [
+   "Battery + charger board with 18650 cell — optional, per module",
+   205,
+   308,
+   400
+  ],
+  [
+   "Adapter 12 V 18 W — one per stack",
+   520,
+   780,
+   1014
+  ]
+ ],
+ "options": [
+  [
+   "STM32H573 instead of PIC32CK (quote needed)",
+   "Fieldbus controller",
+   265,
+   398,
+   517
+  ]
+ ],
+ "systems": [
+  [
+   "Fieldbus controller, standalone",
+   3670,
+   6255,
+   8132
+  ],
+  [
+   "4G gateway: Fieldbus controller + 4G + GPS",
+   5469,
+   9704,
+   12615
+  ],
+  [
+   "Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE",
+   5842,
+   9713,
+   12627
+  ],
+  [
+   "4G + LoRa gateway: Fieldbus controller + 4G + GPS + LoRa",
+   6578,
+   11567,
+   15037
+  ],
+  [
+   "Full stack: all four modules",
+   8750,
+   15025,
+   19532
+  ],
+  [
+   "LoRa node, standalone",
+   1109,
+   1864,
+   2423
+  ],
+  [
+   "Wi-Fi + BLE node, standalone",
+   2172,
+   3458,
+   4495
+  ],
+  [
+   "4G + GPS, standalone",
+   1799,
+   3448,
+   4483
+  ],
+  [
+   "4G industrial router, RUT200 class (separate product, page 7)",
+   3775,
+   6412,
+   8336
+  ]
+ ]
+}

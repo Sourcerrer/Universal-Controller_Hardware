@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 1680 1188" font-family="DejaVu Sans, Arial, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#33414f"/></marker></defs>
+<rect x="0" y="0" width="1680" height="1188" rx="0" fill="#ffffff" stroke="none" stroke-width="1.4"/>
+<rect x="20" y="20" width="1640" height="1148" rx="0" fill="none" stroke="#33414f" stroke-width="1.5"/>
+<text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Stack bus and power distribution</text>
+<text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">4-pin stack bus (owner, 2026-11-16): power plus one RS-485 pair, passed straight through every module. Connector part and pitch: D-9. Protocol details will be</text>
+<text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">fixed in the specification.</text>
+<text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<g transform="translate(0,24)">
+<text x="40" y="110" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">4-pin stack bus (SYS-11)</text>
+<rect x="40" y="118" width="740" height="28" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
+<text x="46" y="137" font-size="12" font-weight="bold" text-anchor="start" fill="#ffffff">Pin</text>
+<text x="96" y="137" font-size="12" font-weight="bold" text-anchor="start" fill="#ffffff">Signal</text>
+<text x="230" y="137" font-size="12" font-weight="bold" text-anchor="start" fill="#ffffff">Function</text>
+<text x="560" y="137" font-size="12" font-weight="bold" text-anchor="start" fill="#ffffff">Rating</text>
+<rect x="40" y="146" width="740" height="34" rx="0" fill="#ffe8cf" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="50" y="168" font-size="13" font-weight="normal" text-anchor="start" fill="#1b1f24">1</text>
+<text x="96" y="168" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">BUS_V</text>
+<text x="230" y="168" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">5–32 V stack supply, fed by any module (PWR-4)</text>
+<text x="560" y="168" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">≥ 3 A</text>
+<rect x="40" y="180" width="740" height="34" rx="0" fill="#e4e4e4" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="50" y="202" font-size="13" font-weight="normal" text-anchor="start" fill="#1b1f24">2</text>
+<text x="96" y="202" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">GND</text>
+<text x="230" y="202" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">ground and RS-485 reference</text>
+<text x="560" y="202" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">≥ 3 A</text>
+<rect x="40" y="214" width="740" height="34" rx="0" fill="#dbe8ff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="50" y="236" font-size="13" font-weight="normal" text-anchor="start" fill="#1b1f24">3</text>
+<text x="96" y="236" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">RS485_A</text>
+<text x="230" y="236" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">half-duplex stack bus, non-inverting</text>
+<text x="560" y="236" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">≈ 2 Mbit/s</text>
+<rect x="40" y="248" width="740" height="34" rx="0" fill="#dbe8ff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="50" y="270" font-size="13" font-weight="normal" text-anchor="start" fill="#1b1f24">4</text>
+<text x="96" y="270" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">RS485_B</text>
+<text x="230" y="270" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">half-duplex stack bus, inverting</text>
+<text x="560" y="270" font-size="12" font-weight="normal" text-anchor="start" fill="#33414f">120 Ω at both ends</text>
+<text x="40" y="316" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">How the modules talk</text>
+<text x="40" y="336" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Each module drives the bus from a spare UART through a small RS-485 transceiver (≈ INR 26). No extra processor on</text>
+<text x="52" y="350.52" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">the Fieldbus controller, Wi-Fi + BLE or LoRa module.</text>
+<text x="40" y="365.03999999999996" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The elected coordinator (Fieldbus controller &gt; Wi-Fi + BLE &gt; LoRa, SYS-5) only hands out transmit turns, about</text>
+<text x="52" y="379.55999999999995" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">every 20 ms, so only one module transmits at a time.</text>
+<text x="40" y="394.0799999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Discovery by each MCU&#x27;s unique ID; no address switches. Type, hardware revision, serial and firmware version are</text>
+<text x="52" y="408.5999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">reported over the bus (SYS-7).</text>
+<text x="40" y="423.1199999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Load: the shared IO image is about 0.1 Mbit/s. Bulk 4G traffic uses the 4G card&#x27;s own RJ45.</text>
+<text x="40" y="437.6399999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• 4G card: the modem has no MCU of ours, so how it joins the bus is open — D-29 (recommended: a small bus-bridge MCU</text>
+<text x="52" y="452.15999999999985" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">on the card).</text>
+<text x="40" y="466.67999999999984" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Why not I3C or CAN-FD: I3C exists only on the STM32H5 and is a short on-board bus; the ESP32-C6 has classic CAN</text>
+<text x="52" y="481.1999999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">only and the STM32WLE5 has no CAN.</text>
+<text x="40" y="511.7199999999998" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">What the 40-pin bus did — and what replaces it</text>
+<rect x="40" y="521.7199999999998" width="740" height="24" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="537.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">TOKEN slot order</text>
+<text x="260" y="537.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">discovery by unique ID; slot order not known</text>
+<rect x="40" y="545.7199999999998" width="740" height="24" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="561.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">IRQ_N fast events</text>
+<text x="260" y="561.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">published in the module&#x27;s next turn, ≤ ≈ 20 ms</text>
+<rect x="40" y="569.7199999999998" width="740" height="24" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="585.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">Per-slot PWR_EN</text>
+<text x="260" y="585.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">each MCU&#x27;s own watchdog; reset command over the bus</text>
+<rect x="40" y="593.7199999999998" width="740" height="24" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="609.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">PFAIL_N</text>
+<text x="260" y="609.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">power-fail message from the battery host</text>
+<rect x="40" y="617.7199999999998" width="740" height="24" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="633.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">SYNC</text>
+<text x="260" y="633.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">time-sync broadcast</text>
+<rect x="40" y="641.7199999999998" width="740" height="24" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="657.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">GNSS_TX pin</text>
+<text x="260" y="657.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">NMEA over the bus (D-29)</text>
+<rect x="40" y="665.7199999999998" width="740" height="24" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="48" y="681.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">SWD (factory)</text>
+<text x="260" y="681.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">programming over USB-C (MFG-2)</text>
+<text x="40" y="723.7199999999998" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">Publish–subscribe on the bus (SYS-12)</text>
+<rect x="40" y="737.7199999999998" width="64" height="44" rx="4" fill="#5a6470" stroke="#5a6470" stroke-width="1.4"/>
+<text x="48" y="755.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">C</text>
+<text x="48" y="771.7199999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#ffffff">turn grant</text>
+<rect x="110" y="737.7199999999998" width="144" height="44" rx="4" fill="#2f5fb3" stroke="#2f5fb3" stroke-width="1.4"/>
+<text x="118" y="755.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">FC</text>
+<text x="118" y="771.7199999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#ffffff">io/fc/di · io/fc/ai</text>
+<rect x="260" y="737.7199999999998" width="114" height="44" rx="4" fill="#6b3fb3" stroke="#6b3fb3" stroke-width="1.4"/>
+<text x="268" y="755.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">Wi-Fi</text>
+<text x="268" y="771.7199999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#ffffff">io/wifi/di</text>
+<rect x="380" y="737.7199999999998" width="154" height="44" rx="4" fill="#c46a00" stroke="#c46a00" stroke-width="1.4"/>
+<text x="388" y="755.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">LoRa</text>
+<text x="388" y="771.7199999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#ffffff">lora/node17/level</text>
+<rect x="540" y="737.7199999999998" width="104" height="44" rx="4" fill="#1f7f8c" stroke="#1f7f8c" stroke-width="1.4"/>
+<text x="548" y="755.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">4G</text>
+<text x="548" y="771.7199999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#ffffff">cell/status</text>
+<rect x="650" y="737.7199999999998" width="64" height="44" rx="4" fill="#5a6470" stroke="#5a6470" stroke-width="1.4"/>
+<text x="658" y="755.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">C</text>
+<text x="658" y="771.7199999999998" font-size="9.5" font-weight="normal" text-anchor="start" fill="#ffffff">turn grant</text>
+<line x1="40" y1="793.7199999999998" x2="714" y2="793.7199999999998" stroke="#33414f" stroke-width="1.4" marker-end="url(#ar)"/>
+<text x="720" y="797.7199999999998" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">time</text>
+<text x="40" y="811.7199999999998" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">one bus cycle ≈ 20 ms: every module gets one turn; every frame is heard by every module</text>
+<text x="40" y="835.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• In its turn a module publishes frames tagged with a topic (for example io/fc/di). Every module hears every frame</text>
+<text x="52" y="850.2399999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">on the shared pair and keeps only the topics it subscribes to — no relaying through a hub.</text>
+<text x="40" y="864.7599999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Same model inside each module: Zephyr zbus channels, with selected channels bridged onto the bus; the coordinator</text>
+<text x="52" y="879.2799999999997" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">maps bus topics to MQTT topics for the cloud.</text>
+<text x="40" y="893.7999999999997" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Every frame carries a sequence number, CRC and a message authentication code with the stack key handed out by the</text>
+<text x="52" y="908.3199999999997" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">coordinator (SEC-5); output commands are accepted only from the configured owner (IO-6).</text>
+<text x="830" y="110" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Power distribution</text>
+<text x="830" y="140" font-size="12.5" font-weight="bold" text-anchor="start" fill="#23303d">Power stage — on every module PCB (PWR-10, ≈ INR 85)</text>
+<rect x="830" y="150" width="165" height="130" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="838" y="168" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Inputs</text>
+<text x="838" y="186" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">DC terminal 5–32 V</text>
+<text x="838" y="199.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">USB-C 5 V (no PD, owner</text>
+<text x="838" y="213.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">2026-11-19)</text>
+<text x="838" y="226.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">BUS_V via TVS + damping</text>
+<text x="838" y="240.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">(hot-plug ringing ≈ 48</text>
+<text x="838" y="253.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">V)</text>
+<rect x="1025" y="150" width="170" height="130" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1033" y="168" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Protect + OR</text>
+<text x="1033" y="186" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">TVS, reverse FET, PTC</text>
+<text x="1033" y="199.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">fuse</text>
+<text x="1033" y="213.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Schottky OR: terminal ∥</text>
+<text x="1033" y="226.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">USB-C ∥ BUS_V</text>
+<rect x="1230" y="150" width="175" height="56" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1238" y="168" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Buck regulator</text>
+<text x="1238" y="186" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">5–32 V → 5 V</text>
+<rect x="1230" y="216" width="175" height="56" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1238" y="234" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Battery-board socket</text>
+<text x="1238" y="252" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">5 V in / out, I²C, detect</text>
+<rect x="1230" y="282" width="175" height="56" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1238" y="300" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Bus feed</text>
+<text x="1238" y="318" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">PTC-limited → BUS_V</text>
+<rect x="1440" y="150" width="190" height="56" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1448" y="168" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">3.3 V LDO</text>
+<text x="1448" y="186" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">low Iq</text>
+<rect x="1440" y="216" width="190" height="122" rx="6" fill="#eceff3" stroke="#5a6470" stroke-width="1.4"/>
+<text x="1448" y="234" font-size="11.5" font-weight="bold" text-anchor="start" fill="#5a6470">To the logic PCB</text>
+<text x="1448" y="252" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">5 V, 3.3 V, battery I²C +</text>
+<text x="1448" y="265.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">detect, power-fail signal</text>
+<text x="1448" y="279.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">4G card adds its own 3.8 V</text>
+<text x="1448" y="292.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">buck + ≥ 1000 µF (PWR-8)</text>
+<line x1="995" y1="215" x2="1025" y2="215" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="1195" y1="215" x2="1212" y2="215" stroke="#33414f" stroke-width="2"/>
+<line x1="1212" y1="178" x2="1212" y2="310" stroke="#33414f" stroke-width="2"/>
+<line x1="1212" y1="178" x2="1230" y2="178" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="1212" y1="244" x2="1230" y2="244" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="1212" y1="310" x2="1230" y2="310" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="1405" y1="178" x2="1440" y2="178" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="1535" y1="206" x2="1535" y2="216" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="830" y="362" width="800" height="22" rx="3" fill="#33414f" stroke="#33414f" stroke-width="1.4"/>
+<text x="840" y="378" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">4-pin bus through every bridge plug: BUS_V · GND · RS485_A · RS485_B</text>
+<line x1="1317" y1="338" x2="1317" y2="362" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="912" y1="362" x2="912" y2="280" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<text x="830" y="412" font-size="12.5" font-weight="bold" text-anchor="start" fill="#23303d">Battery + charger board — optional, one per module (PWR-2)</text>
+<rect x="830" y="438" width="150" height="70" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="838" y="456" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Adapter</text>
+<text x="838" y="474" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">12 V 18 W, into any</text>
+<text x="838" y="487.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">module</text>
+<rect x="1010" y="438" width="175" height="70" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1018" y="456" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Module</text>
+<text x="1018" y="474" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">its power stage</text>
+<rect x="1215" y="424" width="230" height="100" rx="6" fill="#ffffff" stroke="#c46a00" stroke-width="1.4" stroke-dasharray="7 4"/>
+<text x="1223" y="442" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Battery + charger board</text>
+<text x="1223" y="460" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">TI BQ25601 charger, power path, 5 V</text>
+<text x="1223" y="473.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">boost</text>
+<text x="1223" y="487.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">18650 ≈ 3000 mAh (1S) + protector</text>
+<text x="1223" y="500.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">I²C status, NTC charge limits</text>
+<rect x="1475" y="438" width="155" height="70" rx="6" fill="#ffe8cf" stroke="#c46a00" stroke-width="1.4"/>
+<text x="1483" y="456" font-size="11.5" font-weight="bold" text-anchor="start" fill="#c46a00">Other modules</text>
+<text x="1483" y="474" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">each: own power stage,</text>
+<text x="1483" y="487.5" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">battery board optional</text>
+<line x1="980" y1="473" x2="1010" y2="473" stroke="#33414f" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="1185" y1="473" x2="1215" y2="473" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<polyline points="1097,508 1097,546 1552,546 1552,512" fill="none" stroke="#c46a00" stroke-width="2.4" marker-end="url(#ar)"/>
+<text x="1330" y="541" font-size="10.5" font-weight="bold" text-anchor="middle" fill="#c46a00">BUS_V — stays up on battery</text>
+<text x="830" y="570" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Mains lost: the BQ25601 power path keeps the cell connected and its boost drives the module&#x27;s 5 V rail without a dropout; a</text>
+<text x="842" y="583.86" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">module with a battery can also feed BUS_V. Each module broadcasts a power-fail message on the bus.</text>
+<text x="830" y="597.72" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Every module is also a standalone product, so each can take its own battery board (owner, 2026-11-19). In a stack, charging is</text>
+<text x="842" y="611.58" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">capped at 0.3 A per board so one 12 V 18 W adapter is enough (PWR-3).</text>
+<text x="830" y="656" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Bus limits and rules (R06, R07)</text>
+<text x="830" y="678" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Current through the first bridge carries the whole stack: about 0.83 A at 24 V, 1.67 A at 12 V, 2.22 A at 9 V. Prefer</text>
+<text x="842" y="693.18" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">a 24 V bus; at most 4 modules on a 9 V supply.</text>
+<text x="830" y="708.3599999999999" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Power budget (R06, to be recomputed for the 12 V adapter and the integrated 4G module): about 9 W average, 15–20 W</text>
+<text x="842" y="723.5399999999998" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">peak for a full stack; the 4G module alone peaks near 10.6 W, about 5 W at the bus with local buffering. The external</text>
+<text x="842" y="738.7199999999998" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">adapter is 12 V 18 W: a 4-module stack needs ≈ 13–14 W with charging capped at 0.3 A per battery board.</text>
+<text x="830" y="753.8999999999997" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• The bus is not hot-pluggable. The exposed connector on the end module gets a cap and ESD protection (EMC-3); the bus</text>
+<text x="842" y="769.0799999999997" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">carries SELV only.</text>
+<text x="830" y="784.2599999999996" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Only power and one RS-485 pair cross the bus; each module&#x27;s Ethernet, USB and radios stay local.</text>
+<text x="830" y="799.4399999999996" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Li-ion: cells to IEC 62133-2 / UN 38.3 and BIS IS 16046-2; charging only between 0 and 45 °C, blocked in hot cabinets.</text>
+<text x="830" y="814.6199999999995" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• A power-fail message gives every module early warning to save state and send a last-gasp message.</text>
+<text x="830" y="829.7999999999995" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• 4G module: modem bursts (up to about 2 A at 3.8 V) come from ≥ 1000 µF on its 3.8 V rail behind a current-limited</text>
+<text x="842" y="844.9799999999994" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">buck, so the bus sees a smooth current (PWR-8). Its power stage must pass about 0.9 A at 12 V.</text>
+<text x="830" y="860.1599999999994" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• The supply is never mains: a separate certified 12 V adapter is supplied (PWR-3); relay contacts may switch mains</text>
+<text x="842" y="875.3399999999993" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">loads, isolated by 5 kV from the electronics. With it the bus runs at 12 V (about 1.67 A through the first bridge at</text>
+<text x="842" y="890.5199999999993" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">full load).</text>
+</g>
+</svg>

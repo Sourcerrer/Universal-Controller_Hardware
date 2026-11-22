@@ -2,9 +2,9 @@
  "items": [
   [
    "Fieldbus controller (Ethernet standard)",
-   3670,
-   6255,
-   8132
+   2906,
+   5109,
+   6642
   ],
   [
    "4G modem + GPS (EC200U-CN)",
@@ -14,9 +14,9 @@
   ],
   [
    "Wi-Fi + BLE",
-   2172,
-   3458,
-   4495
+   1962,
+   3143,
+   4086
   ],
   [
    "LoRa",
@@ -49,33 +49,33 @@
  "systems": [
   [
    "Fieldbus controller, standalone",
-   3670,
-   6255,
-   8132
+   2906,
+   5109,
+   6642
   ],
   [
    "4G gateway: Fieldbus controller + 4G + GPS",
-   5469,
-   9704,
-   12615
+   4705,
+   8558,
+   11125
   ],
   [
    "Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE",
-   5842,
-   9713,
-   12627
+   4868,
+   8252,
+   10728
   ],
   [
    "4G + LoRa gateway: Fieldbus controller + 4G + GPS + LoRa",
-   6578,
-   11567,
-   15037
+   5814,
+   10421,
+   13547
   ],
   [
    "Full stack: all four modules",
-   8750,
-   15025,
-   19532
+   7776,
+   13564,
+   17633
   ],
   [
    "LoRa node, standalone",
@@ -85,9 +85,9 @@
   ],
   [
    "Wi-Fi + BLE node, standalone",
-   2172,
-   3458,
-   4495
+   1962,
+   3143,
+   4086
   ],
   [
    "4G + GPS, standalone",

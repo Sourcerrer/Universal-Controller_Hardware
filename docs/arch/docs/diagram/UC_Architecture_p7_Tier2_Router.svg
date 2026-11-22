@@ -6,7 +6,7 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Separate product beside the module family (owner, 2026-11-19): the RUT200 pattern — MediaTek MT7628 router SoC + Quectel EC200A on USB + OpenWrt. Prices at</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">100 units; BOM lines are ESTIMATES from R16 / R18, quotes needed.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units</text>
 <text x="40" y="122" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Front view</text>
 <rect x="122" y="154" width="16" height="26" rx="2" fill="#d4a017" stroke="#8a6a00" stroke-width="1"/>
 <text x="130" y="148" font-size="9.5" font-weight="bold" text-anchor="middle" fill="#8a6a00">LTE main</text>

@@ -6,7 +6,7 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Front view of the device on a DIN rail, each module shown with its cover removed to expose the electronics. Every module has its own enclosure, and works</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">standalone on 5–32 V DC or USB-C 5 V. Each module has its own power stage; an optional plug-in battery + charger board per module. Not to scale.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units</text>
 <rect x="202" y="104" width="1242" height="38" rx="4" fill="#33414f" stroke="#33414f" stroke-width="1.4"/>
 <text x="212" y="119" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">STACK BUS — 4 pins, inside the enclosures: a 4-pin connector on each side wall, neighbours joined by a bridge plug (part: D-9) · not hot-pluggable</text>
 <text x="212" y="135" font-size="10" font-weight="normal" text-anchor="start" fill="#dfe6ee">BUS_V · GND · RS485_A · RS485_B — half-duplex RS-485 at ≈ 2 Mbit/s, polled by the elected coordinator · page 3</text>
@@ -105,8 +105,8 @@
 <text x="226" y="508.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">HSM + TrustZone: unique key, key storage, crypto, secure</text>
 <text x="226" y="521.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">boot; no PSA certificate (D-32)</text>
 <rect x="218" y="540.0" width="368" height="96.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
-<text x="226" y="557.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">Field IO — 26 channels</text>
-<text x="226" y="571.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">4 AI: 0–10 V / 4–20 mA / PT1000 · 10 DI 24 V (2 pulse) · 8</text>
+<text x="226" y="557.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">Field IO — 28 channels</text>
+<text x="226" y="571.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">6 AI: 0–10 V / 4–20 mA / PT1000 · 10 DI 24 V (2 pulse) · 8</text>
 <text x="226" y="584.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">relays 10 A changeover (AC / DC, 5 kV, replaceable fuse</text>
 <text x="226" y="597.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">each) · 4 fast 24 V high-side with current monitoring</text>
 <text x="226" y="610.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">LED per IO · watchdog forces outputs safe · IO image shared</text>

@@ -18,7 +18,7 @@ COL = {   # fill, stroke
     "conn":  ("#e4e4e4", "#3a3a3a"),
 }
 INK = "#1b1f24"
-REV = "Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units"
+REV = "Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units"
 
 
 def esc(s):
@@ -174,7 +174,7 @@ def page1():
                                             "Cortex-M33 120 MHz · HSM + TrustZone · Zephyr drivers to write (D-32)",
                                             "Alternative: STM32H573VIT6 LQFP100 (PSA L3, Zephyr-ready; own layout)"], False),
                  ("sec", "Security — inside the MCU", ["HSM + TrustZone: unique key, key storage, crypto, secure boot; no PSA certificate (D-32)"], False),
-                 ("io", "Field IO — 26 channels", ["4 AI: 0–10 V / 4–20 mA / PT1000 · 10 DI 24 V (2 pulse) · 8 relays 10 A changeover (AC / DC, 5 kV, replaceable fuse each) · 4 fast 24 V high-side with current monitoring",
+                 ("io", "Field IO — 28 channels", ["6 AI: 0–10 V / 4–20 mA / PT1000 · 10 DI 24 V (2 pulse) · 8 relays 10 A changeover (AC / DC, 5 kV, replaceable fuse each) · 4 fast 24 V high-side with current monitoring",
                                                               "LED per IO · watchdog forces outputs safe · IO image shared (p. 2)"], False),
                  ("io", "RS-485 + CAN-FD", ["1× RS-485 (Modbus RTU) · 1× CAN-FD (J1939, CANopen) · both isolated 2.5 kV (owner, 2026-11-19) · switchable termination"], False),
                  ("eth", "Ethernet — standard (BASE-9)", ["MAC in PIC32CK → LAN8720AI → RJ45 with magnetics"], False),
@@ -413,20 +413,22 @@ def page1():
 def page2():
     pg = Page("Field IO and how the modules share it",
               "Each module drives only its own IO; the coordinator (Fieldbus controller, else Wi-Fi + BLE, else LoRa) merges all IO into one image "
-              "shared over the stack bus (IO-6). Wi-Fi + BLE and LoRa modules add 4 DI, 4 DO and 4 AI each.")
+              "shared over the stack bus (IO-6). Wi-Fi + BLE adds 6 DI, 4 DO, 4 AI and 2 relays; LoRa adds 4 DI, 4 DO and 4 AI.")
     pg.p.append('<g transform="translate(0,24)">')
     # IO table
     x0, y0 = 40, 112
     cols = [("Channels", 120), ("Count", 60), ("Signal types", 240), ("Front end (R08)", 190), ("Notes", 150)]
     tw = sum(c[1] for c in cols)
-    pg.text(x0, y0 - 6, "Field IO on the Fieldbus-controller module — 24 channels", 15, "bold")
+    pg.text(x0, y0 - 6, "Field IO on the Fieldbus-controller module — 28 channels", 15, "bold")
     rows = [
-        ("AI1–AI4 universal analog", "4", "0–10 V, 4–20 mA or PT1000, selected per channel in software",
-         "MCU ADC with scaling and burden network; ADS1115 16-bit for RTD", "Survive 24 V mis-wiring and reverse polarity (IO-5)"),
+        ("AI1–AI6 universal analog", "6", "0–10 V, 4–20 mA or PT1000, selected per channel in software",
+         "MCU ADC; quad + dual op-amp buffers, 0.1 % 2.5 V reference (ratiometric PT1000)", "Survive 24 V mis-wiring and reverse polarity (IO-5)"),
         ("DI1–DI10 digital in", "10", "24 V DC, IEC 61131-2 Type 1/3; dry contacts",
          "10× single optocouplers (LTV-217 / EL3H7 class)", "DI1–DI2 also pulse counters (energy / flow meters)"),
-        ("DO1–DO10 digital out", "10", "24 V high-side switch, adjustable current limit 0.5–2.5 A",
-         "2× TI TPS274160B quad + 1× TPS2H160 dual high-side, watchdog gating", "Hardware safe state: off on MCU hang, reset or power loss (IO-4)"),
+        ("RL1–RL8 relay out", "8", "SPDT (NO + NC + COM), 10 A at 230 VAC / 30 VDC, AC or DC loads",
+         "Hongfa / Omron / Panasonic, 5 V coil, 5 kV reinforced; ULN2803 driver, watchdog gating", "10 A fuse per relay, replaceable from the front; 300 V terminals kept apart from SELV (SAF-2)"),
+        ("HS1–HS4 high-side out", "4", "Fast 24 V high-side switch with current monitoring",
+         "TI TPS274160B quad, current sense to the MCU ADC, watchdog gating", "Hardware safe state: off on MCU hang, reset or power loss (IO-4)"),
         ("Internal monitoring", "—", "Supply voltage, Li-ion voltage, board temperature",
          "MCU ADC", "Feeds alarms and last-gasp logic"),
     ]
@@ -448,7 +450,7 @@ def page2():
             cx += cw
         y += rh
     pg.rect(x0, y, tw, 24, "#dcf3e0", "#2e8540", rx=0, sw=1)
-    pg.text(x0 + 6, y + 17, "Total: 4 analog in + 10 digital in + 10 digital out = 24 field IO", 11, "bold", fill="#1f5e2d")
+    pg.text(x0 + 6, y + 17, "Total: 6 analog in + 10 digital in + 8 relays + 4 high-side out = 28 field IO", 11, "bold", fill="#1f5e2d")
     y += 48
 
     # example flows
@@ -457,13 +459,13 @@ def page2():
     flows = [
         ("Input to cloud", ["DI3 changes → its module timestamps it → the coordinator updates the IO image → reports it at the next poll",
                             "4G module reads the change over the stack bus → publishes MQTT over TLS to the cloud"]),
-        ("Cloud command to output", ["Cloud asks for DO2 = ON through the 4G module → module sends a write request on the bus",
-                                     "Coordinator checks: is the requesting module authenticated (keys in the MCU's TrustZone secure world) and the configured owner of DO2? → drives DO2 → confirms back",
-                                     "If the 4G module stops refreshing its ownership lease, DO2 returns to its safe state"]),
+        ("Cloud command to output", ["Cloud asks for relay RL2 = ON through the 4G module → module sends a write request on the bus",
+                                     "Coordinator checks: is the requesting module authenticated (keys in the MCU's TrustZone secure world) and the configured owner of RL2? → drives RL2 → confirms back",
+                                     "If the 4G module stops refreshing its ownership lease, RL2 returns to its safe state"]),
         ("Remote IO via LoRa", ["A remote LoRa node reports a tank level → the LoRa module in the stack forwards it to the coordinator",
                                 "The coordinator stores it as virtual point V-AI1 in the same image → visible to the cloud like a local input"]),
         ("Modbus to a SCADA", ["The Fieldbus controller's RS-485 port acts as Modbus RTU slave: AI / DI / DO mapped to registers",
-                               "Same owner rules apply: SCADA writes reach a DO only if the RS-485 interface is its configured owner"]),
+                               "Same owner rules apply: SCADA writes reach an output only if the RS-485 interface is its configured owner"]),
     ]
     for t, lines in flows:
         pg.text(x0, y, t, 12, "bold", fill="#2f5fb3")
@@ -474,7 +476,7 @@ def page2():
     pg.text(rx0, y0 - 6, "Sharing model", 15, "bold")
     # field
     pg.rect(rx0, 130, 250, 64, "#dcf3e0", "#2e8540")
-    pg.para(rx0 + 10, 152, 235, ["Field: 4 AI · 10 DI · 10 DO", "sensors, meters, actuators"], 11.5, weight="bold", fill="#1f5e2d")
+    pg.para(rx0 + 10, 152, 235, ["Field: 6 AI · 10 DI · 8 RL · 4 HS", "sensors, meters, actuators"], 11.5, weight="bold", fill="#1f5e2d")
     pg.line(rx0 + 125, 194, rx0 + 125, 236, arrow="both", sw=2)
     # baseboard server
     pg.rect(rx0, 236, 250, 300, "#dbe8ff", "#2f5fb3", sw=2)
@@ -486,7 +488,7 @@ def page2():
     pg.rect(rx0 + 12, 420, 226, 52, "#ffdcdc", "#b32f2f")
     pg.para(rx0 + 20, 440, 212, ["TrustZone secure world: authenticates each module before it may write"], 10.5)
     pg.rect(rx0 + 12, 478, 226, 50, "#ffe8cf", "#c46a00")
-    pg.para(rx0 + 20, 498, 212, ["TPS3430 watchdog: outputs off if this MCU hangs"], 10.5)
+    pg.para(rx0 + 20, 498, 212, ["TPS3430 watchdog: relays and outputs off if this MCU hangs"], 10.5)
 
     # bus spine
     sx = rx0 + 330
@@ -516,12 +518,12 @@ def page2():
     ry = 690
     pg.text(rx0, ry, "Sharing rules (proposed — PRD IO-6)", 15, "bold")
     rules = [
-        "Local hardware: each module reads and drives only its own IO (Fieldbus controller 24 channels; Wi-Fi + BLE 14 plus RS-485 and CAN; LoRa 12 plus RS-485).",
-        "Publish: the coordinator broadcasts the IO process image on the RS-485 stack bus cyclically (rate configurable, for example 100 ms) and immediately on change, and pulls IRQ_N for fast events.",
+        "Local hardware: each module reads and drives only its own IO (Fieldbus controller 28 channels; Wi-Fi + BLE 16 plus RS-485 and CAN; LoRa 12 plus RS-485).",
+        "Publish: the coordinator broadcasts the IO process image on the RS-485 stack bus cyclically (rate configurable, for example 100 ms) and immediately on change, in its next transmit turn (≤ ≈ 20 ms).",
         "Read: any fitted module may read any input, status or virtual point.",
         "Write: each output has exactly one owner at a time — coordinator logic or one named module — set by configuration. Writes from any other module are rejected and logged.",
         "Trust: only modules authenticated by the coordinator may write (SEC-5); strongest with the Fieldbus controller's TrustZone (PSA L3). A cloned or rogue module can at most read.",
-        "Lease and safe state: the owner refreshes a lease; if it lapses or the bus fails, the output goes to its configured safe state. Independently, the hardware watchdog switches all outputs off if the baseboard MCU hangs (IO-4).",
+        "Lease and safe state: the owner refreshes a lease; if it lapses or the bus fails, the output goes to its configured safe state. Independently, the hardware watchdog switches all relays and outputs off if its own MCU hangs (IO-4).",
         "Standalone: a module running alone uses its own IO and interfaces; no other module is needed.",
     ]
     pg.para(rx0, ry + 24, W - 40 - rx0 - 10, rules, 11.5, bullet=True)
@@ -671,21 +673,21 @@ BOM = {
     "base": ("Fieldbus controller — logic PCB, with Ethernet (R14; 2026-11-19)", [
         ("MCU Microchip PIC32CK2051SG01100 (standard for now, owner 2026-11-19; Ethernet MAC, HSM + TrustZone), TQFP100-EP + 64 Mbit QSPI NOR (2nd image, log buffer) + RTC crystal + CR2032 backup", 402),
         ("Ethernet, standard: LAN8720AI PHY + 25 MHz crystal + RJ45 with magnetics (Würth / HanRun, < INR 100) ≈ 200 (owner, 2026-11-19, ESTIMATE), ESD + passives ≈ 70", 270),
-        ("4 analog inputs: quad op-amp, 0.1 % resistors, mode FETs, protection, low-cost 0.1 % 2.5 V reference (ESTIMATE)", 153),
+        ("6 analog inputs (owner, 2026-11-22), each 0–10 V / 4–20 mA / PT1000: quad + dual op-amp, 0.1 % resistors, mode FETs, protection, low-cost 0.1 % 2.5 V reference (ESTIMATE)", 218),
         ("10 digital inputs: 10× single optocouplers, LTV-217 / EL3H7 class (ESTIMATE), Type 3 front ends", 84),
-        ("8 relay outputs, 1 changeover (NO + NC) each, 10 A, switching AC or DC (owner, 2026-11-20): Hongfa HF115F-class slim relays with 5 kV reinforced coil-contact isolation (≈ 140 each, LCSC, ESTIMATE), ULN2803 driver, watchdog gating, snubber pads (ESTIMATE)", 1180),
-        ("Replaceable fuse per relay (owner, 2026-11-20; PTCs cannot switch off 230 V AC): 5×20 mm ceramic time-lag 10 A / 250 V in PCB clips, ≈ 25 each (ESTIMATE)", 200),
+        ("8 relay outputs, SPDT (NO + NC), 10 A at 230 VAC / 30 VDC, 5 V coil (owner, 2026-11-20 / 22): Hongfa / Omron / Panasonic, 5 kV reinforced coil-contact isolation, INR 40 each at volume (owner target, 2026-11-22; local quote to follow), ULN2803 driver, watchdog gating, snubber pads (ESTIMATE)", 380),
+        ("Replaceable fuse per relay, changed from outside the module (owner, 2026-11-20 / 22): 5×20 mm ceramic time-lag 10 A / 250 V in a front-access, touch-safe holder with screw / bayonet cap, INR 20 each incl. holder (owner, 2026-11-22)", 160),
         ("4 high-speed 24 V high-side outputs with current monitoring (owner, 2026-11-20): TI TPS274160B quad, current sense to the MCU ADC, TVS, reverse FET (ESTIMATE)", 200),
         ("24 relay terminal poles, 5.08 mm, 300 V / 10 A rated, kept apart from the low-voltage terminals (ESTIMATE ≈ INR 3.5 per pole)", 84),
         ("RS-485, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2092W with integrated isolated DC-DC (LCSC ≈ USD 1.4–2.5; ESTIMATE ≈ 180), SM712 TVS, series PTC, termination switch", 217),
         ("CAN-FD, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2062A (CAN FD ≤ 5 Mbps, integrated isolated DC-DC; ESTIMATE ≈ 180), protection, switchable termination, 3-pole terminal", 216),
         ("USB-C service port + LEDs", 23),
         ("4-pin bus connectors, bridge share, bus RS-485 transceiver, ESD (ESTIMATE)", 59),
-        ("32 fixed 3.81 mm screw terminals, shared analog common (ESTIMATE ≈ INR 2 per pole)", 66),
+        ("36 fixed 3.81 mm screw terminals, shared analog common (ESTIMATE ≈ INR 2 per pole)", 74),
         ("PCB 4-layer", 103),
         ("Power stage on the module PCB (owner, 2026-11-19: no separate DC-DC board): buck 5–32 V → 5 V (TI LMR51420 / SY8xxx class) + 3.3 V LDO ≈ 45; TVS, reverse FET, PTC fuse, Schottky OR with BUS_V ≈ 40 (ESTIMATE)", 85),
         ("Passives", 79),
-        ("Status LED on each of the 26 field IO channels: 4 AI, 10 DI, 8 relays, 4 high-side (ESTIMATE ≈ INR 1.5 each)", 39),
+        ("Status LED on each of the 28 field IO channels: 6 AI, 10 DI, 8 relays, 4 high-side (ESTIMATE ≈ INR 1.5 each)", 42),
         ("Enclosure 90 mm DIN-rail (8 relays + 4 high-side outputs need the width), Indian ABS, V-0 for mains-switching relays (ESTIMATE)", 210)]),
     "eth": ("Ethernet option on baseboard", [
         ("LAN8742AI + Würth RJ45 + ESD + passives (R11)", 913)]),
@@ -717,7 +719,7 @@ BOM = {
         ("Node IO: 6 DI opto, 4 DO high-side + watchdog, 4 AI on ESP32-C6 ADC, terminals (ESTIMATE)", 514),
         ("RS-485 + CAN 2.0, both isolated as standard (owner, 2026-11-19): CA-IS2092W + CA-IS2062A with integrated isolated DC-DC, protection, IO expander, terminals (ESTIMATE)", 558),
         ("Status LED on each of the 16 field IO channels (owner, 2026-11-19; ESTIMATE ≈ INR 1.5 each)", 24),
-        ("2 relay outputs (owner, 2026-11-20): 1 changeover 10 A, AC or DC, Hongfa HF115F-class 5 kV, driver, replaceable 5×20 mm fuse each, 6 terminal poles 300 V (ESTIMATE)", 360)]),
+        ("2 relay outputs (owner, 2026-11-20): SPDT 10 A, 230 VAC / 30 VDC, 5 V coil, Hongfa / Omron / Panasonic 5 kV, INR 40 each at volume (owner, 2026-11-22), driver, 10 A fuse each in a front-access holder at INR 20 (owner, 2026-11-22), 6 terminal poles 300 V (ESTIMATE)", 150)]),
     "lora": ("LoRa module — remote IO node (owner, 2026-11-19)", [
         ("STM32WLE5CCU6 at INR 250 (owner target, high volume, to be negotiated) + TCXO + RF switch + matching; +22 dBm high-power PA (ESTIMATE ≈ 50)", 300),
         ("Power stage on the module PCB: buck 5–32 V → 5 V + 3.3 V LDO, TVS, reverse FET, PTC fuse, Schottky OR (ESTIMATE)", 85),

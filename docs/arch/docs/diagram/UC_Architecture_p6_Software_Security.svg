@@ -5,7 +5,7 @@
 <text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Software and security architecture</text>
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Firmware on each unit, protocols, IO sharing, updates and the security model. Internal reference — not part of the customer spec sheet.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.9 · 2026-11-19 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="104" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Firmware per unit</text>
 <rect x="40" y="120" width="760" height="88.2" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.6"/>

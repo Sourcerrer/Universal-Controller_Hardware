@@ -18,7 +18,7 @@ COL = {   # fill, stroke
     "conn":  ("#e4e4e4", "#3a3a3a"),
 }
 INK = "#1b1f24"
-REV = "Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units"
+REV = "Draft C.27 · 2026-11-23 · PRD 0.5 · prices at 100 units"
 
 
 def esc(s):
@@ -163,22 +163,22 @@ def page1():
         pg.text(x + 15, y + 48, label, 9, "bold", "middle", fill="#2b3138")
 
     mods = [
-        dict(key="base", name="FIELDBUS CONTROLLER (optional)", sub="90 mm · coordinator when fitted · Ethernet standard · 8 relays + 4 high-side outputs", w=400,
+        dict(key="base", name="FIELDBUS CONTROLLER (optional)", sub="90 mm · coordinator when fitted · removable MCU control card · Ethernet standard · 8 relays + 4 high-side outputs", w=400,
              top=[("DC IN\n5–32 V", 2, False), ("RS-485", 3, False), ("CAN-FD", 3, False)],
-             bottom=[("AI1–4", 6, False), ("DI1–10 + COM", 11, False), ("HS 1–4 + 24V", 6, False), ("RELAY 1–8 NO/NC/C", 14, False)],
+             bottom=[("AI1–6", 8, False), ("DI1–10 + COM", 11, False), ("HS 1–4 + 24V", 6, False), ("RELAY 1–8 NO/NC/C", 14, False)],
              leds=[("PWR", "#2ecc71"), ("RUN", "#3498db"), ("ERR", "#e74c3c"), ("BUS", "#f1c40f")],
              front=[("usbc", "USB-C service + 5 V power"), ("rj45", "RJ45 Ethernet")],
              sma=[],
              blocks=[
-                 ("mcu", "Controller MCU — 100-pin", ["PIC32CK2051SG01100 TQFP100 (standard for now, owner 2026-11-19): Ethernet MAC, 2× CAN-FD, HSM + TrustZone",
-                                            "Cortex-M33 120 MHz · HSM + TrustZone · Zephyr drivers to write (D-32)",
+                 ("mcu", "Controller MCU — 100-pin", ["STM32C5A3VGT6 on removable card (H573 later): 144 MHz, Ethernet, 2× CAN-FD",
+                                            "Cortex-M33 144 MHz · crypto, no TrustZone · Zephyr supported",
                                             "Alternative: STM32H573VIT6 LQFP100 (PSA L3, Zephyr-ready; own layout)"], False),
-                 ("sec", "Security — inside the MCU", ["HSM + TrustZone: unique key, key storage, crypto, secure boot; no PSA certificate (D-32)"], False),
+                 ("sec", "Security — inside the MCU", ["Hardware crypto, secure boot (MCUboot), flash protection; no TrustZone — PSA L3 with the STM32H573 card"], False),
                  ("io", "Field IO — 28 channels", ["6 AI: 0–10 V / 4–20 mA / PT1000 · 10 DI 24 V (2 pulse) · 8 relays 10 A changeover (AC / DC, 5 kV, replaceable fuse each) · 4 fast 24 V high-side with current monitoring",
                                                               "LED per IO · watchdog forces outputs safe · IO image shared (p. 2)"], False),
                  ("io", "RS-485 + CAN-FD", ["1× RS-485 (Modbus RTU) · 1× CAN-FD (J1939, CANopen) · both isolated 2.5 kV (owner, 2026-11-19) · switchable termination"], False),
-                 ("eth", "Ethernet — standard (BASE-9)", ["MAC in PIC32CK → LAN8720AI → RJ45 with magnetics"], False),
-                 ("mem", "Storage and time", ["64 Mbit QSPI NOR (2nd firmware image, log buffer) · RTC + CR2032"], False),
+                 ("eth", "Ethernet — standard (BASE-9)", ["MAC in STM32C5A3 → LAN8720AI → RJ45 (no-Ethernet build: option)"], False),
+                 ("mem", "Storage, logging and updates (BASE-6)", ["16 MB QSPI NOR, LittleFS: own OTA image + data log · RTC + CR2032"], False),
              ]),
         dict(key="4g", name="4G MODEM + GPS", sub="45 mm · Quectel EC200U-CN: LTE Cat 1 with built-in GPS · Tier 1 dropped (owner, 2026-11-19)", w=300,
              top=[("DC IN 5–32 V", 2, False)],
@@ -187,8 +187,8 @@ def page1():
              front=[("sim", "nano-SIM"), ("usbc", "USB-C 5 V")],
              sma=["LTE", "GNSS"],
              blocks=[
-                 ("radio", "Quectel EC200U-CN — standard firmware", ["LTE Cat 1 (10 / 5 Mbps), India bands, GSM fallback; no firmware of ours", "4G + GPS in one module ≈ INR 850 (quote needed)", "Joins the 4-pin RS-485 bus through a small bridge on the card (proposed, D-29)"], False),
-                 ("radio", "GPS (CELL-10)", ["Built into the EC200U-CN: GPS, BeiDou, GLONASS, Galileo; no NavIC", "NMEA over the stack bus"], False),
+                 ("radio", "Quectel EC200U-CN — standard firmware", ["LTE Cat 1 (10 / 5 Mbps), India bands, GSM fallback; no firmware of ours", "4G + GPS in one module ≈ INR 850 (quote needed)", "Dedicated UART link to the host module (D-29), not on the RS-485 stack bus"], False),
+                 ("radio", "GPS (CELL-10)", ["Built into the EC200U-CN: GPS, BeiDou, GLONASS, Galileo; no NavIC", "NMEA over the dedicated UART link"], False),
                  ("power", "Modem rail — on this card (PWR-8)", ["Current-limited 3.8 V buck + ≥ 1000 µF for transmit bursts"], False),
              ]),
         dict(key="wifi", name="WI-FI + BLE", sub="45 mm · node IO + 2 relays", w=250,
@@ -198,7 +198,7 @@ def page1():
              front=[("usbc", "USB-C 5 V power")],
              sma=["Wi-Fi / BLE"],
              blocks=[
-                 ("radio", "Radio", ["ESP32-C6-MINI-1-N4, PCB antenna, pre-certified (MINI-1U + external antenna for metal cabinets)",
+                 ("radio", "Radio", ["ESP32-C6-WROOM-1-N8 (8 MB; N16 option), PCB antenna, pre-certified (WROOM-1U for an external antenna)",
                                      "Wi-Fi 6 · BLE 5 · 802.15.4 · secure boot"], False),
                  ("io", "Node IO (WB-5, WB-6)", ["6 DI · 4 DO + watchdog · 4 AI · 2 relays 10 A changeover (AC / DC)", "Isolated RS-485 · isolated CAN 2.0 (TWAI) · I²C IO expander · LED per IO"], False),
              ]),
@@ -211,7 +211,7 @@ def page1():
              blocks=[
                  ("radio", "LoRa radio + MCU", ["STM32WLE5CC chip-down; pre-certified RAK3172-T module for pilots (≈ +INR 455)",
                                                 "Private star network; firmware enforces India e.r.p. limits", "Adaptive data rate: ≈ 0.3 kbps (SF12, longest range) to ≈ 37–62 kbps (SF5, 500 kHz); FSK to 300 kbps short range"], False),
-                 ("mem", "OTA", ["A/B update inside the 256 KB on-chip flash (firmware ≤ ≈ 100 KB); no external flash"], False),
+                 ("mem", "Own OTA and data log", ["16 MB QSPI NOR: OTA image (LoRaWAN FUOTA or USB-C) + LittleFS log"], False),
                  ("io", "Node IO — on the LoRa module (LORA-6)", ["RS-485 · 4 DI 24 V isolated · 4 AI 0–10 V / 4–20 mA · 4 DO 24 V low-power high-side (TPS274160B), watchdog-gated · one small RUN LED, ≈ 0.3 mA via ≈ 4.7 kΩ, short heartbeat blink"], False),
              ]),
     ]
@@ -560,8 +560,8 @@ def page3():
         "Each module drives the bus from a spare UART through a small RS-485 transceiver (≈ INR 26). No extra processor on the Fieldbus controller, Wi-Fi + BLE or LoRa module.",
         "The elected coordinator (Fieldbus controller > Wi-Fi + BLE > LoRa, SYS-5) only hands out transmit turns, about every 20 ms, so only one module transmits at a time.",
         "Discovery by each MCU's unique ID; no address switches. Type, hardware revision, serial and firmware version are reported over the bus (SYS-7).",
-        "Load: the shared IO image is about 0.1 Mbit/s. Bulk 4G traffic uses the 4G card's own RJ45.",
-        "4G card: the modem has no MCU of ours, so how it joins the bus is open — D-29 (recommended: a small bus-bridge MCU on the card).",
+        "Load: the shared IO image is about 0.1 Mbit/s. 4G traffic does not use this bus.",
+        "4G modem card and GPS-only card: dedicated UART link to the host module (owner, 2026-11-23, D-29): TX, RX, RTS, CTS, PWRKEY, RESET on a small connector beside the 4-pin bus; ≈ 921.6 kbit/s (≈ 0.7 Mbit/s usable); USB dropped.",
         "Why not I3C or CAN-FD: I3C exists only on the STM32H5 and is a short on-board bus; the ESP32-C6 has classic CAN only and the STM32WLE5 has no CAN.",
     ], 11, bullet=True)
     ny += 16
@@ -571,7 +571,7 @@ def page3():
             ("Per-slot PWR_EN", "each MCU's own watchdog; reset command over the bus"),
             ("PFAIL_N", "power-fail message from the battery host"),
             ("SYNC", "time-sync broadcast"),
-            ("GNSS_TX pin", "NMEA over the bus (D-29)"),
+            ("GNSS_TX pin", "NMEA over the dedicated 4G / GPS UART link (D-29)"),
             ("SWD (factory)", "programming over USB-C (MFG-2)")]
     ty = ny + 10
     for k, (o, r) in enumerate(rows):
@@ -670,8 +670,8 @@ def page3():
 # until 100-unit quotes exist, rounded per line so every module total is unchanged. Estimates, not quotes.
 MFG, ROY, PROFIT = 0.50, 0.15, 0.30
 BOM = {
-    "base": ("Fieldbus controller — logic PCB, with Ethernet (R14; 2026-11-19)", [
-        ("MCU Microchip PIC32CK2051SG01100 (standard for now, owner 2026-11-19; Ethernet MAC, HSM + TrustZone), TQFP100-EP + 64 Mbit QSPI NOR (2nd image, log buffer) + RTC crystal + CR2032 backup", 402),
+    "base": ("Fieldbus controller — logic PCB, with Ethernet (default, owner 2026-11-23)", [
+        ("MCU STM32C5A3VGT6 for now (owner, 2026-11-22; STM32H573 card later): Cortex-M33 144 MHz, Ethernet MAC, 2× CAN-FD, crypto, no TrustZone, 1 MB / 256 KB; ≈ INR 300 at 100 (ESTIMATE between ST eStore USD 2.79 at 500 and DigiKey India ≈ 515–548 small qty; DigiKey India 113 in stock) LQFP100 + 128 Mbit (16 MB) QSPI NOR running a LittleFS file system for data logging + 2nd firmware image (owner, 2026-11-23; W25Q128JV class, +17) + RTC crystal + CR2032 backup", 391),
         ("Ethernet, standard: LAN8720AI PHY + 25 MHz crystal + RJ45 with magnetics (Würth / HanRun, < INR 100) ≈ 200 (owner, 2026-11-19, ESTIMATE), ESD + passives ≈ 70", 270),
         ("6 analog inputs (owner, 2026-11-22), each 0–10 V / 4–20 mA / PT1000: quad + dual op-amp, 0.1 % resistors, mode FETs, protection, low-cost 0.1 % 2.5 V reference (ESTIMATE)", 218),
         ("10 digital inputs: 10× single optocouplers, LTV-217 / EL3H7 class (ESTIMATE), Type 3 front ends", 84),
@@ -680,11 +680,12 @@ BOM = {
         ("4 high-speed 24 V high-side outputs with current monitoring (owner, 2026-11-20): TI TPS274160B quad, current sense to the MCU ADC, TVS, reverse FET (ESTIMATE)", 200),
         ("24 relay terminal poles, 5.08 mm, 300 V / 10 A rated, kept apart from the low-voltage terminals (ESTIMATE ≈ INR 3.5 per pole)", 84),
         ("RS-485, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2092W with integrated isolated DC-DC (LCSC ≈ USD 1.4–2.5; ESTIMATE ≈ 180), SM712 TVS, series PTC, termination switch", 217),
-        ("CAN-FD, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2062A (CAN FD ≤ 5 Mbps, integrated isolated DC-DC; ESTIMATE ≈ 180), protection, switchable termination, 3-pole terminal", 216),
+        ("CAN-FD, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2062A (CAN FD ≤ 5 Mbps, integrated isolated DC-DC; LCSC USD 1.16 at 100 ≈ INR 109), protection, switchable termination, 3-pole terminal", 145),
         ("USB-C service port + LEDs", 23),
         ("4-pin bus connectors, bridge share, bus RS-485 transceiver, ESD (ESTIMATE)", 59),
         ("36 fixed 3.81 mm screw terminals, shared analog common (ESTIMATE ≈ INR 2 per pole)", 74),
         ("PCB 4-layer", 103),
+        ("Removable control card (owner, 2026-11-22: MCU sourcing unstable): MCU, crystals, Ethernet PHY + RJ45, USB-C and MCU LED on a plug-in card; 2.54 mm berg strip pair, 2×25 = 50 pins, gold-plated male on the card + female on the base card (owner, 2026-11-22), price from the owner's quote, placeholder ≈ 40 + small 4-layer card PCB ≈ 40 + M3 standoffs and screws for 10 g ≈ 10 (ESTIMATE)", 90),
         ("Power stage on the module PCB (owner, 2026-11-19: no separate DC-DC board): buck 5–32 V → 5 V (TI LMR51420 / SY8xxx class) + 3.3 V LDO ≈ 45; TVS, reverse FET, PTC fuse, Schottky OR with BUS_V ≈ 40 (ESTIMATE)", 85),
         ("Passives", 79),
         ("Status LED on each of the 28 field IO channels: 6 AI, 10 DI, 8 relays, 4 high-side (ESTIMATE ≈ INR 1.5 each)", 42),
@@ -711,7 +712,7 @@ BOM = {
     "4g_gnss": ("GNSS option on 4G card (R17)", [
         ("LC29HAIMD GPS + NavIC receiver, antenna, SMA, support parts (R17)", 1320)]),
     "wifi": ("Wi-Fi + BLE module", [
-        ("ESP32-C6-MINI-1-N4, PCB antenna (R03)", 313),
+        ("ESP32-C6-WROOM-1-N8 (owner, 2026-11-23): 8 MB flash — two OTA slots + ≈ 4 MB data log; PCB antenna, pre-certified, 18 × 25.5 mm, −40…85 °C; LCSC USD 3.26–3.32 at 100 ≈ INR 310 (5,631 in stock); WROOM-1U-N8 for an external antenna", 310),
         ("Power stage on the module PCB (owner, 2026-11-19: no separate DC-DC board): buck 5–32 V → 5 V (TI LMR51420 / SY8xxx class) + 3.3 V LDO ≈ 45; TVS, reverse FET, PTC fuse, Schottky OR with BUS_V ≈ 40 (ESTIMATE)", 85),
         ("4-pin bus connectors + bridge share + RS-485 bus transceiver + ESD (ESTIMATE)", 58),
         ("PCB 4-layer, passives, LEDs", 130),
@@ -722,6 +723,7 @@ BOM = {
         ("2 relay outputs (owner, 2026-11-20): SPDT 10 A, 230 VAC / 30 VDC, 5 V coil, Hongfa / Omron / Panasonic 5 kV, INR 40 each at volume (owner, 2026-11-22), driver, 10 A fuse each in a front-access holder at INR 20 (owner, 2026-11-22), 6 terminal poles 300 V (ESTIMATE)", 150)]),
     "lora": ("LoRa module — remote IO node (owner, 2026-11-19)", [
         ("STM32WLE5CCU6 at INR 250 (owner target, high volume, to be negotiated) + TCXO + RF switch + matching; +22 dBm high-power PA (ESTIMATE ≈ 50)", 300),
+        ("16 MB QSPI NOR, same part as the Fieldbus controller (W25Q128 class): own OTA slot + LittleFS data log, deep power-down ≈ 1 µA (owner, 2026-11-23; ESTIMATE)", 45),
         ("Power stage on the module PCB: buck 5–32 V → 5 V + 3.3 V LDO, TVS, reverse FET, PTC fuse, Schottky OR (ESTIMATE)", 85),
         ("External antenna + SMA for long range (owner: \"high throughput long range\")", 78),
         ("4-pin bus connectors + bridge share + RS-485 bus transceiver + ESD (ESTIMATE)", 59),
@@ -731,8 +733,17 @@ BOM = {
         ("4 DO 24 V high-side (owner, 2026-11-19: remote switching, low power — no relays): 1× TI TPS274160B quad (LCSC USD 1.53 at 100), µA standby, loads fed from the field 24 V, watchdog gating, TVS, terminals; no IO LEDs (ESTIMATE)", 194)]),
     "pwr": ("Power stage — now on every module PCB (no separate board)", [
         ("Counted in each module", 0)]),
-    "base_pic": ("STM32H573VIT6 instead of PIC32CK — Fieldbus controller, difference", [
-        ("STM32H573VIT6 (LQFP100, PSA L3, Zephyr-ready; own layout) instead of PIC32CK2051SG01100 — ESTIMATE: LCSC USD 7.63 vs RS £3.61 at ≈ 100; quote needed", 265)]),
+    "base_pic": ("STM32H573VIT6 control card instead of STM32C5A3VGT6 — Fieldbus controller, difference", [
+        ("STM32H573VIT6 (250 MHz, TrustZone, PSA L3; own control-card layout) instead of STM32C5A3VGT6 — ≈ INR 522 vs ≈ 300", 222)]),
+    "gps": ("GPS-only modem card — option (owner, 2026-11-23; D-40)", [
+        ("GNSS receiver, Quectel L76K class: GPS + GLONASS + BeiDou, NMEA over UART (ESTIMATE; NavIC receiver L89HA / LC29H class ≈ +900)", 300),
+        ("Active GNSS antenna + SMA (as on the 4G card, ESTIMATE)", 130),
+        ("Dedicated UART connector to the host module + ESD (ESTIMATE)", 40),
+        ("PCB 2-layer, passives, LEDs (ESTIMATE)", 60),
+        ("Power stage on the module PCB: buck + LDO, TVS, reverse FET, PTC fuse, Schottky OR (ESTIMATE)", 85),
+        ("Enclosure 45 mm, Indian ABS (as the 4G card)", 130)]),
+    "wifi_n16": ("ESP32-C6-WROOM-1-N16 instead of N8 — Wi-Fi + BLE, difference", [
+        ("16 MB flash: ≈ 12 MB data log instead of ≈ 4 MB; ≈ INR 385–442 at 100 (Elecrow USD 4.10, Xonelec USD 4.70) vs ≈ 310 (ESTIMATE)", 100)]),
     "fb_removed": ("Fieldbus module (removed)", [
         ("STM32G0B1 (R05)", 195),
         ("Isolated CAN-FD + RS-485, isolated DC-DC, port protection (R05, no Mornsun)", 429),
@@ -740,8 +751,9 @@ BOM = {
         ("Bus receptacles + bridge plug (R07 est.)", 520),
         ("PCB, misc.", 182),
         ("Enclosure 22.5 mm (UNVERIFIED)", 195)]),
-    "base_noeth": ("Fieldbus controller without Ethernet — difference", [
-        ("No PHY + crystal, magnetics + RJ45, ESD", -270)]),
+    "base_noeth": ("Fieldbus controller without Ethernet, low cost, not secure — difference (owner, 2026-11-23)", [
+        ("No PHY + crystal, magnetics + RJ45, ESD", -270),
+        ("STM32H523VET6 (250 MHz, 2× CAN-FD, no Ethernet, no crypto; ≈ INR 293, DigiKey ≈ 1,588 in stock) instead of STM32C5A3VGT6 (≈ 300)", -7)]),
     "t2": ("Tier-2 4G router — MP135F + Zephyr companion MCU (R20)", [
         ("STM32MP135FAE7 (1 GHz secure) + STM32H533 companion, DDR3L, SPI-NAND, EC200A, Wi-Fi, 2× Ethernet, isolated RS-485, DI/DO, aluminium case (R20)", 7615)]),
     "t2lite": ("Tier-2 4G router — Lite (R18)", [
@@ -776,8 +788,8 @@ def bom(k):
 
 
 
-ROY_FIXED = {"4g0": 750, "wifi_lean": 200, "lora_lean": 100, "t2": 750, "t2lite": 750, "t2gnss": 750, "base": 750, "4g": 750, "rut": 750, "4g2g": 750, "lora": 200, "lorac": 100, "wifi": 200}  # owner, 2026-11-14: flat royalties (INR)
-ROY_NONE = {"eth", "se", "base_noeth", "4g_gnss", "batt", "adapter", "adapter_m", "pwr", "base_pic", "4g_noeth"}  # hardware-only options and the bought-in adapter
+ROY_FIXED = {"4g0": 750, "wifi_lean": 200, "lora_lean": 100, "t2": 750, "t2lite": 750, "t2gnss": 750, "base": 1250, "4g": 750, "rut": 750, "4g2g": 750, "lora": 200, "lorac": 100, "wifi": 200}  # owner, 2026-11-14: flat royalties (INR)
+ROY_NONE = {"wifi_n16", "gps", "eth", "se", "base_noeth", "4g_gnss", "batt", "adapter", "adapter_m", "pwr", "base_pic", "4g_noeth"}  # hardware-only options and the bought-in adapter
 
 
 def build_keys(keys):
@@ -809,6 +821,7 @@ COLKEYS = {"base": ["base"], "4g": ["4g"],
 COLKIND = {"base": "mcu", "4g": "radio", "wifi": "eth", "lora": "io", "pwr": "power", "batt": "power"}
 MODCOL = {"base": "base", "4g": "4g", "wifi": "wifi", "lora": "lora"}   # version used in the combination rows
 ROY_INITIAL, INITIAL_N = 2000, 20   # owner, 2026-11-19: firmware royalty INR 2,000 per device for the first 20 devices of every module
+HW_ROY = {"base": 500}   # owner, 2026-11-22: hardware royalty INR 500 per Fieldbus controller, on top of the firmware royalty (in ROY_FIXED["base"] = 750 + 500)
 TARGET = {"lora": 1600}   # owner, 2026-11-19: LoRa module selling price (price after profit, without battery board and adapter)
 # price break-up segments: grey = what it costs us, amber = what we keep
 SEGS = [("BOM (100 pcs)", 0, "#33414f"), ("Mfg, packing, logistics 50 %", 1, "#8fa1b3"),
@@ -893,7 +906,8 @@ def page4():
                 if k in ("pwr", "batt", "adapter"):
                     put(x1 + lw + j * vw, vw, y, "—", fill=MUTED)
                 else:
-                    v = ROY_INITIAL if idx == "roy20" else (r[k][2] + ROY_INITIAL) * (1 + PROFIT)
+                    ri = ROY_INITIAL + HW_ROY.get(k, 0)
+                    v = ri if idx == "roy20" else (r[k][2] + ri) * (1 + PROFIT)
                     put(x1 + lw + j * vw, vw, y, inr(v), weight="bold" if idx == "p20" else "normal", fill="#c46a00")
                 continue
             if idx == "target":
@@ -914,7 +928,10 @@ def page4():
     pg.text(xa, ya - 10, "Options — add to any row that contains the module", 14, "bold")
     acols = [("Option", aw - 150 - 112, "start"), ("Fits", 150, "start"), ("After profit", 112, "end")]
     ya = header(xa, ya, acols)
-    acc = [("STM32H573 instead of PIC32CK (quote needed)", "Fieldbus controller", build_keys(["base_pic"])),
+    acc = [("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", build_keys(["base_pic"])),
+           ("Without Ethernet — low cost, STM32H523", "Fieldbus controller", build_keys(["base_noeth"])),
+           ("GPS-only modem card (no 4G), dedicated UART link", "Stack, instead of the 4G card", build_keys(["gps"])),
+           ("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", build_keys(["wifi_n16"])),
            ("Battery + charger board with 18650 cell", "Per module", build_keys(["batt"]))]
     for i, (lab, fits, v) in enumerate(acc):
         pg.rect(xa, ya, aw, 22, ALT if i % 2 == 0 else "#ffffff", GRID, rx=0, sw=0.8)
@@ -990,7 +1007,7 @@ def page4():
         f"Adapter not included: add one 12 V 18 W adapter per stack or standalone module — {inr(pre['adapter'])} before profit, "
         f"{inr(r['adapter'][5])} after profit. Options add their price to any row that contains their module.",
         f"Each module has its own power stage on its PCB (≈ INR 85 BOM: buck regulator + input protection). Battery + charger board optional, {inr(r['batt'][5])} after profit per module. "
-        "Firmware royalty per module — INR 2,000 for each of the first 20 devices of every module (owner, 2026-11-19), then 750 Fieldbus controller, 750 4G modem card, 200 Wi-Fi + BLE, 200 LoRa; "
+        "Firmware royalty per module — INR 2,000 for each of the first 20 devices of every module (owner, 2026-11-19), then 750 Fieldbus controller + INR 500 hardware royalty (owner, 2026-11-22; also on the first 20), 750 4G modem card, 200 Wi-Fi + BLE, 200 LoRa; "
         "none on the battery board, adapter or options. The rows below use the royalty after the first 20 devices.",
         "Not included: development amortisation (NRE) and distributor margin — see page 5."], 10.5, fill=SUB, bullet=True)
     pg.save("UC_Architecture_p4_Pricing.svg")
@@ -1049,7 +1066,7 @@ def page5():
     y = header(40, y, acols, h=30)
     dw = acols[1][1]
     t0_items = [it for it in BOM["4g0"][1] if not it[0].startswith("Tier 1 card")]
-    accs = [("STM32H573 alternative — Fieldbus controller", BOM["base_pic"][1], build_keys(["base_pic"])),
+    accs = [("STM32H573 control card — Fieldbus controller, later", BOM["base_pic"][1], build_keys(["base_pic"])),
             ("Adapter 12 V 18 W — one per stack, bought in", BOM["adapter"][1], build_keys(["adapter"]))]
     for i, (lab, items, v) in enumerate(accs):
         parts = wrap("; ".join(f"{l} — {num(x)}" for l, x in items), dw - 16, fs)
@@ -1092,10 +1109,9 @@ def page5():
     notes = [
         f"LoRa selling price INR 1,600 (owner, 2026-11-19), read as price after profit without battery board and adapter: needs a BOM of ≤ INR {inr(lora_ceiling)} "
         f"at 100 pcs, now {inr(bom('lora'))} — a {pct((1 - lora_ceiling / bom('lora')) * 100)} cut.",
-        f"With Ethernet, incl. power stage and enclosure: {inr(bom('base'))} (limit INR 2,000: {'within' if bom('base') + bom('pwr') <= 2000 else 'over by ' + inr(bom('base') + bom('pwr') - 2000)}); the version without Ethernet is dropped (owner, 2026-11-19).",
-        "PIC32CK2051SG01 is the standard MCU for now (owner, 2026-11-19). Open points: no PSA / SESIP certificate (BASE-1 not met); Zephyr has no PIC32CK Ethernet, CAN or ADC driver yet (R12) — "
-        "drivers to write or ThreadX; STM32H573 stays as the alternative.",
-        f"LoRa redesigned as a remote IO node (owner, 2026-11-19): STM32WLE5 at INR 250, 2-layer PCB, no external flash, RS-485 + 4 DI + 4 AI + 4 DO (low-power high-side quad), "
+        f"With Ethernet (default), incl. power stage and enclosure: {inr(bom('base'))} (limit INR 2,000: {'within' if bom('base') + bom('pwr') <= 2000 else 'over by ' + inr(bom('base') + bom('pwr') - 2000)}); low-cost build without Ethernet: {inr(bom('base') + bom('base_noeth'))}.",
+        "MCU: STM32C5A3VGT6 on a removable control card for now (owner, 2026-11-22; no TrustZone); STM32H573VIT6 card later for PSA L3; low-cost build without Ethernet on STM32H523VET6 as an option. PIC32CK dropped (120 MHz, no Zephyr drivers). "
+        f"LoRa redesigned as a remote IO node (owner, 2026-11-19): STM32WLE5 at INR 250, 2-layer PCB, 16 MB QSPI NOR for its own OTA and logging (2026-11-23), RS-485 + 4 DI + 4 AI + 4 DO (low-power high-side quad), "
         f"SMA antenna kept for long range — BOM {inr(bom('lora'))}. Tip: volume quotes (≈ −10 %) → ≈ {inr(bom('lora') * 0.9)}; no relays: their coils would drain the battery.",
         "Tip — every module: this is a high-volume product, so negotiate the big parts with distributors (modem, ESP32-C6 module, MCUs, isolated transceivers, enclosures); "
         "the BOMs here are still research prices × 1.3 at 100 units.",
@@ -1115,10 +1131,11 @@ def page6():
     x0, y0 = 40, 112
     pg.text(x0, y0 - 8, "Firmware per unit", 15, "bold")
     units = [
-        ("Fieldbus-controller module (coordinator when fitted)", "mcu", ["Zephyr RTOS (LTS) on STM32H533 / H573", "TF-M secure world: keys, crypto, attestation (PSA L3)", "MCUboot: signed + encrypted A/B images, anti-rollback",
+        ("Fieldbus-controller module (coordinator when fitted)", "mcu", ["Zephyr RTOS (LTS) on STM32C5A3 now, STM32H573 card later", "TF-M secure world: keys, crypto, attestation (PSA L3, STM32H573 card)", "MCUboot: signed + encrypted images, anti-rollback; own OTA image in the 16 MB QSPI NOR",
+                                          "Data logging: LittleFS store-and-forward, periodic / change of state, erased after server ACK",
                                           "IO server, Modbus RTU / TCP, CAN-FD (J1939, CANopen), MQTT / HTTPS client, update orchestrator for all modules"]),
-        ("Wi-Fi + BLE module", "radio", ["Zephyr on ESP32-C6", "Secure Boot v2, flash encryption, JTAG disabled by eFuse", "Network co-processor: carries encrypted traffic only"]),
-        ("LoRa module", "radio", ["Zephyr on STM32WLE5", "LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits", "Node IO: RS-485 + 4 DI + 4 DO + 4 AI"]),
+        ("Wi-Fi + BLE module", "radio", ["Zephyr on ESP32-C6", "Secure Boot v2, flash encryption, JTAG disabled by eFuse", "OTA and data log in its own ESP32 flash", "Network co-processor: carries encrypted traffic only"]),
+        ("LoRa module", "radio", ["Zephyr on STM32WLE5", "LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits", "Node IO: RS-485 + 4 DI + 4 DO + 4 AI", "Own OTA (LoRaWAN FUOTA / USB-C) and data log in a 16 MB QSPI NOR"]),
         ("4G modem card (Tier 1)", "radio", ["Quectel standard firmware only — no code of ours", "Quectel FOTA for modem updates", "Untrusted pipe: TLS ends in the coordinator (SEC-8)"]),
         ("4G router (Tier 2, standalone)", "eth", ["Linux: Yocto or OpenWrt (R18)", "Secure boot, signed A/B updates (SWUpdate / RAUC or sysupgrade), CIP / LTS kernel", "Router functions: NAT, firewall, VPN, web UI"]),
     ]
@@ -1284,7 +1301,7 @@ def export_costs():
     data = {
         "items": [row("Fieldbus controller (Ethernet standard)", ["base"]), row("4G modem + GPS (EC200U-CN)", ["4g"]), row("Wi-Fi + BLE", ["wifi"]),
                   row("LoRa", ["lora"]), row("Battery + charger board with 18650 cell — optional, per module", ["batt"]), row("Adapter 12 V 18 W — one per stack", ["adapter"])],
-        "options": [delta("STM32H573 instead of PIC32CK (quote needed)", "Fieldbus controller", ["base_pic"])],
+        "options": [delta("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", ["base_pic"]), delta("Without Ethernet — low cost, STM32H523", "Fieldbus controller", ["base_noeth"]), delta("GPS-only modem card (no 4G)", "Stack, instead of the 4G card", ["gps"]), delta("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", ["wifi_n16"])],
         "systems": [row("Fieldbus controller, standalone", ["base"]),
                     row("4G gateway: Fieldbus controller + 4G + GPS", ["base", "4g"]),
                     row("Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE", ["base", "wifi"]),

@@ -6,7 +6,7 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Each module drives only its own IO; the coordinator (Fieldbus controller, else Wi-Fi + BLE, else LoRa) merges all IO into one image shared over the stack bus</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">(IO-6). Wi-Fi + BLE adds 6 DI, 4 DO, 4 AI and 2 relays; LoRa adds 4 DI, 4 DO and 4 AI.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.27 · 2026-11-23 · PRD 0.5 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="106" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Field IO on the Fieldbus-controller module — 28 channels</text>
 <rect x="40" y="122" width="760" height="26" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>

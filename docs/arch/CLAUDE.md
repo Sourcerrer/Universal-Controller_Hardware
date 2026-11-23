@@ -61,11 +61,11 @@ Everything else lives in `docs/`:
 ## Part selection rules (owner)
 
 1. **Reliability and safety come first, ahead of cost.** If a cost target can't be met without weakening them, the target gives way and the gap is reported to the owner.
-2. **Silicon:** ST, NXP, Nordic. ESP32-C6 is tolerated for Wi-Fi + BLE. Fieldbus controller: a 100-pin MCU with **Ethernet as standard**. The STM32H573VIT6 is the main choice, with the STM32H533VET6 for the separate version without Ethernet. The Microchip PIC32CK2051SG01100 is only a lead-time fallback (BASE-9, BASE-10, 2026-11-19).
+2. **Silicon:** ST, NXP, Nordic. ESP32-C6 is tolerated for Wi-Fi + BLE. Fieldbus controller: a 100-pin MCU with **Ethernet as standard**. Speed ≥ 144 MHz (owner, 2026-11-22); MCU chip below INR 500 at 100 units (owner, 2026-11-22). The MCU sits on a removable control card (BASE-11): STM32H573VIT6 main, NXP MCXN947 proposed as the second card (PRD D-38); the version without Ethernet was dropped on 2026-11-19. Ruled out: Microchip PIC32CK (120 MHz, no upstream Zephyr drivers) and Raspberry Pi RP2350 (no Ethernet MAC, no CAN).
 3. **Ethernet only through a MAC inside the host chip**, never an SPI Ethernet controller.
 4. **Mornsun parts are banned.**
 5. Pre-certified radio modules; latest-generation parts with ≥ 5 years longevity; easy to buy in India; second source where possible.
-6. Firmware: Zephyr first, ThreadX second.
+6. Firmware: **upstream Zephyr support is a must** for every MCU we program — the chip and the peripherals we use (owner, 2026-11-22; PRD FW-1). Parts without it are out (PIC32CK, PIC32MZ-W1).
 7. Easy to manufacture at Indian contract manufacturers: standard PCB tech, avoid fine-pitch BGA.
 
 ## Never add parts silently
@@ -75,6 +75,7 @@ When a rule or priority forces extra chips or cost, **stop and state the consequ
 ## Cost rules
 
 - **All prices at 100 units only, in every document and in messages to the owner.** Never show or mention prices at any other quantity (owner, 2026-11-18 and again 2026-11-19: "forget prices at 1k"). The BOM line items in `build_architecture.py` are stored at 100 units (research price × 1.3 until 100-unit quotes exist). Distributor quotes cited as sources keep their own quantity.
+- **Relays and fuses: no online prices** (owner, 2026-11-22) — they are priced only from the owner's local quotes. All other parts may use online distributor prices at 100 units.
 - **Finished cost = BOM × 1.5** (50 % for manufacturing, packing, logistics). Price build-up: BOM → ×1.5 → + NRE ÷ volume → + firmware royalty → price. Exact figures in PRD §4.16.
 - Targets: 4G modem card ≤ INR 1,000 finished cost; Wi-Fi + BLE ≤ INR 600 finished cost; LoRa **selling price INR 1,600** (price after profit, without power module and adapter; 2026-11-19); Fieldbus controller BOM ≤ INR 2,000 (hard limit).
 - Always show the **price before profit** (cost + royalty) and the **price after profit** (ex-works). Price the power module (one per module) and the adapter (one per stack) as separate items, never folded into module prices (owner, 2026-11-19).

@@ -51,7 +51,7 @@ pres.addSection({ title: "Overview" });
   s.addText("Specifications", { placeholder: "title" });
   subtitle(s, "Modular DIN-rail IoT gateway: modules click together side by side, and each also works on its own as a remote node");
   const fam = [
-    ["Fieldbus controller", "90 mm", "Microchip PIC32CK MCU (HSM + TrustZone) · Ethernet · 6 AI, 10 DI · 8 SPDT relays 10 A (front-replaceable fuses) + 4 fast 24 V outputs · isolated RS-485 + CAN-FD · data log"],
+    ["Fieldbus controller", "90 mm", "Removable MCU control card (STM32C5A3 now, STM32H573 later; other MCUs by swapping the card) · Ethernet (low-cost build without it as an option) · 6 AI, 10 DI · 8 SPDT relays 10 A (front-replaceable fuses) + 4 fast 24 V outputs · isolated RS-485 + CAN-FD · data log"],
     ["4G modem card", "45 mm", "Quectel EC200U-CN: LTE Cat 1, GSM fallback, built-in GPS · low cost"],
     ["Wi-Fi + BLE", "45 mm", "ESP32-C6: Wi-Fi 6, BLE 5, 802.15.4 · isolated RS-485 + CAN 2.0 · 6 DI, 4 DO, 4 AI, 2 SPDT relays 10 A"],
     ["LoRa", "45 mm", "STM32WLE5, 865–867 MHz private network, long range · remote IO node: RS-485 · 4 DI, 4 AI, 4 DO"],

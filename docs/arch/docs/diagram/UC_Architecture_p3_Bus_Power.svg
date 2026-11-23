@@ -6,7 +6,7 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">4-pin stack bus (owner, 2026-11-16): power plus one RS-485 pair, passed straight through every module. Connector part and pitch: D-9. Protocol details will be</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">fixed in the specification.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.27 · 2026-11-23 · PRD 0.5 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="110" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">4-pin stack bus (SYS-11)</text>
 <rect x="40" y="118" width="740" height="28" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
@@ -41,9 +41,9 @@
 <text x="52" y="379.55999999999995" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">every 20 ms, so only one module transmits at a time.</text>
 <text x="40" y="394.0799999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Discovery by each MCU&#x27;s unique ID; no address switches. Type, hardware revision, serial and firmware version are</text>
 <text x="52" y="408.5999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">reported over the bus (SYS-7).</text>
-<text x="40" y="423.1199999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Load: the shared IO image is about 0.1 Mbit/s. Bulk 4G traffic uses the 4G card&#x27;s own RJ45.</text>
-<text x="40" y="437.6399999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• 4G card: the modem has no MCU of ours, so how it joins the bus is open — D-29 (recommended: a small bus-bridge MCU</text>
-<text x="52" y="452.15999999999985" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">on the card).</text>
+<text x="40" y="423.1199999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Load: the shared IO image is about 0.1 Mbit/s. 4G traffic does not use this bus.</text>
+<text x="40" y="437.6399999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• 4G modem card and GPS-only card: dedicated UART link to the host module (owner, 2026-11-23, D-29): TX, RX, RTS,</text>
+<text x="52" y="452.15999999999985" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">CTS, PWRKEY, RESET on a small connector beside the 4-pin bus; ≈ 921.6 kbit/s (≈ 0.7 Mbit/s usable); USB dropped.</text>
 <text x="40" y="466.67999999999984" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Why not I3C or CAN-FD: I3C exists only on the STM32H5 and is a short on-board bus; the ESP32-C6 has classic CAN</text>
 <text x="52" y="481.1999999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">only and the STM32WLE5 has no CAN.</text>
 <text x="40" y="511.7199999999998" font-size="13" font-weight="bold" text-anchor="start" fill="#1b1f24">What the 40-pin bus did — and what replaces it</text>
@@ -64,7 +64,7 @@
 <text x="260" y="633.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">time-sync broadcast</text>
 <rect x="40" y="641.7199999999998" width="740" height="24" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
 <text x="48" y="657.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">GNSS_TX pin</text>
-<text x="260" y="657.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">NMEA over the bus (D-29)</text>
+<text x="260" y="657.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">NMEA over the dedicated 4G / GPS UART link (D-29)</text>
 <rect x="40" y="665.7199999999998" width="740" height="24" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
 <text x="48" y="681.7199999999998" font-size="11" font-weight="bold" text-anchor="start" fill="#1b1f24">SWD (factory)</text>
 <text x="260" y="681.7199999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#33414f">programming over USB-C (MFG-2)</text>

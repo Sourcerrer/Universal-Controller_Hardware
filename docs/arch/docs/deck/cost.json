@@ -2,9 +2,9 @@
  "items": [
   [
    "Fieldbus controller (Ethernet standard)",
-   2906,
-   5109,
-   6642
+   2914,
+   5621,
+   7307
   ],
   [
    "4G modem + GPS (EC200U-CN)",
@@ -14,15 +14,15 @@
   ],
   [
    "Wi-Fi + BLE",
-   1962,
-   3143,
-   4086
+   1959,
+   3138,
+   4080
   ],
   [
    "LoRa",
-   1109,
-   1864,
-   2423
+   1154,
+   1931,
+   2510
   ],
   [
    "Battery + charger board with 18650 cell — optional, per module",
@@ -39,55 +39,76 @@
  ],
  "options": [
   [
-   "STM32H573 instead of PIC32CK (quote needed)",
+   "STM32H573 card instead of STM32C5A3 (PSA L3)",
    "Fieldbus controller",
-   265,
-   398,
-   517
+   222,
+   333,
+   433
+  ],
+  [
+   "Without Ethernet — low cost, STM32H523",
+   "Fieldbus controller",
+   -277,
+   -416,
+   -540
+  ],
+  [
+   "GPS-only modem card (no 4G)",
+   "Stack, instead of the 4G card",
+   745,
+   1118,
+   1453
+  ],
+  [
+   "ESP32-C6-WROOM-1-N16 (16 MB) instead of N8",
+   "Wi-Fi + BLE",
+   100,
+   150,
+   195
   ]
  ],
  "systems": [
   [
    "Fieldbus controller, standalone",
-   2906,
-   5109,
-   6642
+   2914,
+   5621,
+   7307
   ],
   [
    "4G gateway: Fieldbus controller + 4G + GPS",
-   4705,
-   8558,
-   11125
+   4713,
+   9070,
+   11790
   ],
   [
    "Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE",
-   4868,
-   8252,
-   10728
+   4873,
+   8760,
+   11387
   ],
   [
    "4G + LoRa gateway: Fieldbus controller + 4G + GPS + LoRa",
-   5814,
-   10421,
-   13547
+   5867,
+   11000,
+   14301
   ],
   [
    "Full stack: all four modules",
-   7776,
-   13564,
-   17633
+   7826,
+   14139,
+   18381
   ],
   [
    "LoRa node, standalone",
-   1109,
-   1864,
-   2423
+   1154,
+   1931,
+   2510
   ],
   [
    "Wi-Fi + BLE node, standalone",
-   1962,
-   3143,
-   4086
+   1959,
+   3138,
+   4080
   ],
   [
    "4G + GPS, standalone",

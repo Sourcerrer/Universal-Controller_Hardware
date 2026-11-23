@@ -5,35 +5,38 @@
 <text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Software and security architecture</text>
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Firmware on each unit, protocols, IO sharing, updates and the security model. Internal reference — not part of the customer spec sheet.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.11 · 2026-11-22 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.27 · 2026-11-23 · PRD 0.5 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="104" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Firmware per unit</text>
-<rect x="40" y="120" width="760" height="88.2" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.6"/>
+<rect x="40" y="120" width="760" height="102.5" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.6"/>
 <text x="48" y="137" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2f5fb3">Fieldbus-controller module (coordinator when fitted)</text>
-<text x="48" y="151" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr RTOS (LTS) on STM32H533 / H573</text>
-<text x="48" y="165.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">TF-M secure world: keys, crypto, attestation (PSA L3)</text>
-<text x="48" y="179.60000000000002" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">MCUboot: signed + encrypted A/B images, anti-rollback</text>
-<text x="48" y="193.90000000000003" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">IO server, Modbus RTU / TCP, CAN-FD (J1939, CANopen), MQTT / HTTPS client, update orchestrator for all modules</text>
-<rect x="40" y="218.2" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
-<text x="48" y="235.2" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">Wi-Fi + BLE module</text>
-<text x="48" y="249.2" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr on ESP32-C6</text>
-<text x="48" y="263.5" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Secure Boot v2, flash encryption, JTAG disabled by eFuse</text>
-<text x="48" y="277.8" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Network co-processor: carries encrypted traffic only</text>
-<rect x="40" y="302.1" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
-<text x="48" y="319.1" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">LoRa module</text>
-<text x="48" y="333.1" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr on STM32WLE5</text>
-<text x="48" y="347.40000000000003" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits</text>
-<text x="48" y="361.70000000000005" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Node IO: RS-485 + 4 DI + 4 DO + 4 AI</text>
-<rect x="40" y="386.0" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
-<text x="48" y="403.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">4G modem card (Tier 1)</text>
-<text x="48" y="417.0" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Quectel standard firmware only — no code of ours</text>
-<text x="48" y="431.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Quectel FOTA for modem updates</text>
-<text x="48" y="445.6" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Untrusted pipe: TLS ends in the coordinator (SEC-8)</text>
-<rect x="40" y="469.9" width="760" height="73.9" rx="6" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.6"/>
-<text x="48" y="486.9" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">4G router (Tier 2, standalone)</text>
-<text x="48" y="500.9" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Linux: Yocto or OpenWrt (R18)</text>
-<text x="48" y="515.1999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Secure boot, signed A/B updates (SWUpdate / RAUC or sysupgrade), CIP / LTS kernel</text>
-<text x="48" y="529.4999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Router functions: NAT, firewall, VPN, web UI</text>
+<text x="48" y="151" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr RTOS (LTS) on STM32C5A3 now, STM32H573 card later</text>
+<text x="48" y="165.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">TF-M secure world: keys, crypto, attestation (PSA L3, STM32H573 card)</text>
+<text x="48" y="179.60000000000002" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">MCUboot: signed + encrypted images, anti-rollback; own OTA image in the 16 MB QSPI NOR</text>
+<text x="48" y="193.90000000000003" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Data logging: LittleFS store-and-forward, periodic / change of state, erased after server ACK</text>
+<text x="48" y="208.20000000000005" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">IO server, Modbus RTU / TCP, CAN-FD (J1939, CANopen), MQTT / HTTPS client, update orchestrator for all modules</text>
+<rect x="40" y="232.5" width="760" height="88.2" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="48" y="249.5" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">Wi-Fi + BLE module</text>
+<text x="48" y="263.5" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr on ESP32-C6</text>
+<text x="48" y="277.8" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Secure Boot v2, flash encryption, JTAG disabled by eFuse</text>
+<text x="48" y="292.1" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">OTA and data log in its own ESP32 flash</text>
+<text x="48" y="306.40000000000003" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Network co-processor: carries encrypted traffic only</text>
+<rect x="40" y="330.7" width="760" height="88.2" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="48" y="347.7" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">LoRa module</text>
+<text x="48" y="361.7" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr on STM32WLE5</text>
+<text x="48" y="376.0" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits</text>
+<text x="48" y="390.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Node IO: RS-485 + 4 DI + 4 DO + 4 AI</text>
+<text x="48" y="404.6" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Own OTA (LoRaWAN FUOTA / USB-C) and data log in a 16 MB QSPI NOR</text>
+<rect x="40" y="428.9" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
+<text x="48" y="445.9" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">4G modem card (Tier 1)</text>
+<text x="48" y="459.9" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Quectel standard firmware only — no code of ours</text>
+<text x="48" y="474.2" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Quectel FOTA for modem updates</text>
+<text x="48" y="488.5" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Untrusted pipe: TLS ends in the coordinator (SEC-8)</text>
+<rect x="40" y="512.8" width="760" height="73.9" rx="6" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.6"/>
+<text x="48" y="529.8" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">4G router (Tier 2, standalone)</text>
+<text x="48" y="543.8" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Linux: Yocto or OpenWrt (R18)</text>
+<text x="48" y="558.0999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Secure boot, signed A/B updates (SWUpdate / RAUC or sysupgrade), CIP / LTS kernel</text>
+<text x="48" y="572.3999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Router functions: NAT, firewall, VPN, web UI</text>
 <text x="840" y="104" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Functions</text>
 <rect x="840" y="120" width="170" height="44" rx="0" fill="#eef2f6" stroke="#c9d0d8" stroke-width="0.8"/>
 <rect x="1010" y="120" width="630" height="44" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>

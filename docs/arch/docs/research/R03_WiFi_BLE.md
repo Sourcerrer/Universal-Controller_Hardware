@@ -263,3 +263,45 @@ Open decisions
 
 (S17 retired: earlier run's ESP32-C5 mass-production source URL was not recorded.)
 Local datasheets and their sources: docs/datasheets/wifi_ble/INDEX.md.
+
+
+## Update 2026-11-23 — alternatives "for a better speed and cost" (owner)
+
+Checked against the current rules: Wi-Fi + BLE in one pre-certified module, CAN (TWAI) for WB-6, Zephyr support (FW-1), ≥ 8 MB flash for two OTA slots + log (WB-7). Prices online at ≈ 100 pcs, INR 93.9 / USD.
+
+| Module | CPU | Wi-Fi | CAN (Zephyr devicetree) | Zephyr board | Price | Verdict |
+|---|---|---|---|---|---|---|
+| ESP32-C6-WROOM-1-N8 (current) | RISC-V 160 MHz | Wi-Fi 6, 2.4 GHz | yes (TWAI) | esp32c6_devkitc | ≈ INR 306–312 (LCSC) | Cost leader |
+| **ESP32-C5-WROOM-1(U)-N8R8** | RISC-V **240 MHz** | Wi-Fi 6, **2.4 + 5 GHz** | **yes (TWAI)** | esp32c5_devkitc | ≈ INR 388 (DigiKey USD 4.13 at 100); N16R8 from ≈ INR 400 (LCSC); N4 ≈ INR 354 | Faster, ≈ +80 BOM; datasheet still marked preliminary |
+| ESP32-C61-WROOM-1-N8R2 | RISC-V 120–160 MHz | Wi-Fi 6, 2.4 GHz | **no** | esp32c61_devkitc | ≈ INR 322 | Out (no CAN) |
+| ESP32-S3 (WROOM) | 2 × Xtensa 240 MHz | **Wi-Fi 4** | yes | esp32s3_devkitc | not priced | Faster CPU, older Wi-Fi |
+| ESP32-C3 (WROOM / MINI) | RISC-V 160 MHz | **Wi-Fi 4** | yes | esp32c3_devkitc | not priced (cheaper) | Cheaper, slower Wi-Fi, no 802.15.4 |
+| NXP RW612 (u-blox IRIS-W10) | M33 260 MHz | Wi-Fi 6, 2.4 + 5 GHz | no (external CAN) | frdm_rw612 | ≈ INR 1,261 module (above, 2026-11-14) | Fast and PSA L3, ≈ 4× cost |
+| Nordic nRF54L15 + nRF7002 | M33 128 MHz + Wi-Fi companion | Wi-Fi 6, 2.4 + 5 GHz | no | nrf54l15dk, nrf7002dk | two chips (above) | Costlier, two chips |
+| ST ST67W611M1 | co-processor, needs an STM32 host | Wi-Fi 6, 2.4 GHz | host-dependent | — | ≈ INR 413–571 + host (above) | Costlier |
+
+No option is both faster and cheaper than the ESP32-C6 with Wi-Fi 6 + CAN + Zephyr. The ESP32-C5 is the speed step at ≈ +INR 80 BOM; the ESP32-C6 stays the cost leader.
+
+Sources: Zephyr main-branch boards and `dts/riscv/espressif/*` devicetrees (2026-11-23); DigiKey ESP32-C5-WROOM-1-N4 / -1U-N8R8 and ESP32-C61-WROOM-1-N8R2 listings; LCSC ESP32-C5-WROOM-1-N16R8 (C53054799); Espressif ESP32-C5-WROOM-1 datasheet (v0.5, preliminary).
+
+
+### Arm Cortex options (owner, 2026-11-23: "no c61" / "options in arm cortex")
+
+ESP32-C61 dropped (no CAN). Zephyr main-branch Wi-Fi drivers checked 2026-11-23: ameba (Realtek), siwx91x (Silicon Labs), nxp (RW61x), st67w611m1 (ST), nrf_wifi (Nordic nRF70), infineon (AIROC CYW43439 on rpi_pico2/w). Prices online at ≈ 100 pcs (INR 93.9 / USD).
+
+| Option | Arm core | Wi-Fi / BLE | CAN | Zephyr | Price | Verdict |
+|---|---|---|---|---|---|---|
+| Realtek RTL8720DN (Ai-Thinker BW16 module) | Cortex-M4 200 MHz + M0 | Wi-Fi 4, 2.4 + 5 GHz / BLE 5.0 | no | rtl872xd boards, ameba driver | ≈ INR 309 (LCSC USD 3.29 at 100) | Cheapest Arm; Wi-Fi 4, 2 MB flash, third-party module, India certification unknown |
+| Realtek RTL8721F | Cortex-M55-class up to 320 MHz | Wi-Fi 6, 2.4 + 5 GHz / BLE 5.4 | no | rtl8721f_evb | not found | Fast and new; price and modules to check |
+| **ST STM32 host + ST67W611M1** | Cortex-M33 (STM32C5 / H5 host) | Wi-Fi 6, 2.4 GHz / BLE 5.4 (QCC743 co-processor) | **yes, CAN-FD on the STM32** | st67w611m1 driver | ≈ INR 490–525 module (Future USD 5.22–5.30 at 125; RS UK GBP 4.45 at 100) + STM32 host ≈ 290–300 ≈ **INR 780–825** | Best rule fit: all ST, Zephyr, CAN-FD; ≈ 2.5× the ESP32-C6 |
+| NXP RW612 (u-blox IRIS-W10) | Cortex-M33 260 MHz | Wi-Fi 6, 2.4 + 5 GHz / BLE 5.4, 802.15.4 | no | frdm_rw612 | ≈ INR 1,261 module (2026-11-14) | Most capable (PSA L3, Ethernet MAC), ≈ 4× cost |
+| Silicon Labs SiWG917 | Cortex-M4 180 MHz | Wi-Fi 6, 2.4 GHz / BLE 5.4 | no | siwx917 boards | ≈ INR 820–1,200 (DigiKey USD 8.77–12.81 at 100) | Low power, costly |
+| Nordic nRF54L15 + nRF7002 | Cortex-M33 128 MHz | Wi-Fi 6, 2.4 + 5 GHz / BLE 6 | no | nrf54l15dk, nrf7002dk | two chips, not priced | Best Zephyr support, costly |
+| Raspberry Pi RP2350 + CYW43439 (Pico 2 W design) | 2 × Cortex-M33 150 MHz | Wi-Fi 4, 2.4 GHz / BLE 5.2 | no | rpi_pico2/w, infineon driver | RM2 module price not found | Wi-Fi 4, no CAN |
+
+No Arm option is cheaper than the ESP32-C6-WROOM-1-N8 (≈ INR 310) once CAN and flash are counted. The only Arm route with CAN on chip is an STM32 host with the ST67W611M1 co-processor (≈ INR 780–825).
+
+Sources: LCSC Ai-Thinker BW16 (C2764067); Zephyr rtl8721f_evb and pke8721daf boards; NuttX RTL8721F page; ST ST67W611M1 product page, Future Electronics, Farnell, RS listings; DigiKey SIWG917Y listings; Zephyr main branch drivers/wifi (2026-11-23).
+
+
+**Decision (owner, 2026-11-23): "stick with esp32c6" — ESP32-C6-WROOM-1-N8 standard, N16 option; no ESP32-C5 option.**

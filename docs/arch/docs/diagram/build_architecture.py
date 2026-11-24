@@ -18,7 +18,7 @@ COL = {   # fill, stroke
     "conn":  ("#e4e4e4", "#3a3a3a"),
 }
 INK = "#1b1f24"
-REV = "Draft C.27 · 2026-11-23 · PRD 0.5 · prices at 100 units"
+REV = "Draft C.28 · 2026-11-24 · PRD 0.6 · prices at 100 units"
 
 
 def esc(s):
@@ -163,19 +163,20 @@ def page1():
         pg.text(x + 15, y + 48, label, 9, "bold", "middle", fill="#2b3138")
 
     mods = [
-        dict(key="base", name="FIELDBUS CONTROLLER (optional)", sub="90 mm · coordinator when fitted · removable MCU control card · Ethernet standard · 8 relays + 4 high-side outputs", w=400,
+        dict(key="base", name="FIELDBUS CONTROLLER (optional)", sub="90 mm · coordinator when fitted · base card + raised plug-in MCU card · Ethernet standard · 8 relays + 4 high-side + 4 low-side outputs", w=400,
              top=[("DC IN\n5–32 V", 2, False), ("RS-485", 3, False), ("CAN-FD", 3, False)],
-             bottom=[("AI1–6", 8, False), ("DI1–10 + COM", 11, False), ("HS 1–4 + 24V", 6, False), ("RELAY 1–8 NO/NC/C", 14, False)],
+             bottom=[("AI1–6", 8, False), ("DI1–10 + COM", 11, False), ("HS 1–4\n+ 24V", 6, False), ("LS 1–4\n+ 0V", 5, False),
+                     ("MOTOR\n(DNP)", 6, True), ("RELAY 1–8 NO/NC/C", 14, False)],
              leds=[("PWR", "#2ecc71"), ("RUN", "#3498db"), ("ERR", "#e74c3c"), ("BUS", "#f1c40f")],
              front=[("usbc", "USB-C service + 5 V power"), ("rj45", "RJ45 Ethernet")],
              sma=[],
              blocks=[
-                 ("mcu", "Controller MCU — 100-pin", ["STM32C5A3VGT6 on removable card (H573 later): 144 MHz, Ethernet, 2× CAN-FD",
-                                            "Cortex-M33 144 MHz · crypto, no TrustZone · Zephyr supported",
-                                            "Alternative: STM32H573VIT6 LQFP100 (PSA L3, Zephyr-ready; own layout)"], False),
+                 ("mcu", "Controller MCU — on a raised plug-in MCU card", ["Standard: STM32C5A3VGT6 · option: STM32H573VIT6 (PSA L3)",
+                                            "Same interface for every MCU card (BASE-11)"], False),
                  ("sec", "Security — inside the MCU", ["Hardware crypto, secure boot (MCUboot), flash protection; no TrustZone — PSA L3 with the STM32H573 card"], False),
-                 ("io", "Field IO — 28 channels", ["6 AI: 0–10 V / 4–20 mA / PT1000 · 10 DI 24 V (2 pulse) · 8 relays 10 A changeover (AC / DC, 5 kV, replaceable fuse each) · 4 fast 24 V high-side with current monitoring",
-                                                              "LED per IO · watchdog forces outputs safe · IO image shared (p. 2)"], False),
+                 ("io", "Field IO — 32 channels", ["6 AI · 10 DI · 8 relays 10 A changeover, fused · 4 high-side + 4 low-side 24 V",
+                                                              "Motor-driver provision (DNP): 2 motors or 4 half-bridges",
+                                                              "LED per IO · watchdog forces outputs safe (p. 2)"], False),
                  ("io", "RS-485 + CAN-FD", ["1× RS-485 (Modbus RTU) · 1× CAN-FD (J1939, CANopen) · both isolated 2.5 kV (owner, 2026-11-19) · switchable termination"], False),
                  ("eth", "Ethernet — standard (BASE-9)", ["MAC in STM32C5A3 → LAN8720AI → RJ45 (no-Ethernet build: option)"], False),
                  ("mem", "Storage, logging and updates (BASE-6)", ["16 MB QSPI NOR, LittleFS: own OTA image + data log · RTC + CR2032"], False),
@@ -294,7 +295,7 @@ def page1():
         PWH, PWG = 46, 14                             # power PCB height, gap for the B2B connector
         py1 = py2 - PWH - PWG                         # bottom of the logic PCB
         pg.rect(x0 + 8, py0, w - 16, py1 - py0, "#e9f3ea", "#7aa37a", rx=4, sw=1.2)
-        pg.text(x0 + w - 14, py0 + 13, "LOGIC PCB", 8.5, "bold", "end", fill="#5f8a5f")
+        pg.text(x0 + w - 14, py0 + 13, "BASE CARD + RAISED MCU CARD" if m["key"] == "base" else "LOGIC PCB", 8.5, "bold", "end", fill="#5f8a5f")
         # separate power PCB (common part, PWR-10) and, on the coordinator, the separate battery board (PWR-2)
         pp0 = py1 + PWG
         pw = (w - 16)
@@ -370,7 +371,7 @@ def page1():
     pg.rect(rx0 + 10, yb + 72, 40, 26, "#2b3138", "#2b3138", rx=2)
     pg.text(rx0 + 30, yb + 89, "chg", 8, "bold", "middle", fill="#ffffff")
     pg.text(rx0 + 58, yb + 90, "BATTERY BOARD", 10.5, "bold", fill="#c46a00")
-    pg.para(rx0, yb + 132, rw, ["One per module, optional (PWR-2)", "TI BQ25601 charger, backup + 5 V boost; 18650 ≈ 3000 mAh",
+    pg.para(rx0, yb + 132, rw, ["One per module, optional (PWR-2)", "TI BQ25601 charger, backup + 5 V boost; own 18650 holder on the board, cell ≈ 3000 mAh",
         "I²C status, presence detect", "≈ INR 205 BOM incl. cell"], 9.5, bullet=True)
 
     # 12 V cable from adapter to baseboard DC IN
@@ -419,7 +420,7 @@ def page2():
     x0, y0 = 40, 112
     cols = [("Channels", 120), ("Count", 60), ("Signal types", 240), ("Front end (R08)", 190), ("Notes", 150)]
     tw = sum(c[1] for c in cols)
-    pg.text(x0, y0 - 6, "Field IO on the Fieldbus-controller module — 28 channels", 15, "bold")
+    pg.text(x0, y0 - 6, "Field IO on the Fieldbus-controller module — 32 channels + motor-driver provision", 15, "bold")
     rows = [
         ("AI1–AI6 universal analog", "6", "0–10 V, 4–20 mA or PT1000, selected per channel in software",
          "MCU ADC; quad + dual op-amp buffers, 0.1 % 2.5 V reference (ratiometric PT1000)", "Survive 24 V mis-wiring and reverse polarity (IO-5)"),
@@ -427,8 +428,12 @@ def page2():
          "10× single optocouplers (LTV-217 / EL3H7 class)", "DI1–DI2 also pulse counters (energy / flow meters)"),
         ("RL1–RL8 relay out", "8", "SPDT (NO + NC + COM), 10 A at 230 VAC / 30 VDC, AC or DC loads",
          "Hongfa / Omron / Panasonic, 5 V coil, 5 kV reinforced; ULN2803 driver, watchdog gating", "10 A fuse per relay, replaceable from the front; 300 V terminals kept apart from SELV (SAF-2)"),
-        ("HS1–HS4 high-side out", "4", "Fast 24 V high-side switch with current monitoring",
+        ("HS1–HS4 high-side out", "4", "24 V high-side switch with current monitoring, PWM ≈ 1–2 kHz",
          "TI TPS274160B quad, current sense to the MCU ADC, watchdog gating", "Hardware safe state: off on MCU hang, reset or power loss (IO-4)"),
+        ("LS1–LS4 low-side out", "4", "24 V low-side switch (sinks the load to 0 V)",
+         "Quad low-side driver, TI DRV8803 class (60 V, 2 A, protected, fault pin), watchdog gating", "Added 2026-11-24; current, PWM and monitoring to confirm"),
+        ("Motor drivers — provision", "2 / 4", "2 brushed DC motors 12/24 V ≤ 3 A, or 4 half-bridge outputs; PWM to tens of kHz",
+         "2 × TI DRV8873S (SPI faults, current sense per half-bridge); not fitted in the standard build (DNP)", "Fitted to order (option); field 24 V, watchdog gating"),
         ("Internal monitoring", "—", "Supply voltage, Li-ion voltage, board temperature",
          "MCU ADC", "Feeds alarms and last-gasp logic"),
     ]
@@ -450,7 +455,7 @@ def page2():
             cx += cw
         y += rh
     pg.rect(x0, y, tw, 24, "#dcf3e0", "#2e8540", rx=0, sw=1)
-    pg.text(x0 + 6, y + 17, "Total: 6 analog in + 10 digital in + 8 relays + 4 high-side out = 28 field IO", 11, "bold", fill="#1f5e2d")
+    pg.text(x0 + 6, y + 17, "Total: 6 AI + 10 DI + 8 relays + 4 high-side + 4 low-side = 32 field IO, plus the motor-driver provision", 11, "bold", fill="#1f5e2d")
     y += 48
 
     # example flows
@@ -476,7 +481,7 @@ def page2():
     pg.text(rx0, y0 - 6, "Sharing model", 15, "bold")
     # field
     pg.rect(rx0, 130, 250, 64, "#dcf3e0", "#2e8540")
-    pg.para(rx0 + 10, 152, 235, ["Field: 6 AI · 10 DI · 8 RL · 4 HS", "sensors, meters, actuators"], 11.5, weight="bold", fill="#1f5e2d")
+    pg.para(rx0 + 10, 152, 235, ["Field: 6 AI · 10 DI · 8 RL · 4 HS · 4 LS", "sensors, meters, actuators"], 11.5, weight="bold", fill="#1f5e2d")
     pg.line(rx0 + 125, 194, rx0 + 125, 236, arrow="both", sw=2)
     # baseboard server
     pg.rect(rx0, 236, 250, 300, "#dbe8ff", "#2f5fb3", sw=2)
@@ -518,7 +523,7 @@ def page2():
     ry = 690
     pg.text(rx0, ry, "Sharing rules (proposed — PRD IO-6)", 15, "bold")
     rules = [
-        "Local hardware: each module reads and drives only its own IO (Fieldbus controller 28 channels; Wi-Fi + BLE 16 plus RS-485 and CAN; LoRa 12 plus RS-485).",
+        "Local hardware: each module reads and drives only its own IO (Fieldbus controller 32 channels; Wi-Fi + BLE 16 plus RS-485 and CAN; LoRa 12 plus RS-485).",
         "Publish: the coordinator broadcasts the IO process image on the RS-485 stack bus cyclically (rate configurable, for example 100 ms) and immediately on change, in its next transmit turn (≤ ≈ 20 ms).",
         "Read: any fitted module may read any input, status or virtual point.",
         "Write: each output has exactly one owner at a time — coordinator logic or one named module — set by configuration. Writes from any other module are rejected and logged.",
@@ -671,25 +676,27 @@ def page3():
 MFG, ROY, PROFIT = 0.50, 0.15, 0.30
 BOM = {
     "base": ("Fieldbus controller — logic PCB, with Ethernet (default, owner 2026-11-23)", [
-        ("MCU STM32C5A3VGT6 for now (owner, 2026-11-22; STM32H573 card later): Cortex-M33 144 MHz, Ethernet MAC, 2× CAN-FD, crypto, no TrustZone, 1 MB / 256 KB; ≈ INR 300 at 100 (ESTIMATE between ST eStore USD 2.79 at 500 and DigiKey India ≈ 515–548 small qty; DigiKey India 113 in stock) LQFP100 + 128 Mbit (16 MB) QSPI NOR running a LittleFS file system for data logging + 2nd firmware image (owner, 2026-11-23; W25Q128JV class, +17) + RTC crystal + CR2032 backup", 391),
-        ("Ethernet, standard: LAN8720AI PHY + 25 MHz crystal + RJ45 with magnetics (Würth / HanRun, < INR 100) ≈ 200 (owner, 2026-11-19, ESTIMATE), ESD + passives ≈ 70", 270),
-        ("6 analog inputs (owner, 2026-11-22), each 0–10 V / 4–20 mA / PT1000: quad + dual op-amp, 0.1 % resistors, mode FETs, protection, low-cost 0.1 % 2.5 V reference (ESTIMATE)", 218),
-        ("10 digital inputs: 10× single optocouplers, LTV-217 / EL3H7 class (ESTIMATE), Type 3 front ends", 84),
-        ("8 relay outputs, SPDT (NO + NC), 10 A at 230 VAC / 30 VDC, 5 V coil (owner, 2026-11-20 / 22): Hongfa / Omron / Panasonic, 5 kV reinforced coil-contact isolation, INR 40 each at volume (owner target, 2026-11-22; local quote to follow), ULN2803 driver, watchdog gating, snubber pads (ESTIMATE)", 380),
-        ("Replaceable fuse per relay, changed from outside the module (owner, 2026-11-20 / 22): 5×20 mm ceramic time-lag 10 A / 250 V in a front-access, touch-safe holder with screw / bayonet cap, INR 20 each incl. holder (owner, 2026-11-22)", 160),
-        ("4 high-speed 24 V high-side outputs with current monitoring (owner, 2026-11-20): TI TPS274160B quad, current sense to the MCU ADC, TVS, reverse FET (ESTIMATE)", 200),
-        ("24 relay terminal poles, 5.08 mm, 300 V / 10 A rated, kept apart from the low-voltage terminals (ESTIMATE ≈ INR 3.5 per pole)", 84),
-        ("RS-485, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2092W with integrated isolated DC-DC (LCSC ≈ USD 1.4–2.5; ESTIMATE ≈ 180), SM712 TVS, series PTC, termination switch", 217),
-        ("CAN-FD, isolated as standard (owner, 2026-11-19): Chipanalog CA-IS2062A (CAN FD ≤ 5 Mbps, integrated isolated DC-DC; LCSC USD 1.16 at 100 ≈ INR 109), protection, switchable termination, 3-pole terminal", 145),
-        ("USB-C service port + LEDs", 23),
-        ("4-pin bus connectors, bridge share, bus RS-485 transceiver, ESD (ESTIMATE)", 59),
-        ("36 fixed 3.81 mm screw terminals, shared analog common (ESTIMATE ≈ INR 2 per pole)", 74),
-        ("PCB 4-layer", 103),
-        ("Removable control card (owner, 2026-11-22: MCU sourcing unstable): MCU, crystals, Ethernet PHY + RJ45, USB-C and MCU LED on a plug-in card; 2.54 mm berg strip pair, 2×25 = 50 pins, gold-plated male on the card + female on the base card (owner, 2026-11-22), price from the owner's quote, placeholder ≈ 40 + small 4-layer card PCB ≈ 40 + M3 standoffs and screws for 10 g ≈ 10 (ESTIMATE)", 90),
-        ("Power stage on the module PCB (owner, 2026-11-19: no separate DC-DC board): buck 5–32 V → 5 V (TI LMR51420 / SY8xxx class) + 3.3 V LDO ≈ 45; TVS, reverse FET, PTC fuse, Schottky OR with BUS_V ≈ 40 (ESTIMATE)", 85),
+        ("MCU card: STM32C5A3VGT6 (144 MHz, Ethernet, 2× CAN-FD, crypto, no TrustZone) ≈ 300 + 16 MB QSPI NOR (log + OTA) + RTC with CR2032", 391),
+        ("Ethernet on the MCU card: LAN8720AI + 25 MHz crystal + RJ45 with magnetics ≈ 200 (owner figure), ESD + passives ≈ 70", 270),
+        ("6 analog inputs, each 0–10 V / 4–20 mA / PT1000: op-amps, 0.1 % resistors, mode FETs, protection, 0.1 % 2.5 V reference", 218),
+        ("10 digital inputs: single optocouplers (LTV-217 / EL3H7 class), IEC 61131-2 Type 3", 84),
+        ("8 relays SPDT 10 A, 230 VAC / 30 VDC, 5 kV reinforced, INR 40 each (owner target); ULN2803, watchdog gating, snubbers", 380),
+        ("Fuse per relay: 5×20 mm 10 A time-lag in a front-access holder, INR 20 each incl. holder (owner)", 160),
+        ("4 high-side 24 V outputs: TPS274160B quad ≈ 144 (PWM ≈ 1–2 kHz), current sense, TVS, reverse FET", 200),
+        ("4 low-side 24 V outputs (2026-11-24): quad driver, TI DRV8803 class (60 V, 2 A, protected), TVS, 4 poles, 4 LEDs", 190),
+        ("Motor-driver provision (2026-11-24): footprints for 2 × DRV8873S — 2 motors or 4 half-bridges; not fitted, option", 0),
+        ("24 relay terminal poles, 5.08 mm, 300 V / 10 A, kept apart from the low-voltage terminals", 84),
+        ("RS-485, isolated: Chipanalog CA-IS2092W with built-in isolated DC-DC ≈ 180, SM712 TVS, series PTC, termination switch", 217),
+        ("CAN-FD, isolated: Chipanalog CA-IS2062A with built-in isolated DC-DC ≈ 109, protection, switchable termination, terminal", 145),
+        ("USB-C service port (5 V, no PD) + LEDs", 23),
+        ("4-pin bus connectors, bridge share, bus RS-485 transceiver, ESD", 59),
+        ("36 fixed 3.81 mm screw terminals, shared analog common (≈ 2 per pole)", 74),
+        ("Base card PCB, 4-layer", 103),
+        ("MCU card mechanics: board-to-board connector ≈ 40 (gold pin headers or Hirose FX18), 4-layer card PCB ≈ 40, standoffs ≈ 10", 90),
+        ("DC-DC + power stage on the base card, feeding the MCU card: buck to 5 V + 3.3 V LDO ≈ 45, protection + OR with BUS_V ≈ 40", 85),
         ("Passives", 79),
-        ("Status LED on each of the 28 field IO channels: 6 AI, 10 DI, 8 relays, 4 high-side (ESTIMATE ≈ INR 1.5 each)", 42),
-        ("Enclosure 90 mm DIN-rail (8 relays + 4 high-side outputs need the width), Indian ABS, V-0 for mains-switching relays (ESTIMATE)", 210)]),
+        ("IO status LEDs: 6 AI, 10 DI, 8 relays, 4 high-side (≈ 1.5 each)", 42),
+        ("Enclosure: off-the-shelf PLC-style DIN housing ≈ 90 mm, V-0 (D-37; part from the fit study)", 210)]),
     "eth": ("Ethernet option on baseboard", [
         ("LAN8742AI + Würth RJ45 + ESD + passives (R11)", 913)]),
     "se": ("Secure element option (D-16)", [
@@ -733,8 +740,10 @@ BOM = {
         ("4 DO 24 V high-side (owner, 2026-11-19: remote switching, low power — no relays): 1× TI TPS274160B quad (LCSC USD 1.53 at 100), µA standby, loads fed from the field 24 V, watchdog gating, TVS, terminals; no IO LEDs (ESTIMATE)", 194)]),
     "pwr": ("Power stage — now on every module PCB (no separate board)", [
         ("Counted in each module", 0)]),
-    "base_pic": ("STM32H573VIT6 control card instead of STM32C5A3VGT6 — Fieldbus controller, difference", [
-        ("STM32H573VIT6 (250 MHz, TrustZone, PSA L3; own control-card layout) instead of STM32C5A3VGT6 — ≈ INR 522 vs ≈ 300", 222)]),
+    "base_pic": ("STM32H573VIT6 MCU card instead of STM32C5A3VGT6 — Fieldbus controller, difference", [
+        ("STM32H573VIT6 (250 MHz, TrustZone, PSA L3; own MCU card on the same base-card interface) instead of STM32C5A3VGT6 — ≈ INR 522 vs ≈ 300", 222)]),
+    "base_motor": ("Motor drivers fitted — Fieldbus controller, difference", [
+        ("2 × TI DRV8873S (SPI): 2 brushed DC motors 12/24 V ≤ 3 A, or 4 half-bridge outputs (PWM to tens of kHz, current sense, SPI faults); TVS, bulk capacitors, 6 terminal poles (ESTIMATE; S-variant price and stock to confirm)", 425)]),
     "gps": ("GPS-only modem card — option (owner, 2026-11-23; D-40)", [
         ("GNSS receiver, Quectel L76K class: GPS + GLONASS + BeiDou, NMEA over UART (ESTIMATE; NavIC receiver L89HA / LC29H class ≈ +900)", 300),
         ("Active GNSS antenna + SMA (as on the 4G card, ESTIMATE)", 130),
@@ -929,6 +938,7 @@ def page4():
     acols = [("Option", aw - 150 - 112, "start"), ("Fits", 150, "start"), ("After profit", 112, "end")]
     ya = header(xa, ya, acols)
     acc = [("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", build_keys(["base_pic"])),
+           ("Motor drivers fitted: 2 motors or 4 half-bridges", "Fieldbus controller", build_keys(["base_motor"])),
            ("Without Ethernet — low cost, STM32H523", "Fieldbus controller", build_keys(["base_noeth"])),
            ("GPS-only modem card (no 4G), dedicated UART link", "Stack, instead of the 4G card", build_keys(["gps"])),
            ("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", build_keys(["wifi_n16"])),
@@ -1047,7 +1057,7 @@ def page5():
         return y + h
 
     y0 = 118
-    columns = [[("base", "Fieldbus controller — with Ethernet", "mcu")],
+    columns = [[("base", "Fieldbus controller — with Ethernet · all lines ESTIMATE", "mcu")],
                [("4g", "4G modem card", "radio"), ("wifi", "Wi-Fi + BLE", "eth")],
                [("lora", "LoRa", "io"), ("batt", "Battery + charger board — optional, per module", "power")]]
     bottom = y0
@@ -1066,7 +1076,8 @@ def page5():
     y = header(40, y, acols, h=30)
     dw = acols[1][1]
     t0_items = [it for it in BOM["4g0"][1] if not it[0].startswith("Tier 1 card")]
-    accs = [("STM32H573 control card — Fieldbus controller, later", BOM["base_pic"][1], build_keys(["base_pic"])),
+    accs = [("STM32H573 MCU card — Fieldbus controller, option", BOM["base_pic"][1], build_keys(["base_pic"])),
+            ("Motor drivers fitted — Fieldbus controller, option", BOM["base_motor"][1], build_keys(["base_motor"])),
             ("Adapter 12 V 18 W — one per stack, bought in", BOM["adapter"][1], build_keys(["adapter"]))]
     for i, (lab, items, v) in enumerate(accs):
         parts = wrap("; ".join(f"{l} — {num(x)}" for l, x in items), dw - 16, fs)
@@ -1110,7 +1121,7 @@ def page5():
         f"LoRa selling price INR 1,600 (owner, 2026-11-19), read as price after profit without battery board and adapter: needs a BOM of ≤ INR {inr(lora_ceiling)} "
         f"at 100 pcs, now {inr(bom('lora'))} — a {pct((1 - lora_ceiling / bom('lora')) * 100)} cut.",
         f"With Ethernet (default), incl. power stage and enclosure: {inr(bom('base'))} (limit INR 2,000: {'within' if bom('base') + bom('pwr') <= 2000 else 'over by ' + inr(bom('base') + bom('pwr') - 2000)}); low-cost build without Ethernet: {inr(bom('base') + bom('base_noeth'))}.",
-        "MCU: STM32C5A3VGT6 on a removable control card for now (owner, 2026-11-22; no TrustZone); STM32H573VIT6 card later for PSA L3; low-cost build without Ethernet on STM32H523VET6 as an option. PIC32CK dropped (120 MHz, no Zephyr drivers). "
+        "MCU: two plug-in MCU cards on one base-card interface (owner, 2026-11-24) — STM32C5A3VGT6 standard (no TrustZone), STM32H573VIT6 option (PSA L3); low-cost build without Ethernet on STM32H523VET6 as an option; motor drivers are a provision, fitted to order. PIC32CK dropped (120 MHz, no Zephyr drivers). "
         f"LoRa redesigned as a remote IO node (owner, 2026-11-19): STM32WLE5 at INR 250, 2-layer PCB, 16 MB QSPI NOR for its own OTA and logging (2026-11-23), RS-485 + 4 DI + 4 AI + 4 DO (low-power high-side quad), "
         f"SMA antenna kept for long range — BOM {inr(bom('lora'))}. Tip: volume quotes (≈ −10 %) → ≈ {inr(bom('lora') * 0.9)}; no relays: their coils would drain the battery.",
         "Tip — every module: this is a high-volume product, so negotiate the big parts with distributors (modem, ESP32-C6 module, MCUs, isolated transceivers, enclosures); "
@@ -1131,7 +1142,7 @@ def page6():
     x0, y0 = 40, 112
     pg.text(x0, y0 - 8, "Firmware per unit", 15, "bold")
     units = [
-        ("Fieldbus-controller module (coordinator when fitted)", "mcu", ["Zephyr RTOS (LTS) on STM32C5A3 now, STM32H573 card later", "TF-M secure world: keys, crypto, attestation (PSA L3, STM32H573 card)", "MCUboot: signed + encrypted images, anti-rollback; own OTA image in the 16 MB QSPI NOR",
+        ("Fieldbus-controller module (coordinator when fitted)", "mcu", ["Zephyr RTOS (LTS) on the STM32C5A3 card (standard) or the STM32H573 card (option)", "TF-M secure world: keys, crypto, attestation (PSA L3, STM32H573 card)", "MCUboot: signed + encrypted images, anti-rollback; own OTA image in the 16 MB QSPI NOR",
                                           "Data logging: LittleFS store-and-forward, periodic / change of state, erased after server ACK",
                                           "IO server, Modbus RTU / TCP, CAN-FD (J1939, CANopen), MQTT / HTTPS client, update orchestrator for all modules"]),
         ("Wi-Fi + BLE module", "radio", ["Zephyr on ESP32-C6", "Secure Boot v2, flash encryption, JTAG disabled by eFuse", "OTA and data log in its own ESP32 flash", "Network co-processor: carries encrypted traffic only"]),
@@ -1301,7 +1312,7 @@ def export_costs():
     data = {
         "items": [row("Fieldbus controller (Ethernet standard)", ["base"]), row("4G modem + GPS (EC200U-CN)", ["4g"]), row("Wi-Fi + BLE", ["wifi"]),
                   row("LoRa", ["lora"]), row("Battery + charger board with 18650 cell — optional, per module", ["batt"]), row("Adapter 12 V 18 W — one per stack", ["adapter"])],
-        "options": [delta("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", ["base_pic"]), delta("Without Ethernet — low cost, STM32H523", "Fieldbus controller", ["base_noeth"]), delta("GPS-only modem card (no 4G)", "Stack, instead of the 4G card", ["gps"]), delta("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", ["wifi_n16"])],
+        "options": [delta("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", ["base_pic"]), delta("Motor drivers fitted: 2 motors or 4 half-bridges", "Fieldbus controller", ["base_motor"]),delta("Without Ethernet — low cost, STM32H523", "Fieldbus controller", ["base_noeth"]), delta("GPS-only modem card (no 4G)", "Stack, instead of the 4G card", ["gps"]), delta("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", ["wifi_n16"])],
         "systems": [row("Fieldbus controller, standalone", ["base"]),
                     row("4G gateway: Fieldbus controller + 4G + GPS", ["base", "4g"]),
                     row("Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE", ["base", "wifi"]),

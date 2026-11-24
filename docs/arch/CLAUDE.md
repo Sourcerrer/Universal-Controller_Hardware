@@ -4,18 +4,18 @@ Working rules for Claude in `hardware/docs/arch/`. The owner is a hardware produ
 
 ## What the product is
 
-A modular industrial IoT gateway in the style of a stackable PLC: individually enclosed modules click together side by side on one identical **4-pin** bus connector (BUS_V, GND, RS485_A, RS485_B; SYS-11, MECH-3; the 40-pin connector was dropped on 2026-11-16), with publish–subscribe messaging over the RS-485 pair (SYS-12). Every module is also a standalone product (remote node) with its own 5–32 V DC / USB-C PD input; one battery board backs up a whole gateway.
+A modular industrial IoT gateway in the style of a stackable PLC: individually enclosed modules click together side by side on one identical **4-pin** bus connector (BUS_V, GND, RS485_A, RS485_B; SYS-11, MECH-3; the 40-pin connector was dropped on 2026-11-16), with publish–subscribe messaging over the RS-485 pair (SYS-12). Every module is also a standalone product (remote node) with its own 5–32 V DC / USB-C 5 V input (no PD); each module can take an optional battery + charger board that carries its own 18650 holder (PWR-2).
 
 There are exactly **four modules**:
 
 | Module | Role |
 |---|---|
-| Fieldbus controller (formerly baseboard / IO controller; optional) | Coordinator: IO image, keys (PSA L3), routing, updates. Standalone: RS-485 / CAN-FD controller and logger |
+| Fieldbus controller (formerly baseboard / IO controller; optional) | Coordinator: IO image, keys, routing, updates. Standalone: IO controller, RS-485 / CAN-FD controller and logger. Two PCBs: base card (IO, comms, DC-DC) + raised plug-in MCU card (BASE-11) |
 | 4G modem card (4G + Ethernet + Wi-Fi) | Cloud uplink |
 | Wi-Fi + BLE | Low-cost uplink and local BLE access |
 | LoRa | Gateway side and remote node (same hardware) |
 
-Every module also carries one **power module** (PWR-10): a standalone plug-in PCB, priced as its own item. One 12 V 18 W adapter per gateway or standalone module, also priced separately. Options only: Fieldbus controller without Ethernet, PIC32CK fallback MCU, 4G modem card without Ethernet, Tier 0 4G, GNSS, battery board (PWR-2, one per gateway).
+Every module carries its own power stage on its PCB (PWR-10; on the Fieldbus controller it sits on the base card and feeds the MCU card). One 12 V 18 W adapter per gateway or standalone module, priced separately. Options only: STM32H573 MCU card, Fieldbus controller without Ethernet, motor drivers fitted (DNP provision in the standard build), GPS-only modem card, ESP32-C6 N16, battery + charger board (PWR-2, one per module, optional).
 
 ## Source of truth
 
@@ -25,6 +25,12 @@ Every module also carries one **power module** (PWR-10): a standalone plug-in PC
 ## Order of work
 
 PRD → specifications (`docs/02_Specifications.md`, not written yet) → architecture diagram → schematics, BOM, PCB, Gerbers in KiCad (KiCad MCP tools, driven by the same diagram). Don't skip ahead on your own, but follow the owner when they ask out of order.
+
+Since 2026-11-24 the design work is split by module (see `hardware/CLAUDE.md`):
+- **Shared interfaces stay here** in `docs/02_Specifications.md`: stack bus, 4G UART link, battery-board socket, power stage, enclosure family.
+- **Everything else lives in the module's own repo** under `hardware/modules/<module>/`: the module's design spec, schematics, PCBs, BOM, mechanical CAD and production guidelines.
+- **Mechanical CAD is code:** build123d (Python), exporting STEP / DXF / PDF / PNG (owner, 2026-11-24: "whatever can be best integrated with claude").
+- **Keep the architecture's BOM lines in step with the module BOMs.** Once a module has a real BOM, it replaces the estimate lines in `build_architecture.py`.
 
 ## Folder layout
 
@@ -61,7 +67,7 @@ Everything else lives in `docs/`:
 ## Part selection rules (owner)
 
 1. **Reliability and safety come first, ahead of cost.** If a cost target can't be met without weakening them, the target gives way and the gap is reported to the owner.
-2. **Silicon:** ST, NXP, Nordic. ESP32-C6 is tolerated for Wi-Fi + BLE. Fieldbus controller: a 100-pin MCU with **Ethernet as standard**. Speed ≥ 144 MHz (owner, 2026-11-22); MCU chip below INR 500 at 100 units (owner, 2026-11-22). The MCU sits on a removable control card (BASE-11): STM32H573VIT6 main, NXP MCXN947 proposed as the second card (PRD D-38); the version without Ethernet was dropped on 2026-11-19. Ruled out: Microchip PIC32CK (120 MHz, no upstream Zephyr drivers) and Raspberry Pi RP2350 (no Ethernet MAC, no CAN).
+2. **Silicon:** ST, NXP, Nordic. ESP32-C6 is tolerated for Wi-Fi + BLE. Fieldbus controller: a 100-pin MCU with **Ethernet as standard**. Speed ≥ 144 MHz (owner, 2026-11-22); MCU chip below INR 500 at 100 units (owner, 2026-11-22). The MCU sits on a raised plug-in MCU card with a fixed, MCU-neutral, versioned interface (BASE-11), so MCU supply problems only ever need a new card: the STM32C5A3VGT6 card (standard build) and the STM32H573VIT6 card (option, PSA L3) are both designed (owner, 2026-11-24); further MCUs get a new card only. The build without Ethernet (STM32H523) is an option. Ruled out: Microchip PIC32CK (120 MHz, no upstream Zephyr drivers) and Raspberry Pi RP2350 (no Ethernet MAC, no CAN).
 3. **Ethernet only through a MAC inside the host chip**, never an SPI Ethernet controller.
 4. **Mornsun parts are banned.**
 5. Pre-certified radio modules; latest-generation parts with ≥ 5 years longevity; easy to buy in India; second source where possible.

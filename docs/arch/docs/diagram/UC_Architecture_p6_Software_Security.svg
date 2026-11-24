@@ -5,12 +5,12 @@
 <text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Software and security architecture</text>
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Firmware on each unit, protocols, IO sharing, updates and the security model. Internal reference — not part of the customer spec sheet.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.27 · 2026-11-23 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.28 · 2026-11-24 · PRD 0.6 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="104" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Firmware per unit</text>
 <rect x="40" y="120" width="760" height="102.5" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.6"/>
 <text x="48" y="137" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2f5fb3">Fieldbus-controller module (coordinator when fitted)</text>
-<text x="48" y="151" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr RTOS (LTS) on STM32C5A3 now, STM32H573 card later</text>
+<text x="48" y="151" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr RTOS (LTS) on the STM32C5A3 card (standard) or the STM32H573 card (option)</text>
 <text x="48" y="165.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">TF-M secure world: keys, crypto, attestation (PSA L3, STM32H573 card)</text>
 <text x="48" y="179.60000000000002" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">MCUboot: signed + encrypted images, anti-rollback; own OTA image in the 16 MB QSPI NOR</text>
 <text x="48" y="193.90000000000003" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Data logging: LittleFS store-and-forward, periodic / change of state, erased after server ACK</text>

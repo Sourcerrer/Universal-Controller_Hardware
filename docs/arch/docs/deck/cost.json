@@ -2,9 +2,9 @@
  "items": [
   [
    "Fieldbus controller (Ethernet standard)",
-   2914,
-   5621,
-   7307
+   3104,
+   5906,
+   7678
   ],
   [
    "4G modem + GPS (EC200U-CN)",
@@ -46,6 +46,13 @@
    433
   ],
   [
+   "Motor drivers fitted: 2 motors or 4 half-bridges",
+   "Fieldbus controller",
+   425,
+   733,
+   953
+  ],
+  [
    "Without Ethernet — low cost, STM32H523",
    "Fieldbus controller",
    -277,
@@ -70,33 +77,33 @@
  "systems": [
   [
    "Fieldbus controller, standalone",
-   2914,
-   5621,
-   7307
+   3104,
+   5906,
+   7678
   ],
   [
    "4G gateway: Fieldbus controller + 4G + GPS",
-   4713,
-   9070,
-   11790
+   4903,
+   9354,
+   12161
   ],
   [
    "Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE",
-   4873,
-   8760,
-   11387
+   5063,
+   9044,
+   11758
   ],
   [
    "4G + LoRa gateway: Fieldbus controller + 4G + GPS + LoRa",
-   5867,
-   11000,
-   14301
+   6057,
+   11286,
+   14671
   ],
   [
    "Full stack: all four modules",
-   7826,
-   14139,
-   18381
+   8016,
+   14424,
+   18751
   ],
   [
    "LoRa node, standalone",

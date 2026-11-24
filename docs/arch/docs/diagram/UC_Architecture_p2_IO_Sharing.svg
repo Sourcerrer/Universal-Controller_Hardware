@@ -6,9 +6,9 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Each module drives only its own IO; the coordinator (Fieldbus controller, else Wi-Fi + BLE, else LoRa) merges all IO into one image shared over the stack bus</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">(IO-6). Wi-Fi + BLE adds 6 DI, 4 DO, 4 AI and 2 relays; LoRa adds 4 DI, 4 DO and 4 AI.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.27 · 2026-11-23 · PRD 0.5 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.28 · 2026-11-24 · PRD 0.6 · prices at 100 units</text>
 <g transform="translate(0,24)">
-<text x="40" y="106" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Field IO on the Fieldbus-controller module — 28 channels</text>
+<text x="40" y="106" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Field IO on the Fieldbus-controller module — 32 channels + motor-driver provision</text>
 <rect x="40" y="122" width="760" height="26" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
 <text x="46" y="140" font-size="11.5" font-weight="bold" text-anchor="start" fill="#ffffff">Channels</text>
 <text x="166" y="140" font-size="11.5" font-weight="bold" text-anchor="start" fill="#ffffff">Count</text>
@@ -57,44 +57,72 @@
 <text x="46" y="369" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">HS1–HS4 high-side</text>
 <text x="46" y="383" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">out</text>
 <text x="166" y="369" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">4</text>
-<text x="226" y="369" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Fast 24 V high-side switch with</text>
-<text x="226" y="383" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">current monitoring</text>
+<text x="226" y="369" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">24 V high-side switch with current</text>
+<text x="226" y="383" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">monitoring, PWM ≈ 1–2 kHz</text>
 <text x="466" y="369" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">TI TPS274160B quad, current</text>
 <text x="466" y="383" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">sense to the MCU ADC,</text>
 <text x="466" y="397" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">watchdog gating</text>
 <text x="656" y="369" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Hardware safe state:</text>
 <text x="656" y="383" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">off on MCU hang, reset</text>
 <text x="656" y="397" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">or power loss (IO-4)</text>
-<rect x="40" y="406" width="760" height="40" rx="0" fill="#f4f6f8" stroke="#c9d0d8" stroke-width="1"/>
-<text x="46" y="423" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Internal</text>
-<text x="46" y="437" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">monitoring</text>
-<text x="166" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">—</text>
-<text x="226" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Supply voltage, Li-ion voltage, board</text>
-<text x="226" y="437" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">temperature</text>
-<text x="466" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">MCU ADC</text>
-<text x="656" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Feeds alarms and last-</text>
-<text x="656" y="437" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">gasp logic</text>
-<rect x="40" y="446" width="760" height="24" rx="0" fill="#dcf3e0" stroke="#2e8540" stroke-width="1"/>
-<text x="46" y="463" font-size="11" font-weight="bold" text-anchor="start" fill="#1f5e2d">Total: 6 analog in + 10 digital in + 8 relays + 4 high-side out = 28 field IO</text>
-<text x="40" y="494" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Examples</text>
-<text x="40" y="516" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Input to cloud</text>
-<text x="52" y="533" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• DI3 changes → its module timestamps it → the coordinator updates the IO image → reports it at the next poll</text>
-<text x="52" y="547.52" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• 4G module reads the change over the stack bus → publishes MQTT over TLS to the cloud</text>
-<text x="40" y="570.04" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Cloud command to output</text>
-<text x="52" y="587.04" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Cloud asks for relay RL2 = ON through the 4G module → module sends a write request on the bus</text>
-<text x="52" y="601.56" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Coordinator checks: is the requesting module authenticated (keys in the MCU&#x27;s TrustZone secure world) and the</text>
-<text x="64" y="616.0799999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">configured owner of RL2? → drives RL2 → confirms back</text>
-<text x="52" y="630.5999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• If the 4G module stops refreshing its ownership lease, RL2 returns to its safe state</text>
-<text x="40" y="653.1199999999999" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Remote IO via LoRa</text>
-<text x="52" y="670.1199999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• A remote LoRa node reports a tank level → the LoRa module in the stack forwards it to the coordinator</text>
-<text x="52" y="684.6399999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The coordinator stores it as virtual point V-AI1 in the same image → visible to the cloud like a local input</text>
-<text x="40" y="707.1599999999999" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Modbus to a SCADA</text>
-<text x="52" y="724.1599999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The Fieldbus controller&#x27;s RS-485 port acts as Modbus RTU slave: AI / DI / DO mapped to registers</text>
-<text x="52" y="738.6799999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Same owner rules apply: SCADA writes reach an output only if the RS-485 interface is its configured owner</text>
+<rect x="40" y="406" width="760" height="68" rx="0" fill="#f4f6f8" stroke="#c9d0d8" stroke-width="1"/>
+<text x="46" y="423" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">LS1–LS4 low-side</text>
+<text x="46" y="437" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">out</text>
+<text x="166" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">4</text>
+<text x="226" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">24 V low-side switch (sinks the load</text>
+<text x="226" y="437" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">to 0 V)</text>
+<text x="466" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Quad low-side driver, TI</text>
+<text x="466" y="437" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">DRV8803 class (60 V, 2 A,</text>
+<text x="466" y="451" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">protected, fault pin),</text>
+<text x="466" y="465" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">watchdog gating</text>
+<text x="656" y="423" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Added 2026-11-24;</text>
+<text x="656" y="437" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">current, PWM and</text>
+<text x="656" y="451" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">monitoring to confirm</text>
+<rect x="40" y="474" width="760" height="68" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="1"/>
+<text x="46" y="491" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Motor drivers —</text>
+<text x="46" y="505" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">provision</text>
+<text x="166" y="491" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">2 / 4</text>
+<text x="226" y="491" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">2 brushed DC motors 12/24 V ≤ 3 A, or</text>
+<text x="226" y="505" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">4 half-bridge outputs; PWM to tens of</text>
+<text x="226" y="519" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">kHz</text>
+<text x="466" y="491" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">2 × TI DRV8873S (SPI faults,</text>
+<text x="466" y="505" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">current sense per half-</text>
+<text x="466" y="519" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">bridge); not fitted in the</text>
+<text x="466" y="533" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">standard build (DNP)</text>
+<text x="656" y="491" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Fitted to order</text>
+<text x="656" y="505" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">(option); field 24 V,</text>
+<text x="656" y="519" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">watchdog gating</text>
+<rect x="40" y="542" width="760" height="40" rx="0" fill="#f4f6f8" stroke="#c9d0d8" stroke-width="1"/>
+<text x="46" y="559" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">Internal</text>
+<text x="46" y="573" font-size="10.5" font-weight="bold" text-anchor="start" fill="#1b1f24">monitoring</text>
+<text x="166" y="559" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">—</text>
+<text x="226" y="559" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Supply voltage, Li-ion voltage, board</text>
+<text x="226" y="573" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">temperature</text>
+<text x="466" y="559" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">MCU ADC</text>
+<text x="656" y="559" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Feeds alarms and last-</text>
+<text x="656" y="573" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">gasp logic</text>
+<rect x="40" y="582" width="760" height="24" rx="0" fill="#dcf3e0" stroke="#2e8540" stroke-width="1"/>
+<text x="46" y="599" font-size="11" font-weight="bold" text-anchor="start" fill="#1f5e2d">Total: 6 AI + 10 DI + 8 relays + 4 high-side + 4 low-side = 32 field IO, plus the motor-driver provision</text>
+<text x="40" y="630" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Examples</text>
+<text x="40" y="652" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Input to cloud</text>
+<text x="52" y="669" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• DI3 changes → its module timestamps it → the coordinator updates the IO image → reports it at the next poll</text>
+<text x="52" y="683.52" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• 4G module reads the change over the stack bus → publishes MQTT over TLS to the cloud</text>
+<text x="40" y="706.04" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Cloud command to output</text>
+<text x="52" y="723.04" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Cloud asks for relay RL2 = ON through the 4G module → module sends a write request on the bus</text>
+<text x="52" y="737.56" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Coordinator checks: is the requesting module authenticated (keys in the MCU&#x27;s TrustZone secure world) and the</text>
+<text x="64" y="752.0799999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">configured owner of RL2? → drives RL2 → confirms back</text>
+<text x="52" y="766.5999999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• If the 4G module stops refreshing its ownership lease, RL2 returns to its safe state</text>
+<text x="40" y="789.1199999999999" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Remote IO via LoRa</text>
+<text x="52" y="806.1199999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• A remote LoRa node reports a tank level → the LoRa module in the stack forwards it to the coordinator</text>
+<text x="52" y="820.6399999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The coordinator stores it as virtual point V-AI1 in the same image → visible to the cloud like a local input</text>
+<text x="40" y="843.1599999999999" font-size="12" font-weight="bold" text-anchor="start" fill="#2f5fb3">Modbus to a SCADA</text>
+<text x="52" y="860.1599999999999" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• The Fieldbus controller&#x27;s RS-485 port acts as Modbus RTU slave: AI / DI / DO mapped to registers</text>
+<text x="52" y="874.6799999999998" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">• Same owner rules apply: SCADA writes reach an output only if the RS-485 interface is its configured owner</text>
 <text x="840" y="106" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Sharing model</text>
 <rect x="840" y="130" width="250" height="64" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.4"/>
-<text x="850" y="152" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f5e2d">Field: 6 AI · 10 DI · 8 RL · 4 HS</text>
-<text x="850" y="167.18" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f5e2d">sensors, meters, actuators</text>
+<text x="850" y="152" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f5e2d">Field: 6 AI · 10 DI · 8 RL · 4 HS ·</text>
+<text x="850" y="167.18" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f5e2d">4 LS</text>
+<text x="850" y="182.36" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f5e2d">sensors, meters, actuators</text>
 <line x1="965" y1="194" x2="965" y2="236" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
 <rect x="840" y="236" width="250" height="300" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="2"/>
 <text x="850" y="258" font-size="12.5" font-weight="bold" text-anchor="start" fill="#2f5fb3">Coordinator — IO server</text>
@@ -137,7 +165,7 @@
 <text x="1250" y="486" font-size="10" font-weight="normal" text-anchor="start" fill="#4a5560">reads any input · writes only outputs it owns</text>
 <line x1="1196" y1="452" x2="1240" y2="452" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
 <text x="840" y="690" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Sharing rules (proposed — PRD IO-6)</text>
-<text x="840" y="714" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Local hardware: each module reads and drives only its own IO (Fieldbus controller 28 channels; Wi-Fi + BLE 16 plus</text>
+<text x="840" y="714" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Local hardware: each module reads and drives only its own IO (Fieldbus controller 32 channels; Wi-Fi + BLE 16 plus</text>
 <text x="852" y="729.18" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">RS-485 and CAN; LoRa 12 plus RS-485).</text>
 <text x="840" y="744.3599999999999" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Publish: the coordinator broadcasts the IO process image on the RS-485 stack bus cyclically (rate configurable, for</text>
 <text x="852" y="759.5399999999998" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">example 100 ms) and immediately on change, in its next transmit turn (≤ ≈ 20 ms).</text>

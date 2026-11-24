@@ -51,11 +51,11 @@ pres.addSection({ title: "Overview" });
   s.addText("Specifications", { placeholder: "title" });
   subtitle(s, "Modular DIN-rail IoT gateway: modules click together side by side, and each also works on its own as a remote node");
   const fam = [
-    ["Fieldbus controller", "90 mm", "Removable MCU control card (STM32C5A3 now, STM32H573 later; other MCUs by swapping the card) · Ethernet (low-cost build without it as an option) · 6 AI, 10 DI · 8 SPDT relays 10 A (front-replaceable fuses) + 4 fast 24 V outputs · isolated RS-485 + CAN-FD · data log"],
+    ["Fieldbus controller", "90 mm", "Base card + raised plug-in MCU card (STM32C5A3 standard, STM32H573 option; newer MCUs by a new card) · Ethernet · 6 AI, 10 DI · 8 SPDT relays 10 A (front-replaceable fuses) + 4 high-side + 4 low-side 24 V · motor-driver provision · isolated RS-485 + CAN-FD · data log"],
     ["4G modem card", "45 mm", "Quectel EC200U-CN: LTE Cat 1, GSM fallback, built-in GPS · low cost"],
     ["Wi-Fi + BLE", "45 mm", "ESP32-C6: Wi-Fi 6, BLE 5, 802.15.4 · isolated RS-485 + CAN 2.0 · 6 DI, 4 DO, 4 AI, 2 SPDT relays 10 A"],
     ["LoRa", "45 mm", "STM32WLE5, 865–867 MHz private network, long range · remote IO node: RS-485 · 4 DI, 4 AI, 4 DO"],
-    ["Battery + charger board", "option, per module", "TI BQ25601 charger with backup + 18650 cell ≈ 3000 mAh, I²C status"],
+    ["Battery + charger board", "option, per module", "TI BQ25601 charger with backup, its own 18650 holder (cell ≈ 3000 mAh), I²C status"],
   ];
   const rows = [[{ text: "Module", options: HDR }, { text: "Width", options: HDR }, { text: "What it does", options: HDR }]];
   fam.forEach((r, i) => {
@@ -79,7 +79,7 @@ pres.addSection({ title: "Overview" });
     runs.push({ text: k[1], options: { color: C.text1, fontSize: 12, breakLine: i < key.length - 1, paraSpaceAfter: 7 } });
   });
   s.addText(runs, { x: 8.65, y: 1.62, w: 4.0, h: 5.2, valign: "top", margin: 0, isTextBox: true, objectName: "key specs" });
-  s.addText("Preliminary · parts and figures from the PRD Draft 0.5 and research reports R01–R22 · prices at 100 units", { x: 0.5, y: 7.08, w: 9, h: 0.3, fontSize: 10, color: C.accent6, margin: 0, isTextBox: true });
+  s.addText("Preliminary · parts and figures from the PRD Draft 0.6 and research reports R01–R25 · prices at 100 units", { x: 0.5, y: 7.08, w: 9, h: 0.3, fontSize: 10, color: C.accent6, margin: 0, isTextBox: true });
 }
 
 // ---------------------------------------------------------------- 2 architecture
@@ -91,7 +91,7 @@ pres.addSection({ title: "Overview" });
   s.addImage({ path: path.join(ASSETS, "arch_p1.png"), x: 0.5, y: 1.4, w: iw, h: ih, altText: "Architecture diagram: Fieldbus controller, 4G modem, Wi-Fi + BLE and LoRa modules on a DIN rail with the gateway adapter", objectName: "architecture diagram" });
   const pts = [
     ["Power stage on every module", "Buck regulator + protection on each module PCB (terminal ∥ USB-C 5 V ∥ bus) + optional plug-in battery + charger board"],
-    ["One battery per gateway", "Sits on the module that takes the adapter and backs up the whole stack over the bus"],
+    ["Battery per module, optional", "Plug-in charger board with its own 18650 holder; it backs up its module and can feed the stack over the bus"],
     ["Every module stands alone", "In a stack the coordinator is elected: Fieldbus controller, else Wi-Fi + BLE, else LoRa"],
     ["Full drawing set", "UC_Architecture.pdf: IO sharing, bus pinout and power, pricing, software, Tier-2 router"],
   ];

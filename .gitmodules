@@ -1,0 +1,18 @@
+[submodule "modules/fieldbus-controller"]
+	path = modules/fieldbus-controller
+	url = ../UC-HW-Fieldbus-Controller.git
+[submodule "modules/4g-modem-card"]
+	path = modules/4g-modem-card
+	url = ../UC-HW-4G-Modem-Card.git
+[submodule "modules/gps-card"]
+	path = modules/gps-card
+	url = ../UC-HW-GPS-Card.git
+[submodule "modules/wifi-ble"]
+	path = modules/wifi-ble
+	url = ../UC-HW-WiFi-BLE.git
+[submodule "modules/lora"]
+	path = modules/lora
+	url = ../UC-HW-LoRa.git
+[submodule "modules/battery-board"]
+	path = modules/battery-board
+	url = ../UC-HW-Battery-Board.git

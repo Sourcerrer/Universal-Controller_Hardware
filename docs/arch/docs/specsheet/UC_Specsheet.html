@@ -51,7 +51,7 @@
 
 <div class="grid3">
   <div class="benefit"><b>Pay only for what you use</b>Add 4G, Wi-Fi, Bluetooth or LoRa as separate modules instead of buying a fixed router with radios you never switch on.</div>
-  <div class="benefit"><b>Real IO, not just a modem</b>4 universal analog inputs, 10 digital inputs and 10 protected outputs on the controller, shared with every module.</div>
+  <div class="benefit"><b>Real IO, not just a modem</b>up to 6 analog inputs, 10 digital inputs, 6 relays and 4 protected 24 V outputs on the controller, shared with every module.</div>
   <div class="benefit"><b>Secure at the hardware level</b>Certified hardware root of trust, signed and encrypted updates, no open services by default.</div>
   <div class="benefit"><b>Keeps working through power cuts</b>Every module can take a plug-in battery + charger board with an 18650 Li-ion cell, and every module sends a last-gasp alarm when power fails.</div>
   <div class="benefit"><b>Your own LoRa sensor network</b>The same LoRa module works as the gateway radio and as the remote node: no third-party gateway needed.</div>
@@ -61,7 +61,7 @@
 <h2>The family</h2>
 <table>
   <tr><th style="width:23%">Module</th><th style="width:9%">Width</th><th>What it does</th><th style="width:25%">On its own</th></tr>
-  <tr><td><b>Fieldbus controller</b></td><td>90 mm</td><td>Secure controller with 6 analog in, 10 digital in, 8 relays (10 A, AC or DC, fused), 4 high-side and 4 low-side 24 V outputs, provision for 2 motor drivers, Ethernet, isolated RS-485 and CAN-FD, and data logging. The processor sits on a plug-in card, so it can be upgraded without changing the rest.</td><td>IO controller, data logger, Modbus gateway</td></tr>
+  <tr><td><b>Fieldbus controller</b></td><td>90 mm</td><td>Secure controller in two models — with Ethernet: 4 analog in, 6 digital in; without Ethernet: 6 analog in, 10 digital in, 2 extra outputs — both with 6 relays (10 A, AC or DC, fused) and 4 high-side 24 V outputs; motor-control card as an option, isolated RS-485 and CAN-FD, and data logging. The processor sits on a plug-in card, so it can be upgraded without changing the rest.</td><td>IO controller, data logger, Modbus gateway</td></tr>
   <tr><td><b>4G module</b></td><td>45 mm</td><td>Low-cost 4G LTE (Cat 1) uplink with GSM fallback and built-in GPS</td><td>Compact 4G modem node</td></tr>
   <tr><td><b>Wi-Fi + Bluetooth module</b></td><td>45 mm</td><td>Wi-Fi 6 uplink, Bluetooth LE for app-based setup, Thread / Zigbee capable radio; 6 digital in, 4 digital out, 4 analog in, RS-485 and CAN on board</td><td>Wi-Fi / Bluetooth IO node</td></tr>
   <tr><td><b>LoRa module</b></td><td>45 mm</td><td>Long-range sub-GHz radio for private sensor networks over kilometres, with RS-485, 4 digital in, 4 analog in and 4 digital out on board</td><td>Remote LoRa IO node</td></tr>
@@ -89,9 +89,9 @@
   <tr><td>Wi-Fi</td><td class="us">Wi-Fi 6, 2.4 GHz (module)</td><td>—</td><td>Wi-Fi 4, 2.4 GHz</td><td>Wi-Fi 4, 2.4 GHz</td><td>Wi-Fi 4 (option)</td><td>—</td></tr>
   <tr><td>Bluetooth / Thread</td><td class="us">Bluetooth LE, 802.15.4 (module)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
   <tr><td>LoRa</td><td class="us">865–867 MHz private network (module)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-  <tr><td>Analog inputs</td><td class="us">6 universal: 0–10 V, 4–20 mA or PT1000</td><td>1 × 0–30 V</td><td>1 × 0–24 V</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>Analog inputs</td><td class="us">4 or 6: 0–10 V or 4–20 mA</td><td>1 × 0–30 V</td><td>1 × 0–24 V</td><td>—</td><td>—</td><td>—</td></tr>
   <tr><td>Digital inputs</td><td class="us">10 × 24 V, isolated, 2 pulse counters</td><td rowspan="2">3 configurable in / out</td><td>2 (1 dry, 1 isolated)</td><td>—</td><td>Dry contact</td><td>Yes (36 V)</td></tr>
-  <tr><td>Digital outputs</td><td class="us">8 relays 10 A (AC / DC, fused) + 4 high-side + 4 low-side 24 V</td><td>Yes</td><td>—</td><td>Yes (wet)</td><td>Open drain, 100 mA</td></tr>
+  <tr><td>Digital outputs</td><td class="us">6 relays 10 A (AC / DC, fused) + 4 high-side 24 V</td><td>Yes</td><td>—</td><td>Yes (wet)</td><td>Open drain, 100 mA</td></tr>
   <tr><td>Serial / fieldbus</td><td class="us">1 × RS-485 + 1 × CAN-FD</td><td>RS-232 + RS-485</td><td>RS-232 + RS-485</td><td>RS-232 / RS-485 combo</td><td>RS-232 + RS-485</td><td>RS-232 + RS-485</td></tr>
   <tr><td>Backup power</td><td class="us">Optional plug-in battery + charger board per module (18650 ≈ 3000 mAh), last-gasp alarm</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
   <tr><td>Power input</td><td class="us">5–32 V DC or USB-C 5 V</td><td>9–30 V DC</td><td>9–30 V DC, passive PoE</td><td>9–36 V DC</td><td>9–48 V DC</td><td>9–48 V DC</td></tr>
@@ -103,10 +103,10 @@
 <h2>Fieldbus controller</h2>
 <table>
   <tr><td class="k">Processor</td><td>Arm Cortex-M33 on a plug-in card: 144 MHz with crypto (standard) or 250 MHz with TrustZone and PSA Certified Level 3 (option); new processors fit as new cards</td></tr>
-  <tr><td class="k">Variants</td><td>Ethernet (RJ45) standard; low-cost version without Ethernet</td></tr>
-  <tr><td class="k">Analog inputs</td><td>6 universal channels, each selectable: 0–10 V, 4–20 mA or PT1000; protected against 24 V mis-wiring. Accuracy ±0.5 % of full scale, ±0.3 % after calibration<span class="star">*</span></td></tr>
-  <tr><td class="k">Digital inputs</td><td>10 × 24 V DC (IEC 61131-2 type 1/3), optically isolated in 2 groups; DI1–DI2 usable as pulse counters</td></tr>
-  <tr><td class="k">Outputs</td><td>8 relays (changeover, 10 A, AC or DC, replaceable fuse each); 4 high-side 24 V with current monitoring and PWM; 4 low-side 24 V; 2 brushed DC motor drivers (12/24 V, 3 A) or 4 half-bridges fitted to order; hardware watchdog switches outputs off; LED on every input and output</td></tr>
+  <tr><td class="k">Variants</td><td>Two models: with Ethernet (RJ45) — 4 analog in, 6 digital in; without Ethernet — 6 analog in, 10 digital in, 2 extra outputs</td></tr>
+  <tr><td class="k">Analog inputs</td><td>4 (with Ethernet) or 6 (without Ethernet) channels, each selectable: 0–10 V or 4–20 mA; protected against 24 V mis-wiring. Accuracy ±0.5 % of full scale, ±0.3 % after calibration<span class="star">*</span></td></tr>
+  <tr><td class="k">Digital inputs</td><td>6 (with Ethernet) or 10 (without Ethernet) × 24 V DC (IEC 61131-2 type 1/3), optically isolated; DI1–DI2 usable as pulse counters</td></tr>
+  <tr><td class="k">Outputs</td><td>6 relays (changeover, 10 A, AC or DC, replaceable fuse each); 4 high-side 24 V with current monitoring and PWM; 2 extra outputs on the model without Ethernet; up to 2 brushed DC motors (12/24 V, 3 A) on an optional motor-control card; hardware watchdog switches outputs off; LED on every input and output</td></tr>
   <tr><td class="k">Serial</td><td>1 × RS-485, galvanically isolated, switchable termination and bias; Modbus RTU master / slave</td></tr>
   <tr><td class="k">CAN-FD</td><td>1 × CAN-FD, protected, switchable termination; J1939 and CANopen for vehicles and machines</td></tr>
   <tr><td class="k">Data logging</td><td>128 Mbit flash; at least 1 year of typical logging<span class="star">*</span>; real-time clock with coin-cell backup</td></tr>

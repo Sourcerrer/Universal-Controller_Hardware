@@ -15,7 +15,7 @@ There are exactly **four modules**:
 | Wi-Fi + BLE | Low-cost uplink and local BLE access |
 | LoRa | Gateway side and remote node (same hardware) |
 
-Every module carries its own power stage on its PCB (PWR-10; on the Fieldbus controller it sits on the base card and feeds the MCU card). One 12 V 18 W adapter per gateway or standalone module, priced separately. Options only: STM32H573 MCU card, Fieldbus controller without Ethernet, motor drivers fitted (DNP provision in the standard build), GPS-only modem card, ESP32-C6 N16, battery + charger board (PWR-2, one per module, optional).
+Every module carries its own power stage on its PCB (PWR-10; on the Fieldbus controller it sits on the base card and feeds the MCU card). One 12 V 18 W adapter per gateway or standalone module, priced separately. The Fieldbus controller comes in two standard models (owner, 2026-11-25): with Ethernet (4 AI, 6 DI, 6 relays, 4 high-side) and without Ethernet (6 AI, 10 DI, 6 relays, 4 high-side, 2 extra outputs), both on the STM32C5A3 card. Options only: STM32H573 MCU card, Renesas RA6M4 MCU card (classic CAN), motor-control card (separate card), GPS-only modem card, ESP32-C6 N16, battery + charger board (PWR-2, one per module, optional).
 
 ## Source of truth
 
@@ -67,11 +67,11 @@ Everything else lives in `docs/`:
 ## Part selection rules (owner)
 
 1. **Reliability and safety come first, ahead of cost.** If a cost target can't be met without weakening them, the target gives way and the gap is reported to the owner.
-2. **Silicon:** ST, NXP, Nordic. ESP32-C6 is tolerated for Wi-Fi + BLE. Fieldbus controller: a 100-pin MCU with **Ethernet as standard**. Speed ≥ 144 MHz (owner, 2026-11-22); MCU chip below INR 500 at 100 units (owner, 2026-11-22). The MCU sits on a raised plug-in MCU card with a fixed, MCU-neutral, versioned interface (BASE-11), so MCU supply problems only ever need a new card: the STM32C5A3VGT6 card (standard build) and the STM32H573VIT6 card (option, PSA L3) are both designed (owner, 2026-11-24); further MCUs get a new card only. The build without Ethernet (STM32H523) is an option. Ruled out: Microchip PIC32CK (120 MHz, no upstream Zephyr drivers) and Raspberry Pi RP2350 (no Ethernet MAC, no CAN).
+2. **Silicon:** ST, NXP, Nordic, Renesas (Renesas added by the owner, 2026-11-25). ESP32-C6 is tolerated for Wi-Fi + BLE. Fieldbus controller: a 100-pin MCU with **Ethernet as standard**. Speed ≥ 144 MHz (owner, 2026-11-22); MCU chip below INR 500 at 100 units (owner, 2026-11-22). The MCU sits on a raised plug-in MCU card with a fixed, MCU-neutral, versioned interface (BASE-11), so MCU supply problems only ever need a new card: the STM32C5A3VGT6 card (standard build) and the STM32H573VIT6 card (option, PSA L3) are both designed (owner, 2026-11-24); further MCUs get a new card only. The model without Ethernet uses the same STM32C5A3 card (2026-11-25; the STM32H523 build is superseded). Classic CAN 2.0B is acceptable instead of CAN-FD (owner, 2026-11-25; FB-1). Ruled out: Microchip PIC32CK (120 MHz, no upstream Zephyr drivers) and Raspberry Pi RP2350 (no Ethernet MAC, no CAN).
 3. **Ethernet only through a MAC inside the host chip**, never an SPI Ethernet controller.
 4. **Mornsun parts are banned.**
 5. Pre-certified radio modules; latest-generation parts with ≥ 5 years longevity; easy to buy in India; second source where possible.
-6. Firmware: **upstream Zephyr support is a must** for every MCU we program — the chip and the peripherals we use (owner, 2026-11-22; PRD FW-1). Parts without it are out (PIC32CK, PIC32MZ-W1).
+6. Firmware (PRD FW-1, owner 2026-11-25): every MCU we program must be supported by **Zephyr or Eclipse ThreadX**. For Zephyr, the chip must be supported upstream; missing peripheral drivers may be written by us. Earlier (2026-11-22) every peripheral driver also had to be upstream.
 7. Easy to manufacture at Indian contract manufacturers: standard PCB tech, avoid fine-pitch BGA.
 
 ## Never add parts silently

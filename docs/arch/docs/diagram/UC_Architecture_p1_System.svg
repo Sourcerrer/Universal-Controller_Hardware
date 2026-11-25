@@ -6,7 +6,7 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Front view of the device on a DIN rail, each module shown with its cover removed to expose the electronics. Every module has its own enclosure, and works</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">standalone on 5–32 V DC or USB-C 5 V. Each module has its own power stage; an optional plug-in battery + charger board per module. Not to scale.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.28 · 2026-11-24 · PRD 0.6 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.31 · 2026-11-25 · PRD 0.7 · prices at 100 units</text>
 <rect x="202" y="104" width="1242" height="38" rx="4" fill="#33414f" stroke="#33414f" stroke-width="1.4"/>
 <text x="212" y="119" font-size="11" font-weight="bold" text-anchor="start" fill="#ffffff">STACK BUS — 4 pins, inside the enclosures: a 4-pin connector on each side wall, neighbours joined by a bridge plug (part: D-9) · not hot-pluggable</text>
 <text x="212" y="135" font-size="10" font-weight="normal" text-anchor="start" fill="#dfe6ee">BUS_V · GND · RS485_A · RS485_B — half-duplex RS-485 at ≈ 2 Mbit/s, polled by the elected coordinator · page 3</text>
@@ -76,7 +76,7 @@
 <rect x="208" y="264" width="388" height="70" rx="4" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
 <text x="216" y="283" font-size="13" font-weight="bold" text-anchor="start" fill="#ffffff">FIELDBUS CONTROLLER (optional)</text>
 <text x="216" y="299" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">90 mm · coordinator when fitted · base card + raised plug-in MCU</text>
-<text x="216" y="311" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">card · Ethernet standard · 8 relays + 4 high-side + 4 low-side</text>
+<text x="216" y="311" font-size="9.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">card · shown: model with Ethernet · 6 relays + 4 high-side outputs</text>
 <circle cx="221" cy="325" r="4.5" fill="#2ecc71" stroke="#333" stroke-width="0.8"/>
 <text x="229" y="328.5" font-size="8.5" font-weight="normal" text-anchor="start" fill="#cfd8e2">PWR</text>
 <circle cx="267" cy="325" r="4.5" fill="#3498db" stroke="#333" stroke-width="0.8"/>
@@ -100,145 +100,103 @@
 <text x="226" y="442.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#b32f2f">Security — inside the MCU</text>
 <text x="226" y="456.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Hardware crypto, secure boot (MCUboot), flash protection; no</text>
 <text x="226" y="469.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">TrustZone — PSA L3 with the STM32H573 card</text>
-<rect x="218" y="488.0" width="368" height="83.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
-<text x="226" y="505.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">Field IO — 32 channels</text>
-<text x="226" y="519.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">6 AI · 10 DI · 8 relays 10 A changeover, fused · 4 high-side</text>
-<text x="226" y="532.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">+ 4 low-side 24 V</text>
-<text x="226" y="545.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Motor-driver provision (DNP): 2 motors or 4 half-bridges</text>
-<text x="226" y="558.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">LED per IO · watchdog forces outputs safe (p. 2)</text>
-<rect x="218" y="577.0" width="368" height="57.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
-<text x="226" y="594.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">RS-485 + CAN-FD</text>
-<text x="226" y="608.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">1× RS-485 (Modbus RTU) · 1× CAN-FD (J1939, CANopen) · both</text>
-<text x="226" y="621.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">isolated 2.5 kV (owner, 2026-11-19) · switchable termination</text>
-<rect x="218" y="640.0" width="368" height="57.0" rx="6" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.6"/>
-<text x="226" y="657.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">Ethernet — standard (BASE-9)</text>
-<text x="226" y="671.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">MAC in STM32C5A3 → LAN8720AI → RJ45 (no-Ethernet build:</text>
-<text x="226" y="684.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">option)</text>
-<rect x="218" y="703.0" width="368" height="57.0" rx="6" fill="#eceff3" stroke="#5a6470" stroke-width="1.6"/>
-<text x="226" y="720.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#5a6470">Storage, logging and updates (BASE-6)</text>
-<text x="226" y="734.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">16 MB QSPI NOR, LittleFS: own OTA image + data log · RTC +</text>
-<text x="226" y="747.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">CR2032</text>
+<rect x="218" y="488.0" width="368" height="109.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
+<text x="226" y="505.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">Field IO — two models</text>
+<text x="226" y="519.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">With Ethernet: 4 AI · 6 DI · 6 relays 10 A changeover, fused</text>
+<text x="226" y="532.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">· 4 high-side 24 V</text>
+<text x="226" y="545.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Without Ethernet: 6 AI · 10 DI · 6 relays · 4 high-side · 2</text>
+<text x="226" y="558.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">extra outputs</text>
+<text x="226" y="571.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">Motor control: separate motor-control card (option)</text>
+<text x="226" y="584.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">LED per IO · watchdog forces outputs safe (p. 2)</text>
+<rect x="218" y="603.0" width="368" height="57.0" rx="6" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.6"/>
+<text x="226" y="620.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#2e8540">RS-485 + CAN-FD</text>
+<text x="226" y="634.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">1× RS-485 (Modbus RTU) · 1× CAN-FD (J1939, CANopen) · both</text>
+<text x="226" y="647.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">isolated 2.5 kV (owner, 2026-11-19) · switchable termination</text>
+<rect x="218" y="666.0" width="368" height="57.0" rx="6" fill="#d6f1f5" stroke="#1f7f8c" stroke-width="1.6"/>
+<text x="226" y="683.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">Ethernet — model with Ethernet (BASE-9)</text>
+<text x="226" y="697.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">MAC in STM32C5A3 → LAN8720AI → RJ45 (model without Ethernet:</text>
+<text x="226" y="710.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">not fitted)</text>
+<rect x="218" y="729.0" width="368" height="57.0" rx="6" fill="#eceff3" stroke="#5a6470" stroke-width="1.6"/>
+<text x="226" y="746.0" font-size="11.5" font-weight="bold" text-anchor="start" fill="#5a6470">Storage, logging and updates (BASE-6)</text>
+<text x="226" y="760.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">16 MB QSPI NOR, LittleFS: own OTA image + data log · RTC +</text>
+<text x="226" y="773.0" font-size="10" font-weight="normal" text-anchor="start" fill="#1b1f24">CR2032</text>
 <rect x="318.33333333333337" y="910" width="34" height="13" rx="6.5" fill="#c9ced3" stroke="#2b3138" stroke-width="1.4"/>
 <text x="335.33333333333337" y="948" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">USB-C service + 5 V power</text>
 <rect x="446.6666666666667" y="900" width="44" height="36" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
 <rect x="456.6666666666667" y="906" width="24" height="20" rx="1" fill="#11161b" stroke="#2b3138" stroke-width="1"/>
 <rect x="463.6666666666667" y="926" width="10" height="5" rx="0" fill="#11161b" stroke="#2b3138" stroke-width="1"/>
 <text x="468.6666666666667" y="948" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">RJ45 Ethernet</text>
-<rect x="216.0" y="966" width="51.52" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
-<circle cx="219.2" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="217.932" y1="978" x2="220.508" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="225.7" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="224.37199999999999" y1="978" x2="226.948" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="232.1" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="230.81199999999998" y1="978" x2="233.388" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="238.5" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="237.25199999999998" y1="978" x2="239.828" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="245.0" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="243.69199999999998" y1="978" x2="246.268" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="251.4" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="250.13199999999998" y1="978" x2="252.708" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="257.9" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="256.572" y1="978" x2="259.148" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="264.3" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="263.012" y1="978" x2="265.588" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<text x="241.76" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">AI1–6</text>
-<rect x="277.52" y="966" width="70.84" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
-<circle cx="280.7" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="279.452" y1="978" x2="282.028" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="287.2" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="285.892" y1="978" x2="288.468" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="293.6" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="292.332" y1="978" x2="294.908" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="300.1" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="298.772" y1="978" x2="301.348" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="306.5" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="305.212" y1="978" x2="307.788" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="312.9" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="311.652" y1="978" x2="314.228" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="319.4" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="318.092" y1="978" x2="320.668" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="325.8" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="324.532" y1="978" x2="327.108" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="332.3" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="330.972" y1="978" x2="333.548" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="338.7" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="337.412" y1="978" x2="339.988" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="345.1" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="343.852" y1="978" x2="346.428" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<text x="312.94" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">DI1–10 + COM</text>
-<rect x="358.36" y="966" width="38.64" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
-<circle cx="361.6" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="360.29200000000003" y1="978" x2="362.86800000000005" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="368.0" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="366.732" y1="978" x2="369.30800000000005" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="374.5" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="373.172" y1="978" x2="375.74800000000005" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="380.9" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="379.612" y1="978" x2="382.18800000000005" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="387.3" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="386.052" y1="978" x2="388.62800000000004" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="393.8" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="392.492" y1="978" x2="395.06800000000004" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<text x="377.68" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">HS 1–4</text>
-<text x="377.68" y="1013" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">+ 24V</text>
-<rect x="407.0" y="966" width="32.2" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
-<circle cx="410.2" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="408.932" y1="978" x2="411.50800000000004" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="416.7" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="415.372" y1="978" x2="417.94800000000004" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="423.1" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="421.812" y1="978" x2="424.38800000000003" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="429.5" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="428.252" y1="978" x2="430.82800000000003" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="436.0" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="434.692" y1="978" x2="437.26800000000003" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<text x="423.1" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">LS 1–4</text>
-<text x="423.1" y="1013" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">+ 0V</text>
-<rect x="449.2" y="966" width="38.64" height="24" rx="2" fill="#ffffff" stroke="#2b3138" stroke-width="1.2" stroke-dasharray="7 4"/>
-<circle cx="452.4" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="451.132" y1="978" x2="453.708" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="458.9" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="457.572" y1="978" x2="460.148" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="465.3" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="464.012" y1="978" x2="466.588" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="471.7" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="470.452" y1="978" x2="473.028" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="478.2" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="476.892" y1="978" x2="479.468" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="484.6" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="483.332" y1="978" x2="485.908" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<text x="468.52" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">MOTOR</text>
-<text x="468.52" y="1013" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">(DNP)</text>
-<rect x="497.84" y="966" width="90.16000000000001" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
-<circle cx="501.1" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="499.772" y1="978" x2="502.348" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="507.5" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="506.212" y1="978" x2="508.788" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="513.9" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="512.6519999999999" y1="978" x2="515.228" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="520.4" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="519.092" y1="978" x2="521.668" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="526.8" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="525.532" y1="978" x2="528.1080000000001" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="533.3" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="531.972" y1="978" x2="534.548" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="539.7" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="538.412" y1="978" x2="540.988" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="546.1" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="544.852" y1="978" x2="547.428" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="552.6" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="551.292" y1="978" x2="553.868" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="559.0" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="557.732" y1="978" x2="560.308" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="565.5" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="564.172" y1="978" x2="566.748" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="571.9" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="570.612" y1="978" x2="573.188" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="578.3" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="577.052" y1="978" x2="579.628" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<circle cx="584.8" cy="978" r="2.1" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
-<line x1="583.492" y1="978" x2="586.068" y2="978" stroke="#2b3138" stroke-width="1.1"/>
-<text x="542.92" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">RELAY 1–8 NO/NC/C</text>
+<rect x="216.0" y="966" width="66.19354838709678" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="221.5" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="219.30967741935484" y1="978" x2="223.72258064516132" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="232.5" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="230.34193548387097" y1="978" x2="234.75483870967744" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="243.6" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="241.3741935483871" y1="978" x2="245.78709677419357" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="254.6" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="252.40645161290323" y1="978" x2="256.81935483870967" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="265.6" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="263.43870967741935" y1="978" x2="267.85161290322577" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="276.7" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="274.4709677419355" y1="978" x2="278.8838709677419" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="249.09677419354838" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">AI1–4</text>
+<rect x="292.19354838709677" y="966" width="77.22580645161291" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="297.7" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="295.5032258064516" y1="978" x2="299.916129032258" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="308.7" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="306.53548387096777" y1="978" x2="310.9483870967742" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="319.8" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="317.56774193548387" y1="978" x2="321.9806451612903" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="330.8" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="328.6" y1="978" x2="333.01290322580644" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="341.8" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="339.6322580645161" y1="978" x2="344.04516129032254" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="352.9" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="350.6645161290323" y1="978" x2="355.0774193548387" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="363.9" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="361.6967741935484" y1="978" x2="366.1096774193548" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="330.80645161290323" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">DI1–6 + COM</text>
+<rect x="379.4193548387097" y="966" width="66.19354838709678" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="384.9" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="382.72903225806454" y1="978" x2="387.14193548387095" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="396.0" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="393.7612903225807" y1="978" x2="398.1741935483871" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="407.0" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="404.7935483870968" y1="978" x2="409.2064516129032" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="418.0" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="415.82580645161295" y1="978" x2="420.23870967741937" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="429.1" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="426.85806451612905" y1="978" x2="431.27096774193546" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="440.1" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="437.8903225806452" y1="978" x2="442.3032258064516" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="412.5161290322581" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">HS 1–4</text>
+<text x="412.5161290322581" y="1013" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">+ 24V</text>
+<rect x="455.61290322580646" y="966" width="132.38709677419357" height="24" rx="2" fill="#5b6670" stroke="#2b3138" stroke-width="1.2"/>
+<circle cx="461.1" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="458.9225806451613" y1="978" x2="463.3354838709677" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="472.2" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="469.95483870967746" y1="978" x2="474.3677419354839" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="483.2" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="480.98709677419356" y1="978" x2="485.4" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="494.2" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="492.0193548387097" y1="978" x2="496.43225806451613" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="505.3" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="503.0516129032258" y1="978" x2="507.46451612903223" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="516.3" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="514.083870967742" y1="978" x2="518.4967741935485" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="527.3" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="525.1161290322581" y1="978" x2="529.5290322580646" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="538.4" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="536.1483870967742" y1="978" x2="540.5612903225807" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="549.4" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="547.1806451612903" y1="978" x2="551.5935483870968" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="560.4" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="558.2129032258064" y1="978" x2="562.6258064516129" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="571.5" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="569.2451612903226" y1="978" x2="573.6580645161291" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<circle cx="582.5" cy="978" r="3.5" fill="#d5d9dd" stroke="#2b3138" stroke-width="1"/>
+<line x1="580.2774193548387" y1="978" x2="584.6903225806452" y2="978" stroke="#2b3138" stroke-width="1.1"/>
+<text x="521.8064516129033" y="1002" font-size="9" font-weight="bold" text-anchor="middle" fill="#2b3138">RELAY 1–6 NO/NC/C</text>
 <rect x="380.0" y="1030" width="44" height="12" rx="2" fill="#2b3138" stroke="#2b3138" stroke-width="1.4"/>
 <rect x="882" y="195" width="82" height="14" rx="3" fill="#7b8794" stroke="#2b3138" stroke-width="1.2"/>
 <line x1="923.0" y1="142" x2="923.0" y2="195" stroke="#33414f" stroke-width="1.2"/>

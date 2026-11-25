@@ -51,7 +51,7 @@ pres.addSection({ title: "Overview" });
   s.addText("Specifications", { placeholder: "title" });
   subtitle(s, "Modular DIN-rail IoT gateway: modules click together side by side, and each also works on its own as a remote node");
   const fam = [
-    ["Fieldbus controller", "90 mm", "Base card + raised plug-in MCU card (STM32C5A3 standard, STM32H573 option; newer MCUs by a new card) · Ethernet · 6 AI, 10 DI · 8 SPDT relays 10 A (front-replaceable fuses) + 4 high-side + 4 low-side 24 V · motor-driver provision · isolated RS-485 + CAN-FD · data log"],
+    ["Fieldbus controller", "90 mm", "Base card + raised plug-in MCU card (STM32C5A3 standard, STM32H573 option; newer MCUs by a new card) · two models: with Ethernet — 4 AI, 6 DI · without Ethernet — 6 AI, 10 DI, 2 extra outputs · both: 6 SPDT relays 10 A (front-replaceable fuses) + 4 high-side 24 V · isolated RS-485 + CAN-FD · data log · motor-control card as an option"],
     ["4G modem card", "45 mm", "Quectel EC200U-CN: LTE Cat 1, GSM fallback, built-in GPS · low cost"],
     ["Wi-Fi + BLE", "45 mm", "ESP32-C6: Wi-Fi 6, BLE 5, 802.15.4 · isolated RS-485 + CAN 2.0 · 6 DI, 4 DO, 4 AI, 2 SPDT relays 10 A"],
     ["LoRa", "45 mm", "STM32WLE5, 865–867 MHz private network, long range · remote IO node: RS-485 · 4 DI, 4 AI, 4 DO"],
@@ -137,7 +137,7 @@ pres.addSection({ title: "Overview" });
   s.addTable(rows, { x: 0.5, y: 1.4, w: 12.33, colW: [5.0, 2.33, 1.6, 1.7, 1.7], rowH: 0.2, border: { type: "solid", pt: 0.5, color: "C9D0D8" }, margin: [0.01, 0.05, 0.01, 0.05], objectName: "costing table" });
   s.addText([
     { text: "ESTIMATES, no supplier quotes yet. ", options: { bold: true } },
-    { text: "BOMs at 100 units from research R02–R22. Royalty: INR 2,000 per device for the first 20 devices of every module, then INR 750 Fieldbus controller, 750 4G modem card, 200 Wi-Fi + BLE, 200 LoRa; none on the DC-DC board, battery board, adapter or options. All 15 combinations: UC_Architecture.pdf page 4." },
+    { text: "BOMs at 100 units from research R02–R22. Royalty: INR 2,000 per device for the first 20 devices of every module, then INR 750 Fieldbus controller (+ INR 500 hardware royalty), 750 4G modem card, 200 Wi-Fi + BLE, 200 LoRa; none on the DC-DC board, battery board, adapter or options. All 15 combinations: UC_Architecture.pdf page 4." },
   ], { x: 0.5, y: 6.75, w: 11.6, h: 0.35, fontSize: 10, color: C.accent6, margin: 0, valign: "top", isTextBox: true, objectName: "costing notes" });
 }
 

@@ -1,10 +1,16 @@
 {
  "items": [
   [
-   "Fieldbus controller (Ethernet standard)",
-   3104,
-   5906,
-   7678
+   "Fieldbus controller with Ethernet",
+   2650,
+   5225,
+   6792
+  ],
+  [
+   "Fieldbus controller without Ethernet",
+   2530,
+   5045,
+   6558
   ],
   [
    "4G modem + GPS (EC200U-CN)",
@@ -46,18 +52,18 @@
    433
   ],
   [
-   "Motor drivers fitted: 2 motors or 4 half-bridges",
+   "Renesas RA6M4 card instead of STM32C5A3 (classic CAN)",
+   "Fieldbus controller",
+   125,
+   188,
+   244
+  ],
+  [
+   "Motor-control card: 2 brushed DC motors (ESTIMATE)",
    "Fieldbus controller",
    425,
    733,
    953
-  ],
-  [
-   "Without Ethernet — low cost, STM32H523",
-   "Fieldbus controller",
-   -277,
-   -416,
-   -540
   ],
   [
    "GPS-only modem card (no 4G)",
@@ -77,33 +83,33 @@
  "systems": [
   [
    "Fieldbus controller, standalone",
-   3104,
-   5906,
-   7678
+   2650,
+   5225,
+   6792
   ],
   [
    "4G gateway: Fieldbus controller + 4G + GPS",
-   4903,
-   9354,
-   12161
+   4449,
+   8674,
+   11276
   ],
   [
    "Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE",
-   5063,
-   9044,
-   11758
+   4609,
+   8364,
+   10873
   ],
   [
    "4G + LoRa gateway: Fieldbus controller + 4G + GPS + LoRa",
-   6057,
-   11286,
-   14671
+   5603,
+   10604,
+   13786
   ],
   [
    "Full stack: all four modules",
-   8016,
-   14424,
-   18751
+   7562,
+   13743,
+   17866
   ],
   [
    "LoRa node, standalone",

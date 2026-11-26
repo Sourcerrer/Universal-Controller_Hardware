@@ -47,7 +47,7 @@
   <div class="tag">Product brief and specifications<br>November 2026</div>
 </div>
 
-<p class="lead">One controller, many connectivity options. The Universal Controller is a family of DIN-rail modules that click together side by side. Start with the controller and its 24 field inputs and outputs, then add 4G, Wi-Fi + Bluetooth or LoRa only where you need them. Every module also works on its own as a remote node.</p>
+<p class="lead">One controller, many connectivity options. The Universal Controller is a family of DIN-rail modules that click together side by side. Start with the controller and its 20 to 28 field inputs and outputs, then add 4G, Wi-Fi + Bluetooth or LoRa only where you need them. Every module also works on its own as a remote node.</p>
 
 <div class="grid3">
   <div class="benefit"><b>Pay only for what you use</b>Add 4G, Wi-Fi, Bluetooth or LoRa as separate modules instead of buying a fixed router with radios you never switch on.</div>
@@ -64,7 +64,7 @@
   <tr><td><b>Fieldbus controller</b></td><td>90 mm</td><td>Secure controller in two models — with Ethernet: 4 analog in, 6 digital in; without Ethernet: 6 analog in, 10 digital in, 2 extra outputs — both with 6 relays (10 A, AC or DC, fused) and 4 high-side 24 V outputs; motor-control card as an option, isolated RS-485 and CAN-FD, and data logging. The processor sits on a plug-in card, so it can be upgraded without changing the rest.</td><td>IO controller, data logger, Modbus gateway</td></tr>
   <tr><td><b>4G module</b></td><td>45 mm</td><td>Low-cost 4G LTE (Cat 1) uplink with GSM fallback and built-in GPS</td><td>Compact 4G modem node</td></tr>
   <tr><td><b>Wi-Fi + Bluetooth module</b></td><td>45 mm</td><td>Wi-Fi 6 uplink, Bluetooth LE for app-based setup, Thread / Zigbee capable radio; 6 digital in, 4 digital out, 4 analog in, RS-485 and CAN on board</td><td>Wi-Fi / Bluetooth IO node</td></tr>
-  <tr><td><b>LoRa module</b></td><td>45 mm</td><td>Long-range sub-GHz radio for private sensor networks over kilometres, with RS-485, 4 digital in, 4 analog in and 4 digital out on board</td><td>Remote LoRa IO node</td></tr>
+  <tr><td><b>LoRa module</b></td><td>45 mm</td><td>Long-range sub-GHz radio for private sensor networks over kilometres, with RS-485, 6 digital in, 4 analog in and 4 digital out on board</td><td>Remote LoRa IO node</td></tr>
   <tr><td><b>Power adapters</b></td><td>separate</td><td>Certified DIN-rail mains adapter for gateways; single modules run from any 5 V USB-C charger</td><td>—</td></tr>
 </table>
 
@@ -90,7 +90,7 @@
   <tr><td>Bluetooth / Thread</td><td class="us">Bluetooth LE, 802.15.4 (module)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
   <tr><td>LoRa</td><td class="us">865–867 MHz private network (module)</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
   <tr><td>Analog inputs</td><td class="us">4 or 6: 0–10 V or 4–20 mA</td><td>1 × 0–30 V</td><td>1 × 0–24 V</td><td>—</td><td>—</td><td>—</td></tr>
-  <tr><td>Digital inputs</td><td class="us">10 × 24 V, isolated, 2 pulse counters</td><td rowspan="2">3 configurable in / out</td><td>2 (1 dry, 1 isolated)</td><td>—</td><td>Dry contact</td><td>Yes (36 V)</td></tr>
+  <tr><td>Digital inputs</td><td class="us">6 or 10 × 24 V, isolated, 2 pulse counters</td><td rowspan="2">3 configurable in / out</td><td>2 (1 dry, 1 isolated)</td><td>—</td><td>Dry contact</td><td>Yes (36 V)</td></tr>
   <tr><td>Digital outputs</td><td class="us">6 relays 10 A (AC / DC, fused) + 4 high-side 24 V</td><td>Yes</td><td>—</td><td>Yes (wet)</td><td>Open drain, 100 mA</td></tr>
   <tr><td>Serial / fieldbus</td><td class="us">1 × RS-485 + 1 × CAN-FD</td><td>RS-232 + RS-485</td><td>RS-232 + RS-485</td><td>RS-232 / RS-485 combo</td><td>RS-232 + RS-485</td><td>RS-232 + RS-485</td></tr>
   <tr><td>Backup power</td><td class="us">Optional plug-in battery + charger board per module (18650 ≈ 3000 mAh), last-gasp alarm</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -144,7 +144,7 @@
   <table>
     <tr><td class="k">Frequency</td><td>India 865–867 MHz; EU 868 MHz on the same hardware</td></tr>
     <tr><td class="k">Network</td><td>Private star network, with the gateway and nodes using the same module; LoRaWAN 1.0.4 Class A end device</td></tr>
-    <tr><td class="k">Node IO</td><td>RS-485 (Modbus RTU) + 4 digital in, 4 analog in and 4 low-power 24 V digital out, for sensors and meters at the remote site</td></tr>
+    <tr><td class="k">Node IO</td><td>RS-485 (Modbus RTU) + 6 digital in, 4 analog in and 4 low-power 24 V digital out, for sensors and meters at the remote site</td></tr>
     <tr><td class="k">Range and speed</td><td>Up to +22 dBm with an external antenna; adaptive data rate from ≈ 0.3 kbps at the longest range to ≈ 37–62 kbps at short range</td></tr>
     <tr><td class="k">Radio</td><td>STM32WLE5 single-chip radio; low-µA sleep for battery operation<span class="star">*</span></td></tr>
   </table>

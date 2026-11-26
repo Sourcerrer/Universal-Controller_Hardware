@@ -18,7 +18,7 @@ COL = {   # fill, stroke
     "conn":  ("#e4e4e4", "#3a3a3a"),
 }
 INK = "#1b1f24"
-REV = "Draft C.31 · 2026-11-25 · PRD 0.7 · prices at 100 units"
+REV = "Draft C.33 · 2026-11-26 · PRD 0.7 · prices at 100 units"
 
 
 def esc(s):
@@ -203,9 +203,9 @@ def page1():
                                      "Wi-Fi 6 · BLE 5 · 802.15.4 · secure boot"], False),
                  ("io", "Node IO (WB-5, WB-6)", ["6 DI · 4 DO + watchdog · 4 AI · 2 relays 10 A changeover (AC / DC)", "Isolated RS-485 · isolated CAN 2.0 (TWAI) · I²C IO expander · LED per IO"], False),
              ]),
-        dict(key="lora", name="LoRa", sub="45 mm · remote IO node: RS-485, 4 DI, 4 AI, 4 DO · long range, +22 dBm", w=250,
+        dict(key="lora", name="LoRa", sub="45 mm · remote IO node: RS-485, 6 DI, 4 AI, 4 DO · long range, +22 dBm", w=250,
              top=[("DC IN 5–32 V", 2, False)],
-             bottom=[("RS-485", 3, False), ("4 DI", 5, False), ("4 AI", 5, False), ("4 DO + 24V", 6, False)],
+             bottom=[("RS-485", 3, False), ("6 DI", 7, False), ("4 AI", 5, False), ("4 DO + 24V", 6, False)],
              leds=[("RUN", "#2ecc71")],
              front=[("usbc", "USB-C 5 V power")],
              sma=["LoRa 865–868"],
@@ -213,7 +213,7 @@ def page1():
                  ("radio", "LoRa radio + MCU", ["STM32WLE5CC chip-down; pre-certified RAK3172-T module for pilots (≈ +INR 455)",
                                                 "Private star network; firmware enforces India e.r.p. limits", "Adaptive data rate: ≈ 0.3 kbps (SF12, longest range) to ≈ 37–62 kbps (SF5, 500 kHz); FSK to 300 kbps short range"], False),
                  ("mem", "Own OTA and data log", ["16 MB QSPI NOR: OTA image (LoRaWAN FUOTA or USB-C) + LittleFS log"], False),
-                 ("io", "Node IO — on the LoRa module (LORA-6)", ["RS-485 · 4 DI 24 V isolated · 4 AI 0–10 V / 4–20 mA · 4 DO 24 V low-power high-side (TPS274160B), watchdog-gated · one small RUN LED, ≈ 0.3 mA via ≈ 4.7 kΩ, short heartbeat blink"], False),
+                 ("io", "Node IO — on the LoRa module (LORA-6)", ["RS-485 · 6 DI 24 V isolated · 4 AI 0–10 V / 4–20 mA · 4 DO 24 V low-power high-side (TPS274160B), watchdog-gated · one small RUN LED, ≈ 0.3 mA via ≈ 4.7 kΩ, short heartbeat blink"], False),
              ]),
     ]
     AW, AGAP, GAP = 132, 30, 14
@@ -414,7 +414,7 @@ def page1():
 def page2():
     pg = Page("Field IO and how the modules share it",
               "Each module drives only its own IO; the coordinator (Fieldbus controller, else Wi-Fi + BLE, else LoRa) merges all IO into one image "
-              "shared over the stack bus (IO-6). Wi-Fi + BLE adds 6 DI, 4 DO, 4 AI and 2 relays; LoRa adds 4 DI, 4 DO and 4 AI.")
+              "shared over the stack bus (IO-6). Wi-Fi + BLE adds 6 DI, 4 DO, 4 AI and 2 relays; LoRa adds 6 DI, 4 DO and 4 AI.")
     pg.p.append('<g transform="translate(0,24)">')
     # IO table
     x0, y0 = 40, 112
@@ -523,7 +523,7 @@ def page2():
     ry = 690
     pg.text(rx0, ry, "Sharing rules (proposed — PRD IO-6)", 15, "bold")
     rules = [
-        "Local hardware: each module reads and drives only its own IO (Fieldbus controller 20 or 28 channels by model; Wi-Fi + BLE 16 plus RS-485 and CAN; LoRa 12 plus RS-485).",
+        "Local hardware: each module reads and drives only its own IO (Fieldbus controller 20 or 28 channels by model; Wi-Fi + BLE 16 plus RS-485 and CAN; LoRa 14 plus RS-485).",
         "Publish: the coordinator broadcasts the IO process image on the RS-485 stack bus cyclically (rate configurable, for example 100 ms) and immediately on change, in its next transmit turn (≤ ≈ 20 ms).",
         "Read: any fitted module may read any input, status or virtual point.",
         "Write: each output has exactly one owner at a time — coordinator logic or one named module — set by configuration. Writes from any other module are rejected and logged.",
@@ -734,14 +734,16 @@ BOM = {
         ("4-pin bus connectors + bridge share + RS-485 bus transceiver + ESD (ESTIMATE)", 59),
         ("PCB 2-layer (was 4-layer), passives (ESTIMATE)", 78),
         ("Enclosure 45 mm, Indian ABS at the volume-quote target (ESTIMATE)", 100),
-        ("Node IO, standard, inputs only: RS-485 + 4 DI (single optocouplers) + 4 AI 0–10 V / 4–20 mA (shared front end), fixed terminals; no DO (ESTIMATE)", 215),
+        ("Node IO, standard, inputs only: RS-485 + 6 DI (single optocouplers; 4 → 6, owner 2026-11-26, ≈ +15) + 4 AI 0–10 V / 4–20 mA (shared front end), fixed terminals; no DO (ESTIMATE)", 230),
         ("4 DO 24 V high-side (owner, 2026-11-19: remote switching, low power — no relays): 1× TI TPS274160B quad (LCSC USD 1.53 at 100), µA standby, loads fed from the field 24 V, watchdog gating, TVS, terminals; no IO LEDs (ESTIMATE)", 194)]),
     "pwr": ("Power stage — now on every module PCB (no separate board)", [
         ("Counted in each module", 0)]),
     "base_pic": ("STM32H573VIT6 MCU card instead of STM32C5A3VGT6 — Fieldbus controller, difference", [
         ("STM32H573VIT6 (250 MHz, TrustZone, PSA L3; own MCU card on the same base-card interface) instead of STM32C5A3VGT6 — ≈ INR 522 vs ≈ 300", 222)]),
     "base_ra6m4": ("Renesas RA6M4 MCU card instead of STM32C5A3VGT6 — Fieldbus controller, difference (owner, 2026-11-25; R26)", [
-        ("R7FA6M4AF3CFP (200 MHz, TrustZone + crypto, Ethernet, 2 × classic CAN) ≈ INR 425 (Renesas budgetary × 1.3, ESTIMATE) instead of STM32C5A3VGT6 ≈ 300; Zephyr CAN driver ours", 125)]),
+        ("R7FA6M4AF3CFP (200 MHz, TrustZone + crypto, Ethernet, 2 × classic CAN) ≈ INR 425 (ESTIMATE) vs STM32C5A3 ≈ 300; Zephyr CAN driver ours", 125)]),
+    "base_ra6m5": ("Renesas RA6M5 MCU card instead of STM32C5A3VGT6 — Fieldbus controller, difference (owner, 2026-11-25; R26)", [
+        ("R7FA6M5BH3CFP (200 MHz, TrustZone + crypto, Ethernet, 2 × CAN-FD, 2 MB) ≈ INR 558 (ESTIMATE; over the INR 500 cap) vs STM32C5A3 ≈ 300", 258)]),
     "base_motor": ("Motor-control card — separate, dedicated card (owner, 2026-11-25)", [
         ("2 × TI DRV8873S (SPI): 2 brushed DC motors 12/24 V ≤ 3 A, or 4 half-bridge outputs (PWM to tens of kHz, current sense, SPI faults); TVS, bulk capacitors, 6 terminal poles (ESTIMATE; card PCB, connector and housing not yet costed, D-41)", 425)]),
     "gps": ("GPS-only modem card — option (owner, 2026-11-23; D-40)", [
@@ -815,7 +817,7 @@ def bom(k):
 
 
 ROY_FIXED = {"4g0": 750, "wifi_lean": 200, "lora_lean": 100, "t2": 750, "t2lite": 750, "t2gnss": 750, "base": 1250, "base_noeth": 1250, "4g": 750, "rut": 750, "4g2g": 750, "lora": 200, "lorac": 100, "wifi": 200}  # owner, 2026-11-14: flat royalties (INR)
-ROY_NONE = {"wifi_n16", "gps", "eth", "se", "base_ra6m4", "4g_gnss", "batt", "adapter", "adapter_m", "pwr", "base_pic", "4g_noeth"}  # hardware-only options and the bought-in adapter
+ROY_NONE = {"wifi_n16", "gps", "eth", "se", "base_ra6m4", "base_ra6m5", "4g_gnss", "batt", "adapter", "adapter_m", "pwr", "base_pic", "4g_noeth"}  # hardware-only options and the bought-in adapter
 
 
 def build_keys(keys):
@@ -860,8 +862,6 @@ COSTDOWN = [("Fixed 3.81 mm screw terminals instead of pluggable (incl. CAN port
             ("TPS2H160 dual for outputs 9–10 instead of a third quad switch", 60, "applied"),
             ("Lower-cost 0.1 % 2.5 V reference instead of LM4040", 35, "applied"),
             ("Shared analog common: 35 → 32 terminal poles", 19, "applied"),
-            ("64 Mbit instead of 128 Mbit QSPI NOR", 17, "applied"),
-            ("PIC32CK2051SG01 instead of STM32H533 (owner, standard for now; ESTIMATE)", 56, "applied"),
             ("Power stage on the module PCB (≈ 85) instead of the plug-in power module (390); USB-C PD dropped", 305, "applied"),
             ("Two models (owner, 2026-11-25): 8 → 6 relays, no low-side outputs, no PT1000, fewer AI / DI on the model with Ethernet (3,104 → 2,650)", 454, "applied")]
 DECLINED = [("8 DO instead of 10", 92)]
@@ -957,6 +957,7 @@ def page4():
     ya = header(xa, ya, acols)
     acc = [("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", build_keys(["base_pic"])),
            ("Renesas RA6M4 card instead of STM32C5A3 (classic CAN)", "Fieldbus controller", build_keys(["base_ra6m4"])),
+           ("Renesas RA6M5 card instead of STM32C5A3 (CAN-FD)", "Fieldbus controller", build_keys(["base_ra6m5"])),
            ("Motor-control card: 2 brushed DC motors (ESTIMATE)", "Fieldbus controller", build_keys(["base_motor"])),
            ("GPS-only modem card (no 4G), dedicated UART link", "Stack, instead of the 4G card", build_keys(["gps"])),
            ("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", build_keys(["wifi_n16"])),
@@ -1108,6 +1109,7 @@ def page5():
              [a - b for a, b in zip(build_keys(["base_noeth"]), build_keys(["base"]))]),
             ("STM32H573 MCU card — Fieldbus controller, option", BOM["base_pic"][1], build_keys(["base_pic"])),
             ("Renesas RA6M4 MCU card — Fieldbus controller, option", BOM["base_ra6m4"][1], build_keys(["base_ra6m4"])),
+            ("Renesas RA6M5 MCU card — Fieldbus controller, option", BOM["base_ra6m5"][1], build_keys(["base_ra6m5"])),
             ("Motor-control card — separate card, option", BOM["base_motor"][1], build_keys(["base_motor"])),
             ("Adapter 12 V 18 W — one per stack, bought in", BOM["adapter"][1], build_keys(["adapter"]))]
     for i, (lab, items, v) in enumerate(accs):
@@ -1150,8 +1152,8 @@ def page5():
         f"at 100 pcs, now {inr(bom('lora'))} — a {pct((1 - lora_ceiling / bom('lora')) * 100)} cut.",
         f"Fieldbus controller, two models (owner, 2026-11-25), incl. power stage and enclosure: with Ethernet {inr(bom('base'))}, without Ethernet {inr(bom('base_noeth'))} "
         f"(spreadsheet ranges 2,650–2,700 / 2,530–2,590) — over the INR 2,000 limit by {inr(bom('base_noeth') - 2000)}–{inr(bom('base') - 2000)}.",
-        "MCU cards: STM32C5A3 standard; STM32H573 (PSA L3) or Renesas RA6M4 (classic CAN) as options. Motor control on a separate card (D-41). "
-        f"LoRa redesigned as a remote IO node (owner, 2026-11-19): STM32WLE5 at INR 250, 2-layer PCB, 16 MB QSPI NOR for its own OTA and logging (2026-11-23), RS-485 + 4 DI + 4 AI + 4 DO (low-power high-side quad), "
+        "MCU cards: STM32C5A3 standard; STM32H573 (PSA L3), Renesas RA6M4 (classic CAN) or RA6M5 (CAN-FD) as options. Motor control on a separate card (D-41). "
+        f"LoRa redesigned as a remote IO node (owner, 2026-11-19): STM32WLE5 at INR 250, 2-layer PCB, 16 MB QSPI NOR for its own OTA and logging (2026-11-23), RS-485 + 6 DI + 4 AI + 4 DO (low-power high-side quad; 6 DI since 2026-11-26), "
         f"SMA antenna kept for long range — BOM {inr(bom('lora'))}. Tip: volume quotes (≈ −10 %) → ≈ {inr(bom('lora') * 0.9)}; no relays: their coils would drain the battery.",
         "Tip — every module: this is a high-volume product, so negotiate the big parts with distributors (modem, ESP32-C6 module, MCUs, isolated transceivers, enclosures); "
         "the BOMs here are still research prices × 1.3 at 100 units.",
@@ -1175,7 +1177,7 @@ def page6():
                                           "Data logging: LittleFS store-and-forward, periodic / change of state, erased after server ACK",
                                           "IO server, Modbus RTU / TCP, CAN-FD (J1939, CANopen), MQTT / HTTPS client, update orchestrator for all modules"]),
         ("Wi-Fi + BLE module", "radio", ["Zephyr on ESP32-C6", "Secure Boot v2, flash encryption, JTAG disabled by eFuse", "OTA and data log in its own ESP32 flash", "Network co-processor: carries encrypted traffic only"]),
-        ("LoRa module", "radio", ["Zephyr on STM32WLE5", "LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits", "Node IO: RS-485 + 4 DI + 4 DO + 4 AI", "Own OTA (LoRaWAN FUOTA / USB-C) and data log in a 16 MB QSPI NOR"]),
+        ("LoRa module", "radio", ["Zephyr on STM32WLE5", "LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits", "Node IO: RS-485 + 6 DI + 4 DO + 4 AI", "Own OTA (LoRaWAN FUOTA / USB-C) and data log in a 16 MB QSPI NOR"]),
         ("4G modem card (Tier 1)", "radio", ["Quectel standard firmware only — no code of ours", "Quectel FOTA for modem updates", "Untrusted pipe: TLS ends in the coordinator (SEC-8)"]),
         ("4G router (Tier 2, standalone)", "eth", ["Linux: Yocto or OpenWrt (R18)", "Secure boot, signed A/B updates (SWUpdate / RAUC or sysupgrade), CIP / LTS kernel", "Router functions: NAT, firewall, VPN, web UI"]),
     ]
@@ -1341,7 +1343,7 @@ def export_costs():
     data = {
         "items": [row("Fieldbus controller with Ethernet", ["base"]), row("Fieldbus controller without Ethernet", ["base_noeth"]), row("4G modem + GPS (EC200U-CN)", ["4g"]), row("Wi-Fi + BLE", ["wifi"]),
                   row("LoRa", ["lora"]), row("Battery + charger board with 18650 cell — optional, per module", ["batt"]), row("Adapter 12 V 18 W — one per stack", ["adapter"])],
-        "options": [delta("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", ["base_pic"]), delta("Renesas RA6M4 card instead of STM32C5A3 (classic CAN)", "Fieldbus controller", ["base_ra6m4"]), delta("Motor-control card: 2 brushed DC motors (ESTIMATE)", "Fieldbus controller", ["base_motor"]), delta("GPS-only modem card (no 4G)", "Stack, instead of the 4G card", ["gps"]), delta("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", ["wifi_n16"])],
+        "options": [delta("STM32H573 card instead of STM32C5A3 (PSA L3)", "Fieldbus controller", ["base_pic"]), delta("Renesas RA6M4 card instead of STM32C5A3 (classic CAN)", "Fieldbus controller", ["base_ra6m4"]), delta("Renesas RA6M5 card instead of STM32C5A3 (CAN-FD)", "Fieldbus controller", ["base_ra6m5"]), delta("Motor-control card: 2 brushed DC motors (ESTIMATE)", "Fieldbus controller", ["base_motor"]), delta("GPS-only modem card (no 4G)", "Stack, instead of the 4G card", ["gps"]), delta("ESP32-C6-WROOM-1-N16 (16 MB) instead of N8", "Wi-Fi + BLE", ["wifi_n16"])],
         "systems": [row("Fieldbus controller, standalone", ["base"]),
                     row("4G gateway: Fieldbus controller + 4G + GPS", ["base", "4g"]),
                     row("Wi-Fi gateway: Fieldbus controller + Wi-Fi + BLE", ["base", "wifi"]),

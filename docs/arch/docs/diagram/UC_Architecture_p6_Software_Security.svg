@@ -5,7 +5,7 @@
 <text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Software and security architecture</text>
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Firmware on each unit, protocols, IO sharing, updates and the security model. Internal reference — not part of the customer spec sheet.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.31 · 2026-11-25 · PRD 0.7 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.33 · 2026-11-26 · PRD 0.7 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="104" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Firmware per unit</text>
 <rect x="40" y="120" width="760" height="102.5" rx="6" fill="#dbe8ff" stroke="#2f5fb3" stroke-width="1.6"/>
@@ -25,7 +25,7 @@
 <text x="48" y="347.7" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">LoRa module</text>
 <text x="48" y="361.7" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Zephyr on STM32WLE5</text>
 <text x="48" y="376.0" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">LoRaWAN 1.0.4 Class A / private star network; firmware enforces India e.r.p. and duty limits</text>
-<text x="48" y="390.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Node IO: RS-485 + 4 DI + 4 DO + 4 AI</text>
+<text x="48" y="390.3" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Node IO: RS-485 + 6 DI + 4 DO + 4 AI</text>
 <text x="48" y="404.6" font-size="11" font-weight="normal" text-anchor="start" fill="#1b1f24">Own OTA (LoRaWAN FUOTA / USB-C) and data log in a 16 MB QSPI NOR</text>
 <rect x="40" y="428.9" width="760" height="73.9" rx="6" fill="#ece0ff" stroke="#6b3fb3" stroke-width="1.6"/>
 <text x="48" y="445.9" font-size="11.5" font-weight="bold" text-anchor="start" fill="#6b3fb3">4G modem card (Tier 1)</text>

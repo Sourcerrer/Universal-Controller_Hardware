@@ -6,7 +6,7 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">INR per unit at 100 units. Every module includes its own power stage (buck regulator + input protection, PWR-10); the battery + charger board is optional, one</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">per module. The adapter is separate. BOMs are research-based estimates (R02–R22), no quotes yet — treat as ±25 %.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.31 · 2026-11-25 · PRD 0.7 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.33 · 2026-11-26 · PRD 0.7 · prices at 100 units</text>
 <text x="40" y="136" font-size="14" font-weight="bold" text-anchor="start" fill="#1b1f24">1 · Price build-up per item</text>
 <rect x="40" y="146" width="844" height="36" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
 <text x="48" y="168.0" font-size="10.5" font-weight="bold" text-anchor="start" fill="#ffffff">Step</text>
@@ -35,7 +35,7 @@
 <text x="426" y="197.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,530</text>
 <text x="516" y="197.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,799</text>
 <text x="606" y="197.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,959</text>
-<text x="696" y="197.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,154</text>
+<text x="696" y="197.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,169</text>
 <text x="786" y="197.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">205</text>
 <text x="876" y="197.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">520</text>
 <rect x="40" y="204" width="844" height="22" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -44,7 +44,7 @@
 <text x="426" y="219.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,265</text>
 <text x="516" y="219.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">900</text>
 <text x="606" y="219.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">980</text>
-<text x="696" y="219.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">577</text>
+<text x="696" y="219.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">584</text>
 <text x="786" y="219.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">102</text>
 <text x="876" y="219.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">260</text>
 <rect x="40" y="226" width="844" height="22" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -53,7 +53,7 @@
 <text x="426" y="241.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,795</text>
 <text x="516" y="241.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,698</text>
 <text x="606" y="241.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,938</text>
-<text x="696" y="241.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,731</text>
+<text x="696" y="241.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,754</text>
 <text x="786" y="241.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">308</text>
 <text x="876" y="241.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">780</text>
 <rect x="40" y="248" width="844" height="22" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -71,7 +71,7 @@
 <text x="426" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">5,045</text>
 <text x="516" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">3,448</text>
 <text x="606" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">3,138</text>
-<text x="696" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">1,931</text>
+<text x="696" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">1,954</text>
 <text x="786" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">308</text>
 <text x="876" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">780</text>
 <rect x="40" y="292" width="844" height="22" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -80,7 +80,7 @@
 <text x="426" y="307.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,514</text>
 <text x="516" y="307.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,035</text>
 <text x="606" y="307.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">942</text>
-<text x="696" y="307.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">579</text>
+<text x="696" y="307.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">586</text>
 <text x="786" y="307.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">92</text>
 <text x="876" y="307.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">234</text>
 <rect x="40" y="314" width="844" height="22" rx="0" fill="#e8f0fb" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -89,7 +89,7 @@
 <text x="426" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">6,558</text>
 <text x="516" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">4,483</text>
 <text x="606" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">4,080</text>
-<text x="696" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">2,510</text>
+<text x="696" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">2,540</text>
 <text x="786" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">400</text>
 <text x="876" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">1,014</text>
 <rect x="40" y="336" width="844" height="22" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -107,7 +107,7 @@
 <text x="426" y="373.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#c46a00">8,184</text>
 <text x="516" y="373.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#c46a00">6,108</text>
 <text x="606" y="373.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#c46a00">6,420</text>
-<text x="696" y="373.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#c46a00">4,850</text>
+<text x="696" y="373.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#c46a00">4,880</text>
 <text x="786" y="373.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#8a96a3">—</text>
 <text x="876" y="373.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#8a96a3">—</text>
 <rect x="40" y="380" width="844" height="22" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -133,21 +133,25 @@
 <text x="1386" y="219.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Fieldbus controller</text>
 <text x="1632" y="219.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+244</text>
 <rect x="924" y="226" width="716" height="22" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
-<text x="932" y="241.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Motor-control card: 2 brushed DC motors (ESTIMATE)</text>
+<text x="932" y="241.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Renesas RA6M5 card instead of STM32C5A3 (CAN-FD)</text>
 <text x="1386" y="241.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Fieldbus controller</text>
-<text x="1632" y="241.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+953</text>
+<text x="1632" y="241.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+503</text>
 <rect x="924" y="248" width="716" height="22" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
-<text x="932" y="263.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">GPS-only modem card (no 4G), dedicated UART link</text>
-<text x="1386" y="263.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Stack, instead of the 4G card</text>
-<text x="1632" y="263.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+1,453</text>
+<text x="932" y="263.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Motor-control card: 2 brushed DC motors (ESTIMATE)</text>
+<text x="1386" y="263.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Fieldbus controller</text>
+<text x="1632" y="263.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+953</text>
 <rect x="924" y="270" width="716" height="22" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
-<text x="932" y="285.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">ESP32-C6-WROOM-1-N16 (16 MB) instead of N8</text>
-<text x="1386" y="285.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Wi-Fi + BLE</text>
-<text x="1632" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+195</text>
+<text x="932" y="285.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">GPS-only modem card (no 4G), dedicated UART link</text>
+<text x="1386" y="285.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Stack, instead of the 4G card</text>
+<text x="1632" y="285.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+1,453</text>
 <rect x="924" y="292" width="716" height="22" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
-<text x="932" y="307.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Battery + charger board with 18650 cell</text>
-<text x="1386" y="307.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Per module</text>
-<text x="1632" y="307.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+400</text>
+<text x="932" y="307.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">ESP32-C6-WROOM-1-N16 (16 MB) instead of N8</text>
+<text x="1386" y="307.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Wi-Fi + BLE</text>
+<text x="1632" y="307.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+195</text>
+<rect x="924" y="314" width="716" height="22" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
+<text x="932" y="329.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#1b1f24">Battery + charger board with 18650 cell</text>
+<text x="1386" y="329.0" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Per module</text>
+<text x="1632" y="329.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">+400</text>
 <text x="40" y="436" font-size="14" font-weight="bold" text-anchor="start" fill="#1b1f24">2 · All 15 combinations — battery boards and adapter not included</text>
 <text x="1573.01" y="436" font-size="10.5" font-weight="normal" text-anchor="start" fill="#4a5560">Profit 30 %</text>
 <rect x="1556.01" y="426" width="12" height="12" rx="2" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
@@ -183,10 +187,10 @@
 <rect x="180" y="514" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="312" y="514" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="444" y="514" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
-<rect x="590" y="519" width="49.54130494405544" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="639.5413049440555" y="519" width="24.77065247202772" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="664.3119574160831" y="519" width="23.36854006795068" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="687.6804974840338" y="519" width="29.30414924521015" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<rect x="590" y="519" width="49.460328636530015" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="639.46032863653" y="519" width="24.730164318265007" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="664.190492954795" y="519" width="23.330343696476422" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="687.5208366512715" y="519" width="29.256250995381432" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
 <text x="1018" y="529.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,650</text>
 <text x="1130" y="529.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,325</text>
 <text x="1222" y="529.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,975</text>
@@ -205,10 +209,10 @@
 <text x="187" y="563" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,483 after profit</text>
 <rect x="312" y="544" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="444" y="544" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
-<rect x="590" y="549" width="33.63200286579462" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="623.6320028657947" y="549" width="16.81600143289731" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="640.448004298692" y="549" width="14.021124040770408" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="654.4691283394624" y="549" width="19.3407385018387" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<rect x="590" y="549" width="33.57703064796887" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="623.5770306479689" y="549" width="16.788515323984434" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="640.3655459719533" y="549" width="13.998206217885853" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="654.3637521898391" y="549" width="19.309125656951746" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
 <text x="1018" y="559.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,799</text>
 <text x="1130" y="559.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">900</text>
 <text x="1222" y="559.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,698</text>
@@ -227,10 +231,10 @@
 <text x="319" y="583" font-size="9.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">Wi-Fi + BLE</text>
 <text x="319" y="593" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="574" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
-<rect x="590" y="579" width="36.62317599449231" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="626.6231759944923" y="579" width="18.311587997246153" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="644.9347639917385" y="579" width="3.738966410872109" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="648.6737304026105" y="579" width="17.602119120783172" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<rect x="590" y="579" width="36.56331464111785" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="626.5633146411178" y="579" width="18.281657320558924" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="644.8449719616767" y="579" width="3.7328549914362275" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="648.577826953113" y="579" width="17.5733480859339" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
 <text x="1018" y="589.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,959</text>
 <text x="1130" y="589.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">980</text>
 <text x="1222" y="589.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,938</text>
@@ -248,18 +252,18 @@
 <rect x="312" y="604" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="444" y="604" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="613" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="623" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="609" width="21.573836190732067" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="611.5738361907321" y="609" width="10.786918095366033" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="622.3607542860981" y="609" width="3.738966410872109" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="626.0997206969702" y="609" width="10.829916209091062" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,154</text>
-<text x="1130" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">577</text>
-<text x="1222" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,731</text>
+<text x="451" y="623" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="609" width="21.81853742494475" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="611.8185374249448" y="609" width="10.909268712472375" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="622.7278061374171" y="609" width="3.7328549914362275" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="626.4606611288534" y="609" width="10.938198338656004" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<text x="1018" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,169</text>
+<text x="1130" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">584</text>
+<text x="1222" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,754</text>
 <text x="1312" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">200</text>
-<text x="1424" y="619.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">1,931</text>
-<text x="1512" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">579</text>
-<text x="1632" y="619.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">2,510</text>
+<text x="1424" y="619.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">1,954</text>
+<text x="1512" y="619.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">586</text>
+<text x="1632" y="619.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">2,540</text>
 <line x1="580" y1="600" x2="580" y2="630" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="600" x2="934" y2="630" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="630" width="1600" height="24" rx="0" fill="#e1e7ee" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -275,10 +279,10 @@
 <text x="187" y="677" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,483 after profit</text>
 <rect x="312" y="658" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="444" y="658" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
-<rect x="590" y="663" width="83.17330780985006" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="673.17330780985" y="663" width="41.58665390492503" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="714.759961714775" y="663" width="37.389664108721085" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="752.1496258234961" y="663" width="48.644887747048855" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<rect x="590" y="663" width="83.03735928449888" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="673.0373592844988" y="663" width="41.51867964224944" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="714.5560389267483" y="663" width="37.32854991436228" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="751.8845888411106" y="663" width="48.565376652333185" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
 <text x="1018" y="673.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,449</text>
 <text x="1130" y="673.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,224</text>
 <text x="1222" y="673.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">6,674</text>
@@ -299,10 +303,10 @@
 <text x="319" y="697" font-size="9.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">Wi-Fi + BLE</text>
 <text x="319" y="707" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="688" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
-<rect x="590" y="693" width="86.16448093854774" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="676.1644809385477" y="693" width="43.08224046927387" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="719.2467214078216" y="693" width="27.10750647882279" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="746.3542278866444" y="693" width="46.90626836599333" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<rect x="590" y="693" width="86.02364327764786" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="676.0236432776478" y="693" width="43.01182163882393" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="719.0354649164717" y="693" width="27.06319868791265" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="746.0986636043843" y="693" width="46.82959908131534" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
 <text x="1018" y="703.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,609</text>
 <text x="1130" y="703.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,304</text>
 <text x="1222" y="703.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">6,914</text>
@@ -322,18 +326,18 @@
 <rect x="312" y="718" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="444" y="718" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="727" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="737" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="723" width="71.1151411347875" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="661.1151411347876" y="723" width="35.55757056739375" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="696.6727117021813" y="723" width="27.10750647882279" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="723.7802181810041" y="723" width="40.13406545430122" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,804</text>
-<text x="1130" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,902</text>
-<text x="1222" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">5,706</text>
+<text x="451" y="737" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="723" width="71.27886606147477" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="661.2788660614748" y="723" width="35.639433030737386" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="696.9182990922121" y="723" width="27.06319868791265" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="723.9814977801248" y="723" width="40.194449334037444" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<text x="1018" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,819</text>
+<text x="1130" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,910</text>
+<text x="1222" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">5,728</text>
 <text x="1312" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,450</text>
-<text x="1424" y="733.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">7,156</text>
-<text x="1512" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,147</text>
-<text x="1632" y="733.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">9,303</text>
+<text x="1424" y="733.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">7,178</text>
+<text x="1512" y="733.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,154</text>
+<text x="1632" y="733.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">9,332</text>
 <line x1="580" y1="714" x2="580" y2="744" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="714" x2="934" y2="744" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="744" width="1600" height="30" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -347,10 +351,10 @@
 <text x="319" y="757" font-size="9.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">Wi-Fi + BLE</text>
 <text x="319" y="767" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="748" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
-<rect x="590" y="753" width="70.25517886028692" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="660.255178860287" y="753" width="35.12758943014346" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="695.3827682904304" y="753" width="17.760090451642515" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="713.1428587420729" y="753" width="36.94285762262187" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<rect x="590" y="753" width="70.14034528908671" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="660.1403452890867" y="753" width="35.070172644543355" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="695.2105179336301" y="753" width="17.731061209322082" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="712.9415791429522" y="753" width="36.88247374288565" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
 <text x="1018" y="763.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,758</text>
 <text x="1130" y="763.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,879</text>
 <text x="1222" y="763.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">5,637</text>
@@ -370,18 +374,18 @@
 <rect x="312" y="778" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="444" y="778" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="787" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="797" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="783" width="55.205839056526685" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="645.2058390565267" y="783" width="27.602919528263342" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="672.80875858479" y="783" width="17.760090451642515" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="690.5688490364325" y="783" width="30.170654710929764" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,953</text>
-<text x="1130" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,476</text>
-<text x="1222" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,430</text>
+<text x="451" y="797" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="783" width="55.39556807291362" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="645.3955680729136" y="783" width="27.69778403645681" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="673.0933521093705" y="783" width="17.731061209322082" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="690.8244133186926" y="783" width="30.247323995607754" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<text x="1018" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,968</text>
+<text x="1130" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,484</text>
+<text x="1222" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,452</text>
 <text x="1312" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">950</text>
-<text x="1424" y="793.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">5,380</text>
-<text x="1512" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,614</text>
-<text x="1632" y="793.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">6,993</text>
+<text x="1424" y="793.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">5,402</text>
+<text x="1512" y="793.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,621</text>
+<text x="1632" y="793.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">7,023</text>
 <line x1="580" y1="774" x2="580" y2="804" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="774" x2="934" y2="804" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="804" width="1600" height="30" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -394,18 +398,18 @@
 <text x="319" y="827" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="808" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="817" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="827" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="813" width="58.197012185224374" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="648.1970121852244" y="813" width="29.098506092612187" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="677.2955182778365" y="813" width="7.477932821744218" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="684.7734510995807" y="813" width="28.432035329874232" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,113</text>
-<text x="1130" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,556</text>
-<text x="1222" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,670</text>
+<text x="451" y="827" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="813" width="58.3818520660626" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="648.3818520660626" y="813" width="29.1909260330313" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="677.5727780990939" y="813" width="7.465709982872455" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="685.0384880819663" y="813" width="28.511546424589906" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<text x="1018" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,128</text>
+<text x="1130" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,564</text>
+<text x="1222" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,692</text>
 <text x="1312" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">400</text>
-<text x="1424" y="823.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">5,070</text>
-<text x="1512" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,521</text>
-<text x="1632" y="823.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">6,590</text>
+<text x="1424" y="823.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">5,092</text>
+<text x="1512" y="823.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,528</text>
+<text x="1632" y="823.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">6,620</text>
 <line x1="580" y1="804" x2="580" y2="834" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="804" x2="934" y2="834" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="834" width="1600" height="24" rx="0" fill="#e1e7ee" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -423,10 +427,10 @@
 <text x="319" y="871" font-size="9.5" font-weight="bold" text-anchor="start" fill="#1f7f8c">Wi-Fi + BLE</text>
 <text x="319" y="881" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="862" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
-<rect x="590" y="867" width="119.79648380434236" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="709.7964838043424" y="867" width="59.89824190217118" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="769.6947257065136" y="867" width="41.128630519593194" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="810.8233562261069" y="867" width="66.24700686783203" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<rect x="590" y="867" width="119.60067392561673" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="709.6006739256168" y="867" width="59.800336962808366" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="769.4010108884252" y="867" width="41.061404905798504" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="810.4624157942237" y="867" width="66.13872473826709" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
 <text x="1018" y="877.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">6,408</text>
 <text x="1130" y="877.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,204</text>
 <text x="1222" y="877.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">9,612</text>
@@ -448,18 +452,18 @@
 <rect x="312" y="892" width="124" height="22" rx="5" fill="none" stroke="#d5dbe2" stroke-width="1" stroke-dasharray="7 4"/>
 <rect x="444" y="892" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="901" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="911" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="897" width="104.74714400058213" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="694.7471440005821" y="897" width="52.37357200029106" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="747.1207160008732" y="897" width="41.128630519593194" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="788.2493465204665" y="897" width="59.47480395613992" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">5,603</text>
-<text x="1130" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,802</text>
-<text x="1222" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">8,404</text>
+<text x="451" y="911" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="897" width="104.85589670944363" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="694.8558967094436" y="897" width="52.42794835472181" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="747.2838450641655" y="897" width="41.061404905798504" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="788.345249969964" y="897" width="59.50357499098919" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<text x="1018" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">5,618</text>
+<text x="1130" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,809</text>
+<text x="1222" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">8,427</text>
 <text x="1312" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,200</text>
-<text x="1424" y="907.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">10,604</text>
-<text x="1512" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,181</text>
-<text x="1632" y="907.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">13,786</text>
+<text x="1424" y="907.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">10,627</text>
+<text x="1512" y="907.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,188</text>
+<text x="1632" y="907.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">13,815</text>
 <line x1="580" y1="888" x2="580" y2="918" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="888" x2="934" y2="918" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="918" width="1600" height="30" rx="0" fill="#ffffff" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -474,18 +478,18 @@
 <text x="319" y="941" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="922" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="931" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="941" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="927" width="107.73831712927982" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="697.7383171292798" y="927" width="53.86915856463991" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="751.6074756939197" y="927" width="30.846472889694898" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="782.4539485836146" y="927" width="57.736184575084394" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">5,763</text>
-<text x="1130" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,882</text>
-<text x="1222" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">8,644</text>
+<text x="451" y="941" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="927" width="107.84218070259261" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="697.8421807025926" y="927" width="53.92109035129631" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="751.763271053889" y="927" width="30.796053679348876" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="782.5593247332379" y="927" width="57.767797419971345" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<text x="1018" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">5,778</text>
+<text x="1130" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,889</text>
+<text x="1222" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">8,667</text>
 <text x="1312" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,650</text>
-<text x="1424" y="937.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">10,294</text>
-<text x="1512" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,088</text>
-<text x="1632" y="937.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">13,383</text>
+<text x="1424" y="937.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">10,317</text>
+<text x="1512" y="937.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,095</text>
+<text x="1632" y="937.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">13,412</text>
 <line x1="580" y1="918" x2="580" y2="948" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="918" x2="934" y2="948" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="948" width="1600" height="30" rx="0" fill="#f6f8fa" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -500,18 +504,18 @@
 <text x="319" y="971" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="952" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="961" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="971" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="957" width="91.82901505101898" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="681.829015051019" y="957" width="45.91450752550949" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="727.7435225765286" y="957" width="21.499056862514625" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
-<rect x="749.2425794390432" y="957" width="47.772773831712925" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,912</text>
-<text x="1130" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,456</text>
-<text x="1222" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">7,368</text>
+<text x="451" y="971" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="957" width="91.95888271403146" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="681.9588827140315" y="957" width="45.97944135701573" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="727.9383240710472" y="957" width="21.46391620075831" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<rect x="749.4022402718055" y="957" width="47.820672081541645" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
+<text x="1018" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,927</text>
+<text x="1130" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,464</text>
+<text x="1222" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">7,390</text>
 <text x="1312" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">1,150</text>
-<text x="1424" y="967.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">8,518</text>
-<text x="1512" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,555</text>
-<text x="1632" y="967.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">11,073</text>
+<text x="1424" y="967.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">8,540</text>
+<text x="1512" y="967.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,562</text>
+<text x="1632" y="967.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">11,103</text>
 <line x1="580" y1="948" x2="580" y2="978" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="948" x2="934" y2="978" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="978" width="1600" height="24" rx="0" fill="#e1e7ee" stroke="#c9d0d8" stroke-width="0.8"/>
@@ -530,18 +534,18 @@
 <text x="319" y="1025" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">4,080 after profit</text>
 <rect x="444" y="1006" width="124" height="22" rx="5" fill="#dcf3e0" stroke="#2e8540" stroke-width="1.3"/>
 <text x="451" y="1015" font-size="9.5" font-weight="bold" text-anchor="start" fill="#2e8540">LoRa</text>
-<text x="451" y="1025" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,510 after profit</text>
-<rect x="590" y="1011" width="141.37031999507442" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
-<rect x="731.3703199950744" y="1011" width="70.68515999753721" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
-<rect x="802.0554799926116" y="1011" width="44.867596930465304" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
+<text x="451" y="1025" font-size="9" font-weight="normal" text-anchor="start" fill="#4a5560">2,540 after profit</text>
+<rect x="590" y="1011" width="141.41921135056148" height="12" rx="0" fill="#33414f" stroke="#33414f" stroke-width="0"/>
+<rect x="731.4192113505615" y="1011" width="70.70960567528074" height="12" rx="0" fill="#8fa1b3" stroke="#8fa1b3" stroke-width="0"/>
+<rect x="802.1288170258422" y="1011" width="44.79425989723473" height="12" rx="0" fill="#c46a00" stroke="#c46a00" stroke-width="0"/>
 <rect x="846.9230769230769" y="1011" width="77.0769230769231" height="12" rx="0" fill="#e9b872" stroke="#e9b872" stroke-width="0"/>
-<text x="1018" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">7,562</text>
-<text x="1130" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,781</text>
-<text x="1222" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">11,343</text>
+<text x="1018" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">7,577</text>
+<text x="1130" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">3,788</text>
+<text x="1222" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">11,366</text>
 <text x="1312" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">2,400</text>
-<text x="1424" y="1021.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">13,743</text>
-<text x="1512" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,123</text>
-<text x="1632" y="1021.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">17,866</text>
+<text x="1424" y="1021.0" font-size="10.5" font-weight="bold" text-anchor="end" fill="#1b1f24">13,766</text>
+<text x="1512" y="1021.0" font-size="10.5" font-weight="normal" text-anchor="end" fill="#1b1f24">4,130</text>
+<text x="1632" y="1021.0" font-size="12" font-weight="bold" text-anchor="end" fill="#1b1f24">17,895</text>
 <line x1="580" y1="1002" x2="580" y2="1032" stroke="#5a6470" stroke-width="1.2"/>
 <line x1="934" y1="1002" x2="934" y2="1032" stroke="#5a6470" stroke-width="1.2"/>
 <rect x="40" y="446" width="1600" height="586" rx="0" fill="none" stroke="#5a6470" stroke-width="1.2"/>

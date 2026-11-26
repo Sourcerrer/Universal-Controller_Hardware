@@ -15,7 +15,7 @@ There are exactly **four modules**:
 | Wi-Fi + BLE | Low-cost uplink and local BLE access |
 | LoRa | Gateway side and remote node (same hardware) |
 
-Every module carries its own power stage on its PCB (PWR-10; on the Fieldbus controller it sits on the base card and feeds the MCU card). One 12 V 18 W adapter per gateway or standalone module, priced separately. The Fieldbus controller comes in two standard models (owner, 2026-11-25): with Ethernet (4 AI, 6 DI, 6 relays, 4 high-side) and without Ethernet (6 AI, 10 DI, 6 relays, 4 high-side, 2 extra outputs), both on the STM32C5A3 card. Options only: STM32H573 MCU card, Renesas RA6M4 MCU card (classic CAN), motor-control card (separate card), GPS-only modem card, ESP32-C6 N16, battery + charger board (PWR-2, one per module, optional).
+Every module carries its own power stage on its PCB (PWR-10; on the Fieldbus controller it sits on the base card and feeds the MCU card). One 12 V 18 W adapter per gateway or standalone module, priced separately. The Fieldbus controller comes in two standard models (owner, 2026-11-25): with Ethernet (4 AI, 6 DI, 6 relays, 4 high-side) and without Ethernet (6 AI, 10 DI, 6 relays, 4 high-side, 2 extra outputs), both on the STM32C5A3 card. Options only: STM32H573 MCU card, Renesas RA6M4 MCU card (classic CAN), Renesas RA6M5 MCU card (CAN-FD), motor-control card (separate card), GPS-only modem card, ESP32-C6 N16, battery + charger board (PWR-2, one per module, optional).
 
 ## Source of truth
 

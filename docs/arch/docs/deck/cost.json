@@ -26,9 +26,9 @@
   ],
   [
    "LoRa",
-   1154,
-   1931,
-   2510
+   1169,
+   1954,
+   2540
   ],
   [
    "Battery + charger board with 18650 cell — optional, per module",
@@ -57,6 +57,13 @@
    125,
    188,
    244
+  ],
+  [
+   "Renesas RA6M5 card instead of STM32C5A3 (CAN-FD)",
+   "Fieldbus controller",
+   258,
+   387,
+   503
   ],
   [
    "Motor-control card: 2 brushed DC motors (ESTIMATE)",
@@ -101,21 +108,21 @@
   ],
   [
    "4G + LoRa gateway: Fieldbus controller + 4G + GPS + LoRa",
-   5603,
-   10604,
-   13786
+   5618,
+   10627,
+   13815
   ],
   [
    "Full stack: all four modules",
-   7562,
-   13743,
-   17866
+   7577,
+   13766,
+   17895
   ],
   [
    "LoRa node, standalone",
-   1154,
-   1931,
-   2510
+   1169,
+   1954,
+   2540
   ],
   [
    "Wi-Fi + BLE node, standalone",

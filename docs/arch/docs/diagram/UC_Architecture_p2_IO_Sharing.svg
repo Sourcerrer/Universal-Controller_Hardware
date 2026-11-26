@@ -4,9 +4,9 @@
 <rect x="20" y="20" width="1640" height="1148" rx="0" fill="none" stroke="#33414f" stroke-width="1.5"/>
 <text x="40" y="58" font-size="26" font-weight="bold" text-anchor="start" fill="#1b1f24">Field IO and how the modules share it</text>
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">Each module drives only its own IO; the coordinator (Fieldbus controller, else Wi-Fi + BLE, else LoRa) merges all IO into one image shared over the stack bus</text>
-<text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">(IO-6). Wi-Fi + BLE adds 6 DI, 4 DO, 4 AI and 2 relays; LoRa adds 4 DI, 4 DO and 4 AI.</text>
+<text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">(IO-6). Wi-Fi + BLE adds 6 DI, 4 DO, 4 AI and 2 relays; LoRa adds 6 DI, 4 DO and 4 AI.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.31 · 2026-11-25 · PRD 0.7 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.33 · 2026-11-26 · PRD 0.7 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="106" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Field IO on the Fieldbus controller — two models (owner, 2026-11-25)</text>
 <rect x="40" y="122" width="760" height="26" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
@@ -152,7 +152,7 @@
 <line x1="1196" y1="452" x2="1240" y2="452" stroke="#33414f" stroke-width="2" marker-end="url(#ar)" marker-start="url(#ar)"/>
 <text x="840" y="690" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">Sharing rules (proposed — PRD IO-6)</text>
 <text x="840" y="714" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Local hardware: each module reads and drives only its own IO (Fieldbus controller 20 or 28 channels by model; Wi-Fi</text>
-<text x="852" y="729.18" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">+ BLE 16 plus RS-485 and CAN; LoRa 12 plus RS-485).</text>
+<text x="852" y="729.18" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">+ BLE 16 plus RS-485 and CAN; LoRa 14 plus RS-485).</text>
 <text x="840" y="744.3599999999999" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Publish: the coordinator broadcasts the IO process image on the RS-485 stack bus cyclically (rate configurable, for</text>
 <text x="852" y="759.5399999999998" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">example 100 ms) and immediately on change, in its next transmit turn (≤ ≈ 20 ms).</text>
 <text x="840" y="774.7199999999998" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1b1f24">• Read: any fitted module may read any input, status or virtual point.</text>

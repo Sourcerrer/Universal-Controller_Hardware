@@ -6,7 +6,7 @@
 <text x="40" y="80" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">4-pin stack bus (owner, 2026-11-16): power plus one RS-485 pair, passed straight through every module. Connector part and pitch: D-9. Protocol details will be</text>
 <text x="40" y="96" font-size="12.5" font-weight="normal" text-anchor="start" fill="#4a5560">fixed in the specification.</text>
 <text x="1640" y="58" font-size="16" font-weight="bold" text-anchor="end" fill="#1b1f24">Universal Controller</text>
-<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.31 · 2026-11-25 · PRD 0.7 · prices at 100 units</text>
+<text x="1640" y="82" font-size="12" font-weight="normal" text-anchor="end" fill="#4a5560">Draft C.33 · 2026-11-26 · PRD 0.7 · prices at 100 units</text>
 <g transform="translate(0,24)">
 <text x="40" y="110" font-size="15" font-weight="bold" text-anchor="start" fill="#1b1f24">4-pin stack bus (SYS-11)</text>
 <rect x="40" y="118" width="740" height="28" rx="0" fill="#23303d" stroke="#23303d" stroke-width="1.4"/>
